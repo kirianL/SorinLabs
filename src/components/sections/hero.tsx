@@ -59,8 +59,10 @@ export function HeroSection() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[0.92]"
           >
             <span className="block">Ingeniería</span>
-            <span className="flex items-baseline justify-center gap-3 mt-1">
-              <span className="text-white/25 font-bold">para el</span>
+            <span className="flex flex-col sm:flex-row items-center justify-center sm:items-baseline gap-2 sm:gap-3 mt-1 sm:mt-2">
+              <span className="text-white/25 font-bold whitespace-nowrap">
+                para el
+              </span>
               <TextRotate
                 texts={["futuro.", "avance.", "cambio.", "mañana."]}
                 rotationInterval={2500}
