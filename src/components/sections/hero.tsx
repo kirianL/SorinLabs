@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
+import TextRotate from "@/components/fancy/text-rotate";
 
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
@@ -22,6 +23,7 @@ export function HeroSection() {
           alt=""
           fill
           priority
+          sizes="(max-width: 768px) 100vw, 1400px"
           className="object-cover object-center"
           quality={90}
         />
@@ -49,16 +51,22 @@ export function HeroSection() {
             +
           </motion.span>
 
-          {/* Headline */}
+          {/* Headline with rotating verb */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95]"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[0.92]"
           >
-            Ingeniería
-            <br />
-            <span className="text-white/30">Digital.</span>
+            <span className="block">Ingeniería</span>
+            <span className="flex items-baseline justify-center gap-3 mt-1">
+              <span className="text-white/25 font-bold">para el</span>
+              <TextRotate
+                texts={["futuro.", "avance.", "cambio.", "mañana."]}
+                rotationInterval={2500}
+                mainClassName="text-white font-bold"
+              />
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -66,7 +74,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="mt-8 max-w-md text-[15px] sm:text-base text-white/45 leading-relaxed font-light"
+            className="mt-8 max-w-md text-[15px] sm:text-base text-white/40 leading-relaxed font-light"
           >
             Construimos plataformas y sistemas digitales con precisión técnica y
             diseño intencional.
@@ -77,13 +85,19 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.5 }}
-            className="mt-10"
+            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
           >
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] px-7 py-3.5 text-sm font-medium text-white/80 transition-all hover:bg-white/[0.14] hover:border-white/20 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full bg-white/[0.1] backdrop-blur-sm border border-white/[0.15] px-7 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/[0.18] hover:border-white/25"
             >
               Empezar proyecto
+            </Link>
+            <Link
+              href="/portafolio"
+              className="text-sm font-medium text-white/25 hover:text-white/50 transition-colors"
+            >
+              Ver portafolio →
             </Link>
           </motion.div>
         </div>
@@ -106,7 +120,7 @@ export function HeroSection() {
           Costa Rica
         </motion.span>
 
-        {/* Bottom scrolling marquee inside the frame */}
+        {/* Bottom scrolling marquee */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

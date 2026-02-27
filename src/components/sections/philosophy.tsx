@@ -1,148 +1,123 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { motion, useMotionValue, useTransform, animate } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const metrics = [
-  { value: 99.9, suffix: "%", label: "Uptime", decimals: 1 },
-  { value: 50, suffix: "+", label: "Plataformas", decimals: 0, prefix: "+" },
-  { value: 24, suffix: "h", label: "Respuesta", decimals: 0 },
-  { value: 5, suffix: "★", label: "Rating", decimals: 0 },
+  { value: 99.9, suffix: "%", label: "Uptime garantizado", decimals: 1 },
+  { value: 50, suffix: "+", label: "Plataformas entregadas", decimals: 0 },
+  { value: 24, suffix: "h", label: "Tiempo de respuesta", decimals: 0 },
+  { value: 5, suffix: "★", label: "Rating de clientes", decimals: 0 },
 ];
 
-function AnimatedCounter({
+function Counter({
   value,
   suffix,
-  prefix,
   decimals,
 }: {
   value: number;
   suffix: string;
-  prefix?: string;
   decimals: number;
 }) {
-  const motionVal = useMotionValue(0);
-  const rounded = useTransform(motionVal, (latest) => {
-    const formatted =
-      decimals > 0 ? latest.toFixed(decimals) : Math.round(latest).toString();
-    return `${prefix || ""}${formatted}${suffix}`;
+  const mv = useMotionValue(0);
+  const display = useTransform(mv, (v) => {
+    const num = decimals > 0 ? v.toFixed(decimals) : Math.round(v).toString();
+    return `${num}${suffix}`;
   });
-
   useEffect(() => {
-    const controls = animate(motionVal, value, {
-      duration: 2,
-      ease: "easeOut",
-    });
-    return () => controls.stop();
-  }, [motionVal, value]);
-
-  return <motion.span>{rounded}</motion.span>;
+    const ctrl = animate(mv, value, { duration: 2.5, ease: "easeOut" });
+    return () => ctrl.stop();
+  }, [mv, value]);
+  return <motion.span>{display}</motion.span>;
 }
 
 export function PhilosophySection() {
   return (
-    <section
-      className="relative overflow-hidden py-28 lg:py-40 bg-[#131212] text-white"
-      id="nosotros"
-    >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2 lg:gap-24">
-          <div>
-            <ScrollReveal>
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]">
-                Tecnología que impulsa.
-                <br />
-                <span className="text-white/30">Diseño que conecta.</span>
-              </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.15}>
-              <p className="mt-8 text-lg text-white/50 leading-relaxed max-w-lg">
-                Sorin Labs es un estudio de ingeniería y diseño digital. Creamos
-                sistemas web, plataformas escalables y soluciones tecnológicas
-                que generan resultados medibles.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.25}>
-              <p className="mt-4 text-base text-white/35 leading-relaxed max-w-lg">
-                Trabajamos con empresas que buscan estructura, eficiencia y
-                crecimiento sostenible — no solo presencia digital.
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.35}>
-              <div className="mt-10">
-                <Link
-                  href="/nosotros"
-                  className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-white/70"
-                >
-                  Conocer más sobre nosotros
-                  <ArrowUpRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-2 gap-4">
-              {metrics.map((metric, i) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, y: 24, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.1 + i * 0.12,
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                  whileHover={{ y: -4, borderColor: "rgba(255,255,255,0.1)" }}
-                  className="rounded-2xl border border-white/5 bg-white/[0.03] p-6 sm:p-8 cursor-default"
-                >
-                  <p className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-                    <AnimatedCounter
-                      value={metric.value}
-                      suffix={metric.suffix}
-                      prefix={metric.prefix}
-                      decimals={metric.decimals}
-                    />
-                  </p>
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + i * 0.12, duration: 0.4 }}
-                    className="mt-1 text-sm font-medium text-white/30"
-                  >
-                    {metric.label}
-                  </motion.p>
-                </motion.div>
-              ))}
-            </div>
-
+    <section className="relative py-32 lg:py-44 bg-[#09090b] overflow-hidden">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Large statement */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0">
+          <div className="lg:col-span-7">
             <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-2.5 mb-8"
+            >
+              <span className="h-px w-8 bg-[#261cc1]" />
+              <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-white/25">
+                Filosofía
+              </span>
+            </motion.div>
+
+            <motion.blockquote
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              whileHover={{ y: -2 }}
-              className="rounded-2xl border border-white/5 bg-white/[0.03] p-6 sm:p-8"
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1] mb-8"
             >
-              <p className="text-xl font-medium italic text-white/70 leading-relaxed">
-                &ldquo;No diseñamos por tendencia. Diseñamos con
-                propósito.&rdquo;
-              </p>
-              <p className="mt-4 text-sm font-medium text-white/20">
-                — Equipo Sorin Labs
-              </p>
+              No diseñamos por tendencia.
+              <br />
+              <span className="text-white/20">Diseñamos con propósito.</span>
+            </motion.blockquote>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="max-w-lg text-base text-white/30 leading-relaxed mb-10"
+            >
+              Sorin Labs es un estudio de ingeniería y diseño digital.
+              Trabajamos con empresas que buscan estructura, eficiencia y
+              crecimiento sostenible — no solo presencia digital.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <Link
+                href="/nosotros"
+                className="group inline-flex items-center gap-2 text-sm font-medium text-white/20 transition-colors hover:text-white/60"
+              >
+                Conocer el equipo
+                <ArrowUpRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </Link>
             </motion.div>
+          </div>
+
+          {/* Metrics — right col, stacked */}
+          <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-3">
+            {metrics.map((m, i) => (
+              <motion.div
+                key={m.label}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 + i * 0.08, duration: 0.5 }}
+                className="flex items-baseline justify-between py-5 border-b border-white/[0.04] last:border-0"
+              >
+                <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                  <Counter
+                    value={m.value}
+                    suffix={m.suffix}
+                    decimals={m.decimals}
+                  />
+                </span>
+                <span className="text-xs font-medium text-white/20 tracking-wide text-right max-w-[140px]">
+                  {m.label}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

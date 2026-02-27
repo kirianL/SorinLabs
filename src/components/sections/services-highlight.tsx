@@ -14,197 +14,141 @@ import {
 
 const services = [
   {
-    id: "ingenieria",
     icon: Cpu,
-    title: "Ingeniería Digital",
+    title: "Ingeniería",
+    accent: "Sistemas que escalan",
     description:
-      "Sistemas web personalizados, paneles administrativos y plataformas SaaS robustas con arquitectura escalable.",
-    preview: [
-      "Plataformas SaaS",
-      "Paneles B2B/B2C",
-      "APIs & Backend",
-      "Modelado de datos",
-    ],
+      "Plataformas SaaS, paneles B2B, APIs robustas y arquitectura backend que soporta crecimiento real.",
     href: "/servicios#ingenieria",
   },
   {
-    id: "diseno",
     icon: Palette,
-    title: "Diseño Estratégico",
+    title: "Diseño",
+    accent: "Interfaces con criterio",
     description:
-      "Sistemas de diseño, prototipado interactivo y UX/UI enfocados en conversión y retención.",
-    preview: [
-      "UI/UX Funcional",
-      "Prototipado",
-      "Design Systems",
-      "Accesibilidad",
-    ],
+      "UI/UX enfocado en conversión. Sistemas de diseño, prototipado funcional y experiencias accesibles.",
     href: "/servicios#diseno",
   },
   {
-    id: "automatizacion",
     icon: Zap,
-    title: "Data & Automatización",
+    title: "Automatización",
+    accent: "Menos manual, más inteligente",
     description:
-      "Integración de APIs, flujos automatizados e inteligencia artificial para optimizar recursos.",
-    preview: [
-      "APIs (Stripe, Twilio)",
-      "Workflows",
-      "Onboarding",
-      "IA Aplicada",
-    ],
+      "Integraciones API, flujos automatizados, onboarding y canales optimizados con IA aplicada.",
     href: "/servicios#automatizacion",
   },
   {
-    id: "infraestructura",
     icon: Server,
-    title: "Cloud & Infraestructura",
+    title: "Infraestructura",
+    accent: "Deploy seguro y rápido",
     description:
-      "Despliegues profesionales en Vercel, AWS o GCP. Optimización, seguridad y arquitectura cloud.",
-    preview: ["Vercel / AWS / GCP", "Core Web Vitals", "CI/CD", "Seguridad"],
+      "Vercel, AWS, GCP. Optimización de Core Web Vitals, CI/CD profesional y seguridad desde el día uno.",
     href: "/servicios#infraestructura",
   },
 ];
 
-function AnimatedIcon({
-  icon: Icon,
-  index,
-}: {
-  icon: typeof Cpu;
-  index: number;
-}) {
-  return (
-    <motion.div
-      animate={{ y: [0, -3, 0] }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        delay: index * 0.5,
-        ease: "easeInOut",
-      }}
-    >
-      <Icon size={22} strokeWidth={1.5} className="text-[#261cc1]" />
-    </motion.div>
-  );
-}
-
 export function ServicesHighlight() {
   return (
-    <section id="servicios" className="relative py-24 lg:py-32 bg-[#0e0e12]">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header — Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <div>
+    <section className="relative py-32 lg:py-44 bg-[#09090b]">
+      {/* Grid bg continuation */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
+          `,
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Section intro — asymmetric */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 mb-20 lg:mb-28">
+          <div className="lg:col-span-5">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 mb-6"
+              className="flex items-center gap-2.5 mb-5"
             >
-              <span className="h-2 w-2 rounded-sm bg-[#261cc1]" />
-              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/30">
-                Soluciones & Capacidades
+              <span className="h-px w-8 bg-[#261cc1]" />
+              <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-white/25">
+                Capacidades
               </span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[3.5rem] leading-[1.1]"
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[0.95]"
             >
-              Lo que hacemos
+              Lo que
               <br />
-              <span className="text-white/20">para nuestros clientes.</span>
+              hacemos.
             </motion.h2>
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col justify-end"
-          >
-            <p className="text-base text-white/40 leading-relaxed max-w-lg lg:ml-auto">
-              Sorin Labs ofrece soluciones tecnológicas integrales. No solo
-              escribimos código — resolvemos problemas de negocio complejos con
-              ingeniería de precisión y diseño estratégico.
-            </p>
-          </motion.div>
+          <div className="lg:col-span-5 lg:col-start-8 flex items-end">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="text-base text-white/30 leading-relaxed"
+            >
+              No escribimos código por escribirlo. Resolvemos problemas de
+              negocio complejos con ingeniería de precisión y diseño que tiene
+              razón de ser.
+            </motion.p>
+          </div>
         </div>
 
-        {/* Cards — 2x2 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Cards — 2x2 responsive grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {services.map((service, i) => (
             <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
             >
-              <Card className="group bg-white/[0.02] border-white/[0.06] hover:border-[#261cc1]/20 transition-all duration-300 h-full">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="inline-flex rounded-xl bg-[#261cc1]/15 p-3">
-                      <AnimatedIcon icon={service.icon} index={i} />
+              <Card className="group h-full bg-white/[0.02] border-white/[0.05] hover:border-white/[0.1] transition-colors duration-300">
+                <CardHeader className="pb-0">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#261cc1]/10">
+                      <service.icon
+                        size={18}
+                        strokeWidth={1.5}
+                        className="text-[#261cc1]"
+                      />
                     </div>
-                    <CardTitle className="text-xl text-white">
-                      {service.title}
-                    </CardTitle>
+                    <span className="text-[10px] font-medium tracking-widest uppercase text-white/15">
+                      0{i + 1}
+                    </span>
                   </div>
-                  <CardDescription className="text-white/35 leading-relaxed mt-1">
-                    {service.description}
+                  <CardTitle className="text-xl sm:text-2xl font-bold text-white mt-5">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-[#261cc1]/70 text-xs font-semibold tracking-wide uppercase mt-1">
+                    {service.accent}
                   </CardDescription>
                 </CardHeader>
-
-                <CardContent>
-                  {/* Inner preview area */}
-                  <div className="rounded-xl border border-white/[0.04] bg-white/[0.015] p-5">
-                    <div className="grid grid-cols-2 gap-3">
-                      {service.preview.map((item, idx) => (
-                        <motion.div
-                          key={item}
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + idx * 0.08 }}
-                          className="flex items-center gap-2.5"
-                        >
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#261cc1]/10">
-                            <svg
-                              width="10"
-                              height="10"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                            >
-                              <path
-                                d="M10 3L4.5 8.5L2 6"
-                                stroke="#261cc1"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </span>
-                          <span className="text-xs text-white/40 font-medium">
-                            {item}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
+                <CardContent className="pt-4">
+                  <p className="text-sm text-white/30 leading-relaxed">
+                    {service.description}
+                  </p>
                 </CardContent>
-
                 <CardFooter>
                   <Link
                     href={service.href}
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-white/20 transition-colors group-hover:text-[#261cc1]"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-white/15 transition-colors group-hover:text-white/50"
                   >
                     Explorar
                     <ArrowRight
-                      size={14}
-                      className="transition-transform group-hover:translate-x-1"
+                      size={12}
+                      className="transition-transform group-hover:translate-x-0.5"
                     />
                   </Link>
                 </CardFooter>
