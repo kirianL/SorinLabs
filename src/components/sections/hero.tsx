@@ -2,29 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import TypewriterTitle from "@/components/kokonutui/typewriter-title";
 import { motion } from "motion/react";
 
-const heroSequences = [
-  { text: "Ingeniería Digital.", deleteAfter: true, pauseAfter: 2000 },
-  { text: "Diseño Premium.", deleteAfter: false },
-];
-
-const trustedLogos = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "AWS",
-  "Vercel",
-  "Figma",
-];
+const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen min-h-[700px] max-h-[1200px] w-full overflow-hidden bg-[#050510]">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
+      {/* Framed container */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative mx-auto max-w-[1400px] h-[calc(100vh-8rem)] min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
+      >
+        {/* Background image */}
         <Image
           src="/HeroSection.png"
           alt=""
@@ -33,105 +25,110 @@ export function HeroSection() {
           className="object-cover object-center"
           quality={90}
         />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050510]/80 to-transparent z-[1]" />
-        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#131212] via-[#050510]/80 to-transparent z-[1]" />
-        <div className="absolute inset-0 bg-black/20 z-[1]" />
+
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 z-[1]" />
+
+        {/* Noise */}
         <div
-          className="absolute inset-0 z-[2] opacity-[0.035] pointer-events-none mix-blend-overlay"
+          className="absolute inset-0 z-[2] opacity-[0.04] pointer-events-none mix-blend-overlay"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
           }}
         />
-      </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <motion.div
+        {/* Content — centered */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 sm:px-12 text-center">
+          {/* Small cross detail */}
+          <motion.span
+            initial={{ opacity: 0, rotate: -90 }}
+            animate={{ opacity: 0.3, rotate: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-white text-xl font-extralight mb-8 select-none"
+          >
+            +
+          </motion.span>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[0.95]"
+          >
+            Ingeniería
+            <br />
+            <span className="text-white/30">Digital.</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
+            transition={{ delay: 0.65, duration: 0.6 }}
+            className="mt-8 max-w-md text-[15px] sm:text-base text-white/45 leading-relaxed font-light"
           >
-            <TypewriterTitle
-              sequences={heroSequences}
-              typingSpeed={55}
-              startDelay={800}
-              deleteSpeed={25}
-            />
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mx-auto mt-0 max-w-lg text-base sm:text-lg text-white/50 leading-relaxed font-light"
-          >
-            Construimos plataformas digitales que combinan ingeniería de
-            precisión con experiencias excepcionales.
+            Construimos plataformas y sistemas digitales con precisión técnica y
+            diseño intencional.
           </motion.p>
 
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ delay: 0.85, duration: 0.5 }}
+            className="mt-10"
           >
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/contacto"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm font-semibold text-black tracking-wide transition-all hover:bg-white/90 hover:shadow-[0_0_40px_rgba(255,255,255,0.15)]"
-              >
-                Empezar Proyecto
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatDelay: 2.5,
-                  }}
-                >
-                  <ArrowRight size={16} />
-                </motion.span>
-              </Link>
-            </motion.div>
-
             <Link
-              href="/portafolio"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white/70 transition-all hover:border-white/25 hover:text-white hover:bg-white/10"
+              href="/contacto"
+              className="inline-flex items-center gap-2 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] px-7 py-3.5 text-sm font-medium text-white/80 transition-all hover:bg-white/[0.14] hover:border-white/20 hover:text-white"
             >
-              Ver Portafolio
+              Empezar proyecto
             </Link>
           </motion.div>
         </div>
 
-        {/* Horizontal scrolling marquee */}
+        {/* Corner labels */}
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.6 }}
+          className="absolute top-6 left-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium"
+        >
+          Sorin Labs ©
+        </motion.span>
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.6 }}
+          className="absolute top-6 right-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium"
+        >
+          Costa Rica
+        </motion.span>
+
+        {/* Bottom scrolling marquee inside the frame */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
-          className="absolute bottom-8 left-0 right-0 overflow-hidden"
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-6 left-0 right-0 z-10 overflow-hidden"
         >
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="flex gap-12 sm:gap-16 whitespace-nowrap w-max"
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="flex gap-10 sm:gap-14 whitespace-nowrap w-max px-7"
           >
-            {[
-              ...trustedLogos,
-              ...trustedLogos,
-              ...trustedLogos,
-              ...trustedLogos,
-            ].map((logo, i) => (
+            {[...stack, ...stack, ...stack, ...stack].map((item, i) => (
               <span
-                key={`${logo}-${i}`}
-                className="text-[11px] font-medium tracking-widest text-white/20 uppercase"
+                key={`${item}-${i}`}
+                className="text-[10px] font-medium tracking-[0.2em] text-white/15 uppercase"
               >
-                {logo}
+                {item}
               </span>
             ))}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
