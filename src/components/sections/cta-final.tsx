@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] py-32 lg:py-44">
+    <section className="relative overflow-hidden bg-[#131212] py-32 lg:py-44 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <motion.h2
@@ -14,10 +14,10 @@ export function FinalCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl leading-[1.1]"
+            className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
           >
             ¿Listo para construir algo{" "}
-            <span className="text-black/30">excepcional?</span>
+            <span className="text-white/30">excepcional?</span>
           </motion.h2>
 
           <motion.p
@@ -25,7 +25,7 @@ export function FinalCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.6 }}
-            className="mx-auto mt-6 max-w-xl text-lg text-black/50 leading-relaxed"
+            className="mx-auto mt-6 max-w-xl text-lg text-white/40 leading-relaxed"
           >
             Transformamos la visión de tu negocio en plataformas digitales de
             alto rendimiento. Empecemos.
@@ -40,7 +40,7 @@ export function FinalCta() {
           >
             <Link
               href="/contacto"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-black px-8 py-4 text-sm font-semibold text-white tracking-wide uppercase transition-all hover:bg-neutral-800 hover:shadow-lg"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm font-semibold text-black tracking-wide uppercase transition-all hover:bg-white/90 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
             >
               Agendar Consultoría
               <ArrowRight
@@ -51,7 +51,7 @@ export function FinalCta() {
 
             <Link
               href="mailto:hello@sorinlabs.com"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-black/40 transition-colors hover:text-black"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-white/30 transition-colors hover:text-white"
             >
               o envíanos un email
               <ArrowRight

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navLinks = [
   { href: "/portafolio", label: "TRABAJO" },
@@ -33,7 +32,6 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 py-5">
-        {/* Logo */}
         <Link href="/" className="relative z-10 flex items-center gap-2">
           <Image
             src="/LogoFullBlanco.svg"
@@ -45,7 +43,7 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Center Nav — Northframe style */}
+        {/* Center Nav */}
         <div className="hidden lg:flex items-center">
           {navLinks.map((link, i) => (
             <span key={link.href} className="flex items-center">
@@ -64,9 +62,8 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Right — Contact + Theme */}
-        <div className="hidden lg:flex items-center gap-5">
-          <ThemeToggle />
+        {/* Right — Contact */}
+        <div className="hidden lg:flex items-center">
           <Link
             href="/contacto"
             className="text-[11px] font-medium tracking-[0.15em] text-white/50 transition-colors hover:text-white"
@@ -76,8 +73,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="flex items-center gap-3 lg:hidden">
-          <ThemeToggle />
+        <div className="flex items-center lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="relative z-50 p-2 text-white"

@@ -8,8 +8,7 @@ import { motion } from "motion/react";
 
 const heroSequences = [
   { text: "Ingeniería Digital.", deleteAfter: true, pauseAfter: 2000 },
-  { text: "Diseño Premium.", deleteAfter: true, pauseAfter: 2000 },
-  { text: "Sistemas Escalables.", deleteAfter: false },
+  { text: "Diseño Premium.", deleteAfter: false },
 ];
 
 const trustedLogos = [
@@ -34,13 +33,9 @@ export function HeroSection() {
           className="object-cover object-center"
           quality={90}
         />
-        {/* Top gradient for navbar blending */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050510]/80 to-transparent z-[1]" />
-        {/* Bottom gradient for content readability + section transition */}
-        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#050510] via-[#050510]/80 to-transparent z-[1]" />
-        {/* Subtle overall overlay for text contrast */}
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#131212] via-[#050510]/80 to-transparent z-[1]" />
         <div className="absolute inset-0 bg-black/20 z-[1]" />
-        {/* Noise grain texture */}
         <div
           className="absolute inset-0 z-[2] opacity-[0.035] pointer-events-none mix-blend-overlay"
           style={{
@@ -52,7 +47,6 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          {/* TypewriterTitle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,7 +60,6 @@ export function HeroSection() {
             />
           </motion.div>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,7 +70,6 @@ export function HeroSection() {
             precisión con experiencias excepcionales.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,21 +104,32 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Bottom tech marquee */}
+        {/* Horizontal scrolling marquee */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
-          className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-8 sm:gap-12"
+          className="absolute bottom-8 left-0 right-0 overflow-hidden"
         >
-          {trustedLogos.map((logo) => (
-            <span
-              key={logo}
-              className="text-[11px] font-medium tracking-widest text-white/20 uppercase"
-            >
-              {logo}
-            </span>
-          ))}
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="flex gap-12 sm:gap-16 whitespace-nowrap w-max"
+          >
+            {[
+              ...trustedLogos,
+              ...trustedLogos,
+              ...trustedLogos,
+              ...trustedLogos,
+            ].map((logo, i) => (
+              <span
+                key={`${logo}-${i}`}
+                className="text-[11px] font-medium tracking-widest text-white/20 uppercase"
+              >
+                {logo}
+              </span>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>
