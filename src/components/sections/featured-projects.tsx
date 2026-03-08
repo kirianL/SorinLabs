@@ -5,47 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-const projects = [
-  {
-    title: "NovaTech Solutions",
-    category: "Sitio Web Corporativo",
-    image: "/project-1.png",
-    href: "/portafolio",
-  },
-  {
-    title: "Clarity Landing",
-    category: "Landing Page",
-    image: "/project-2.png",
-    href: "/portafolio",
-  },
-  {
-    title: "FinBoard Platform",
-    category: "Plataforma Web",
-    image: "/project-3.png",
-    href: "/portafolio",
-  },
-];
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
 export function FeaturedProjects() {
   return (
-    <section className="relative py-28 lg:py-36 bg-[#f5f5f3]">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section className="relative py-28 lg:py-36 bg-[#0a0a0f]">
+      <div
+        className="absolute inset-0 z-0 opacity-40"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14 lg:mb-18">
           <div>
@@ -53,23 +24,22 @@ export function FeaturedProjects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.08 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111] leading-[1.1]"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.1]"
             >
-              Trabajo que habla por sí solo.
+              Trabajo reciente.
             </motion.h2>
           </div>
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.1 }}
           >
             <Link
               href="/portafolio"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#111] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#261cc1]"
+              className="group inline-flex items-center gap-2 text-[13px] font-semibold text-white/40 hover:text-white transition-colors"
             >
-              Ver todos
+              Ver todo el portafolio
               <ArrowUpRight
                 size={14}
                 className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -78,50 +48,51 @@ export function FeaturedProjects() {
           </motion.div>
         </div>
 
-        {/* Project grid */}
+        {/* Single featured project */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
         >
-          {projects.map((project) => (
-            <motion.div key={project.title} variants={cardVariants}>
-              <Link href={project.href} className="group block">
-                {/* Image container */}
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#e5e5e3] mb-5">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-[#261cc1]/0 group-hover:bg-[#261cc1]/10 transition-colors duration-300 flex items-center justify-center">
-                    <motion.div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#111] opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300">
-                      <ArrowUpRight size={20} />
-                    </motion.div>
-                  </div>
+          <Link href="/portafolio" className="group block">
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-white/[0.12] transition-all duration-300">
+              {/* Image */}
+              <div className="relative aspect-[16/9] bg-[#111]">
+                <Image
+                  src="/works/BrisasDelRio/HeroBrisasDelRio.png"
+                  alt="Brisas del Río"
+                  fill
+                  sizes="100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/60 via-transparent to-transparent" />
+              </div>
+
+              {/* Info */}
+              <div className="p-6 lg:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-1 tracking-tight">
+                    Brisas del Río
+                  </h3>
+                  <p className="text-[14px] text-white/35">
+                    Sitio Web · Hospedaje — Jiménez, Costa Rica
+                  </p>
                 </div>
-                {/* Info */}
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-[#111] group-hover:text-[#261cc1] transition-colors tracking-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-[13px] text-[#888] mt-1 font-medium">
-                      {project.category}
-                    </p>
-                  </div>
-                  <span className="text-[13px] font-medium text-[#bbb] group-hover:text-[#261cc1] transition-colors mt-1">
-                    Ver proyecto
+                <div className="flex items-center gap-3">
+                  <span className="rounded-full bg-white/[0.04] border border-white/[0.08] px-3 py-1 text-[11px] font-medium text-white/40">
+                    Next.js
                   </span>
+                  <span className="rounded-full bg-white/[0.04] border border-white/[0.08] px-3 py-1 text-[11px] font-medium text-white/40">
+                    UI/UX
+                  </span>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.04] border border-white/[0.08] text-white/30 group-hover:bg-white group-hover:text-[#0a0a0f] transition-all duration-300">
+                    <ArrowUpRight size={16} />
+                  </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+              </div>
+            </div>
+          </Link>
         </motion.div>
       </div>
     </section>
