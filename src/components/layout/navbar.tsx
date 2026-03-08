@@ -125,7 +125,7 @@ export function Navbar() {
             animate={{ clipPath: "circle(150% at calc(100% - 40px) 40px)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 40px) 40px)" }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-50 flex flex-col bg-[#0e0e12] lg:hidden"
+            className="fixed inset-0 z-[55] flex flex-col bg-[#0e0e12] lg:hidden pt-24"
           >
             {/* Menu content */}
             <div className="flex flex-1 flex-col items-start justify-center px-10">
