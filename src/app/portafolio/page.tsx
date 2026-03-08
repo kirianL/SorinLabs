@@ -7,20 +7,29 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
+    slug: "brisas-del-rio",
     title: "Brisas del Río",
     category: "Sitio Web · Hospedaje",
-    description:
-      "Sitio web para un santuario tropical en Jiménez, Costa Rica. Diseño inmersivo con reservas online, galería de cabañas y gastronomía criolla de autor.",
     image: "/works/BrisasDelRio/HeroBrisasDelRio.png",
-    pageImage: "/works/BrisasDelRio/PageBrisasDelRio.png",
-    tags: ["Next.js", "Diseño Web", "UI/UX", "Hospedaje"],
-    href: "#brisas-del-rio",
+    tags: ["Next.js", "UI/UX"],
   },
 ];
 
-export default function PortfolioPage() {
-  const project = projects[0];
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       {/* Hero */}
@@ -55,97 +64,79 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Project showcase */}
+      {/* Projects grid */}
       <section className="bg-[#f5f5f3] py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            {/* Hero image */}
-            <div className="group rounded-2xl border border-[#e8e8e6] bg-white overflow-hidden hover:border-[#ccc] transition-all duration-300">
-              <div className="relative aspect-[16/9] bg-[#e5e5e3]">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
+            {projects.map((project) => (
+              <motion.div key={project.slug} variants={itemVariants}>
+                <Link
+                  href={`/portafolio/${project.slug}`}
+                  className="group block rounded-2xl border border-[#e8e8e6] bg-white overflow-hidden hover:border-[#ccc] hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] transition-all duration-300"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] bg-[#e5e5e3] overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
 
-              {/* Project details */}
-              <div className="p-8 lg:p-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-                  <div>
-                    <span className="text-[12px] font-semibold text-[#888] tracking-wider uppercase mb-3 block">
-                      {project.category}
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-[#111] mb-4 tracking-tight">
-                      {project.title}
-                    </h2>
-                    <p className="text-[15px] text-[#777] leading-relaxed mb-6">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
+                  {/* Info */}
+                  <div className="p-5">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg font-bold text-[#111] tracking-tight mb-1 group-hover:text-[#261cc1] transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-[13px] text-[#888]">
+                          {project.category}
+                        </p>
+                      </div>
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f5f5f3] border border-[#e8e8e6] text-[#bbb] group-hover:bg-[#111] group-hover:text-white group-hover:border-[#111] transition-all duration-300">
+                        <ArrowUpRight size={14} />
+                      </div>
+                    </div>
+                    <div className="flex gap-2 mt-3">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-[#f5f5f3] border border-[#e8e8e6] px-3 py-1 text-[11px] font-medium text-[#888]"
+                          className="rounded-full bg-[#f5f5f3] border border-[#e8e8e6] px-2.5 py-0.5 text-[10px] font-medium text-[#999]"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <div className="flex flex-col justify-center lg:items-end">
-                    <Link
-                      href="https://brisasdelrio.vercel.app"
-                      target="_blank"
-                      className="group/btn inline-flex items-center gap-2.5 rounded-full bg-[#111] px-8 py-4 text-[15px] font-semibold text-white transition-all hover:bg-[#261cc1] hover:shadow-[0_8px_30px_rgba(38,28,193,0.25)]"
-                    >
-                      Ver sitio web
-                      <ArrowUpRight
-                        size={16}
-                        className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
-                      />
-                    </Link>
+                </Link>
+              </motion.div>
+            ))}
+
+            {/* Coming soon placeholder cards */}
+            {[1, 2].map((i) => (
+              <motion.div key={`soon-${i}`} variants={itemVariants}>
+                <div className="rounded-2xl border border-dashed border-[#ddd] bg-white/50 overflow-hidden">
+                  <div className="aspect-[16/10] bg-[#eee]/50 flex items-center justify-center">
+                    <span className="text-[13px] font-medium text-[#ccc]">
+                      Próximamente
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <div className="h-5 w-32 rounded bg-[#eee]/60 mb-2" />
+                    <div className="h-4 w-24 rounded bg-[#eee]/40" />
                   </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Full page screenshot */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-8"
-          >
-            <div className="rounded-2xl border border-[#e8e8e6] bg-white overflow-hidden">
-              <div className="p-6 lg:p-8 border-b border-[#e8e8e6]">
-                <h3 className="text-lg font-bold text-[#111] tracking-tight">
-                  Vista de página completa
-                </h3>
-                <p className="text-[14px] text-[#888] mt-1">
-                  Sección de hospedaje con galería de cabañas y amenidades
-                </p>
-              </div>
-              <div className="relative">
-                <Image
-                  src={project.pageImage}
-                  alt={`${project.title} — Vista completa`}
-                  width={1400}
-                  height={800}
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -159,22 +150,13 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight"
           >
-            ¿Tienes un proyecto similar en mente?
+            ¿Tienes un proyecto en mente?
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08 }}
-            className="text-base text-white/30 mb-8"
-          >
-            Cuéntanos tu idea y diseñemos algo excepcional juntos.
-          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
+            transition={{ delay: 0.1 }}
           >
             <Link
               href="/contacto"
