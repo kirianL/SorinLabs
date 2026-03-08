@@ -1,80 +1,64 @@
 "use client";
 
-import { Cpu, Palette, Zap, Server, ArrowRight } from "lucide-react";
+import { Globe, Palette, Layout, Rocket, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
 
 const services = [
   {
-    icon: Cpu,
-    title: "Ingeniería",
-    accent: "Sistemas que escalan",
+    icon: Globe,
+    title: "Sitios Web Modernos",
+    accent: "Diseño web pensado para personas",
     description:
-      "Plataformas SaaS, paneles B2B, APIs robustas y arquitectura backend que soporta crecimiento real.",
-    href: "/servicios#ingenieria",
+      "Sitios web para empresas, landing pages de alto impacto y rediseño de plataformas existentes con enfoque en claridad y funcionalidad.",
+    href: "/servicios#sitios-web",
+    color: "#261cc1",
   },
   {
     icon: Palette,
-    title: "Diseño",
-    accent: "Interfaces con criterio",
+    title: "Diseño UI/UX",
+    accent: "Interfaces con propósito",
     description:
-      "UI/UX enfocado en conversión. Sistemas de diseño, prototipado funcional y experiencias accesibles.",
+      "Diseño visual bien pensado, estructura intuitiva y experiencias de usuario claras que hacen que cada interacción tenga sentido.",
     href: "/servicios#diseno",
+    color: "#261cc1",
   },
   {
-    icon: Zap,
-    title: "Automatización",
-    accent: "Menos manual, más inteligente",
+    icon: Layout,
+    title: "Plataformas Web",
+    accent: "Experiencias digitales completas",
     description:
-      "Integraciones API, flujos automatizados, onboarding y canales optimizados con IA aplicada.",
-    href: "/servicios#automatizacion",
+      "Plataformas web funcionales, paneles administrativos y aplicaciones donde el diseño y la tecnología trabajan en armonía.",
+    href: "/servicios#plataformas",
+    color: "#261cc1",
   },
   {
-    icon: Server,
-    title: "Infraestructura",
-    accent: "Deploy seguro y rápido",
+    icon: Rocket,
+    title: "Optimización & Rendimiento",
+    accent: "Rápido, eficiente, preparado",
     description:
-      "Vercel, AWS, GCP. Optimización de Core Web Vitals, CI/CD profesional y seguridad desde el día uno.",
-    href: "/servicios#infraestructura",
+      "Rendimiento rápido, arquitectura moderna y optimización de experiencia de usuario para sitios que evolucionan con tu negocio.",
+    href: "/servicios#rendimiento",
+    color: "#261cc1",
   },
 ];
 
 export function ServicesHighlight() {
   return (
-    <section className="relative py-32 lg:py-44 bg-[#09090b]">
-      {/* Grid bg continuation */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
+    <section className="relative py-28 lg:py-40 bg-[#0e0e12]">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-        {/* Section intro — asymmetric */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 mb-20 lg:mb-28">
-          <div className="lg:col-span-5">
+        {/* Section header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 mb-16 lg:mb-24">
+          <div className="lg:col-span-6">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="flex items-center gap-2.5 mb-5"
             >
-              <span className="h-px w-8 bg-[#261cc1]" />
-              <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-white/25">
-                Capacidades
+              <span className="h-1.5 w-1.5 rounded-full bg-[#261cc1]" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#261cc1]">
+                Qué Hacemos
               </span>
             </motion.div>
             <motion.h2
@@ -82,11 +66,11 @@ export function ServicesHighlight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[0.95]"
+              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.05]"
             >
-              Lo que
+              Nuestros
               <br />
-              hacemos.
+              servicios.
             </motion.h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 flex items-end">
@@ -95,64 +79,63 @@ export function ServicesHighlight() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="text-base text-white/30 leading-relaxed"
+              className="text-[16px] text-white/40 leading-[1.7]"
             >
-              No escribimos código por escribirlo. Resolvemos problemas de
-              negocio complejos con ingeniería de precisión y diseño que tiene
-              razón de ser.
+              Diseñamos y desarrollamos experiencias web modernas donde cada
+              elemento — desde la interfaz hasta el rendimiento — contribuye a
+              una mejor interacción.
             </motion.p>
           </div>
         </div>
 
-        {/* Cards — 2x2 responsive grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        {/* Service cards — bento-style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
             >
-              <Card className="group h-full bg-white/[0.02] border-white/[0.05] hover:border-white/[0.1] transition-colors duration-300">
-                <CardHeader className="pb-0">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#261cc1]/10">
-                      <service.icon
-                        size={18}
-                        strokeWidth={1.5}
-                        className="text-[#261cc1]"
-                      />
-                    </div>
-                    <span className="text-[10px] font-medium tracking-widest uppercase text-white/15">
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <CardTitle className="text-xl sm:text-2xl font-bold text-white mt-5">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-[#261cc1]/70 text-xs font-semibold tracking-wide uppercase mt-1">
-                    {service.accent}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <p className="text-sm text-white/30 leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Link
-                    href={service.href}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-white/15 transition-colors group-hover:text-white/50"
-                  >
-                    Explorar
-                    <ArrowRight
-                      size={12}
-                      className="transition-transform group-hover:translate-x-0.5"
+              <Link
+                href={service.href}
+                className="group relative flex flex-col h-full rounded-2xl bg-white/[0.03] border border-white/[0.06] p-8 lg:p-10 transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.12]"
+              >
+                {/* Top row */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#261cc1]/[0.08] border border-[#261cc1]/[0.12]">
+                    <service.icon
+                      size={20}
+                      strokeWidth={1.5}
+                      className="text-[#261cc1]"
                     />
-                  </Link>
-                </CardFooter>
-              </Card>
+                  </div>
+                  <span className="text-[11px] font-semibold tracking-widest uppercase text-white/[0.12]">
+                    0{i + 1}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-2xl sm:text-[1.6rem] font-bold text-white mb-2 tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="text-[13px] font-semibold tracking-wide uppercase text-[#261cc1]/60 mb-4">
+                  {service.accent}
+                </p>
+                <p className="text-[15px] text-white/35 leading-relaxed flex-1 mb-6">
+                  {service.description}
+                </p>
+
+                {/* Footer */}
+                <div className="flex items-center gap-2 text-[13px] font-semibold text-white/[0.15] group-hover:text-[#261cc1] transition-colors">
+                  Explorar
+                  <ArrowRight
+                    size={13}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -2,36 +2,34 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import SlideTextButton from "@/components/kokonutui/slide-text-button";
 
 const faqs = [
   {
-    question: "¿En qué tipo de proyectos se especializan?",
+    question: "¿Qué tipo de proyectos hacen en Sorin Labs?",
     answer:
-      "Nos especializamos en plataformas SaaS, paneles administrativos, e-commerce avanzado y aplicaciones web de alto rendimiento. Construimos soluciones complejas que requieren integraciones, alta seguridad y escalabilidad.",
+      "Diseñamos y desarrollamos sitios web modernos para empresas, landing pages de alto impacto, plataformas web, rediseño de sitios existentes y optimización de experiencia de usuario. Cada proyecto se diseña cuidadosamente antes de construirse.",
   },
   {
-    question: "¿Cuánto dura el desarrollo de una plataforma típica?",
+    question: "¿Cuánto tiempo toma desarrollar un sitio web?",
     answer:
-      "Depende de la complejidad y alcance. Una MVP funcional suele tomar entre 8 y 12 semanas. Proyectos empresariales con arquitecturas avanzadas pueden requerir estimaciones más largas, las cuales definimos claramente en la Fase 1.",
+      "Depende del alcance y la complejidad del proyecto. Un sitio web corporativo puede tomar entre 4 y 8 semanas. Plataformas más complejas pueden requerir más tiempo, pero siempre lo definimos claramente desde la fase de descubrimiento.",
   },
   {
     question: "¿Trabajan con empresas fuera de Costa Rica?",
     answer:
-      "Totalmente. Nuestro estudio tiene sede en Costa Rica, pero colaboramos de manera remota con clientes en toda Latinoamérica, Norteamérica y Europa.",
+      "Sí. Sorin Labs tiene sede en Costa Rica, pero colaboramos de manera remota con clientes en toda Latinoamérica, Norteamérica y Europa. Nuestra forma de trabajo es 100% remota.",
   },
   {
     question: "¿Qué tecnologías utilizan?",
     answer:
-      "Principalmente React, Next.js, Node.js, TypeScript y Tailwind CSS en el front-end; y diversas arquitecturas Cloud (AWS, Vercel, Supabase) en el back-end para garantizar robustez.",
+      "Utilizamos herramientas modernas como React, Next.js, TypeScript y tecnologías actuales que nos permiten crear sitios rápidos, eficientes y preparados para evolucionar con tu negocio.",
   },
   {
-    question: "¿Ofrecen soporte técnico después del lanzamiento?",
+    question: "¿Cómo es el proceso de trabajo?",
     answer:
-      "Sí, todos nuestros proyectos incluyen una fase de soporte post-lanzamiento. También ofrecemos planes de mantenimiento y evolución continua (retainers) adaptados a cada negocio.",
+      "Cada proyecto comienza con una pregunta simple: ¿cómo debería sentirse la experiencia para la persona que va a usar este producto? A partir de ahí, pasamos por tres fases: descubrimiento, diseño y desarrollo, y lanzamiento — siempre con comunicación transparente.",
   },
 ];
 
@@ -43,69 +41,131 @@ export function FAQSection() {
   };
 
   return (
-    <section className="relative overflow-hidden py-24 bg-[#f2f2f2] text-black">
-      <div className="container mx-auto px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl mb-4">
-              FAQ.
-            </h2>
-            <p className="text-lg text-black/50">
-              ¿Tienes preguntas? Te ayudamos a resolverlas.
-            </p>
+    <section className="relative overflow-hidden py-28 lg:py-40 bg-[#f7f7f5]">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Left: heading */}
+          <div className="lg:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-2.5 mb-5"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#261cc1]" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#261cc1]">
+                FAQ
+              </span>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl font-bold tracking-tight text-[#1a1a1a] leading-[1.08] mb-6"
+            >
+              Preguntas
+              <br />
+              frecuentes.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="text-[16px] text-[#777] leading-relaxed mb-8"
+            >
+              Resolvemos tus dudas sobre cómo trabajamos, nuestros tiempos y qué
+              puedes esperar de un proyecto con nosotros.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link
+                href="/contacto"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#261cc1] hover:shadow-[0_8px_30px_rgba(38,28,193,0.25)]"
+              >
+                ¿Otra pregunta? Escríbenos
+                <ArrowRight
+                  size={14}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
+              </Link>
+            </motion.div>
           </div>
-        </ScrollReveal>
 
-        <div className="mx-auto max-w-3xl space-y-4">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="rounded-xl border border-black/5 bg-white overflow-hidden transition-all duration-300">
-                  <button
-                    onClick={() => toggleOpen(i)}
-                    className="flex w-full items-center justify-between p-6 text-left"
+          {/* Right: accordion */}
+          <div className="lg:col-span-8">
+            <div className="space-y-3">
+              {faqs.map((faq, i) => {
+                const isOpen = openIndex === i;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06, duration: 0.4 }}
                   >
-                    <span className="font-semibold text-lg">
-                      {faq.question}
-                    </span>
-                    <span className="ml-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black/5 text-black/50 transition-colors hover:bg-black/10 hover:text-black">
-                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
-                    </span>
-                  </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    <div
+                      className={`rounded-2xl border bg-white overflow-hidden transition-all duration-300 ${
+                        isOpen
+                          ? "border-[#261cc1]/20 shadow-[0_4px_20px_rgba(38,28,193,0.06)]"
+                          : "border-[#e8e8e6] hover:border-[#ddd]"
+                      }`}
+                    >
+                      <button
+                        onClick={() => toggleOpen(i)}
+                        className="flex w-full items-center justify-between p-6 lg:p-7 text-left"
                       >
-                        <div className="px-6 pb-6 pt-0 text-black/60 leading-relaxed">
-                          {faq.answer}
+                        <div className="flex items-center gap-4">
+                          <span className="text-[13px] font-bold text-[#261cc1]/30 shrink-0">
+                            0{i + 1}
+                          </span>
+                          <span className="font-semibold text-[17px] text-[#1a1a1a]">
+                            {faq.question}
+                          </span>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-        </div>
-
-        <ScrollReveal delay={0.5}>
-          <div className="mt-20 flex flex-col items-center text-center">
-            <p className="mb-6 font-medium text-black">
-              ¿No encuentras lo que buscas? Escríbenos.
-            </p>
-            <SlideTextButton
-              href="/contacto"
-              text="hello@sorinlabs.com"
-              hoverText="Agendar Llamada"
-              className="min-w-64"
-            />
+                        <span
+                          className={`ml-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                            isOpen
+                              ? "bg-[#261cc1] text-white rotate-0"
+                              : "bg-[#f0f0ee] text-[#999] hover:bg-[#e5e5e3]"
+                          }`}
+                        >
+                          {isOpen ? (
+                            <Minus size={14} strokeWidth={2.5} />
+                          ) : (
+                            <Plus size={14} strokeWidth={2.5} />
+                          )}
+                        </span>
+                      </button>
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                          >
+                            <div className="px-6 lg:px-7 pb-7 pt-0 pl-[calc(1.5rem+3.25rem)] lg:pl-[calc(1.75rem+3.25rem)]">
+                              <p className="text-[15px] text-[#666] leading-[1.7]">
+                                {faq.answer}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

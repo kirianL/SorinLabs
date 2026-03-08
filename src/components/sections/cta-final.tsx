@@ -6,66 +6,72 @@ import { motion } from "motion/react";
 
 export function FinalCta() {
   return (
-    <section className="relative py-40 lg:py-56 bg-[#09090b] overflow-hidden">
-      {/* Grid bg */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
-          `,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
+    <section className="relative py-32 lg:py-44 bg-[#f5f5f3] overflow-hidden">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[0.95]"
-          >
-            ¿Listo?
-          </motion.h2>
+        <div className="relative rounded-3xl bg-[#0a0a0f] px-8 sm:px-16 py-20 sm:py-28 overflow-hidden">
+          {/* Gradient orb */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#261cc1]/[0.06] blur-[100px] pointer-events-none" />
 
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.12, duration: 0.5 }}
-            className="mt-6 text-base sm:text-lg text-white/25 leading-relaxed max-w-md mx-auto"
-          >
-            Transformamos tu visión en plataformas digitales de alto
-            rendimiento.
-          </motion.p>
+          {/* Grid bg */}
+          <div
+            className="absolute inset-0 z-0 opacity-40"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
+              `,
+              backgroundSize: "60px 60px",
+            }}
+          />
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.24, duration: 0.5 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              href="/contacto"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] hover:scale-[1.02] active:scale-[0.98]"
+          <div className="relative z-10 max-w-2xl mx-auto text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[0.95] mb-6"
             >
-              Empezar proyecto
-              <ArrowRight
-                size={14}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </Link>
-            <Link
-              href="mailto:hello@sorinlabs.com"
-              className="text-sm font-medium text-white/20 transition-colors hover:text-white/50"
+              Vamos a crear algo{" "}
+              <span className="text-white/20">excepcional.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="text-base text-white/30 leading-relaxed max-w-md mx-auto mb-10"
             >
-              hello@sorinlabs.com
-            </Link>
-          </motion.div>
+              Cuéntanos sobre tu proyecto. Diseñamos experiencias digitales bien
+              construidas, desde Costa Rica para el mundo.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.24 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <Link
+                href="/contacto"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-[15px] font-semibold text-[#0a0a0f] transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Empezar proyecto
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+              <Link
+                href="mailto:hello@sorinlabs.com"
+                className="text-sm font-medium text-white/25 hover:text-white/60 transition-colors"
+              >
+                hello@sorinlabs.com
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

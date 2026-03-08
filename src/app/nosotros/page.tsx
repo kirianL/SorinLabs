@@ -1,107 +1,197 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { motion } from "motion/react";
+import { Sparkles, Target, Lightbulb } from "lucide-react";
 
 const principles = [
   {
+    icon: Sparkles,
     num: "01",
-    title: "Estructura antes que escala",
+    title: "Experiencia primero",
     description:
-      "Nunca automatizamos procesos rotos. Ordenamos las reglas de negocio antes de escribir la primera línea de código.",
+      "Diseñamos pensando en cómo las personas interactúan con el producto. Cada decisión parte de la experiencia del usuario.",
   },
   {
+    icon: Target,
     num: "02",
-    title: "Diseño Intencional",
+    title: "Diseño con intención",
     description:
-      "Cada botón, cada sombra y cada transición tiene una razón de ser basada en la usabilidad y la conversión.",
+      "Cada espacio, cada interacción y cada transición tiene un propósito claro. Nada es accidental.",
   },
   {
+    icon: Lightbulb,
     num: "03",
-    title: "Transparencia Absoluta",
+    title: "Tecnología moderna",
     description:
-      "Comunicación técnica sin jerga. Evaluamos viabilidad y reportamos riesgos con honestidad radical.",
+      "Utilizamos herramientas actuales para crear sitios rápidos, eficientes y preparados para evolucionar con tu negocio.",
   },
 ];
 
+const values = [
+  { value: "2024", label: "Fundado en" },
+  { value: "100%", label: "Trabajo remoto" },
+  { value: "CR", label: "Desde Costa Rica" },
+  { value: "5★", label: "Satisfacción" },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#131212]">
-      <div className="pt-36 pb-16 px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <ScrollReveal>
-            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.05]">
-              Ingeniería de software con{" "}
-              <span className="text-[#261cc1]">criterio de diseño.</span>
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <p className="mt-6 max-w-2xl text-lg text-white/40 leading-relaxed">
-              Sorin Labs nace de la intersección entre la rigurosidad de la
-              ingeniería de software y la intencionalidad del diseño
-              estratégico.
-            </p>
-          </ScrollReveal>
+    <div className="min-h-screen bg-[#0a0a0f]">
+      {/* Hero */}
+      <section className="relative pt-36 pb-20 lg:pb-28">
+        <div
+          className="absolute inset-0 z-0 opacity-40"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] max-w-3xl"
+          >
+            Donde el diseño y la tecnología{" "}
+            <span className="text-[#261cc1]">se encuentran.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="mt-6 max-w-xl text-base text-white/35 leading-relaxed"
+          >
+            Sorin Labs nace en Costa Rica con la idea de crear experiencias web
+            donde el diseño y la tecnología trabajen juntos de forma
+            intencional.
+          </motion.p>
         </div>
-      </div>
+      </section>
 
-      <div className="px-6 lg:px-8 pb-32">
-        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-8 lg:p-10 h-full">
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-white/20 mb-8">
+      {/* Stats bar */}
+      <section className="bg-[#f5f5f3] py-12">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          >
+            {values.map((v) => (
+              <motion.div
+                key={v.label}
+                variants={itemVariants}
+                className="text-center"
+              >
+                <p className="text-3xl sm:text-4xl font-bold text-[#111] tracking-tight">
+                  {v.value}
+                </p>
+                <p className="text-sm text-[#888] mt-1">{v.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-24 lg:py-32 bg-[#f5f5f3]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#111] leading-[1.1] mb-8">
                 Nuestra Historia
               </h2>
-              <div className="space-y-6 text-base text-white/45 leading-relaxed">
+              <div className="space-y-5 text-[15px] text-[#666] leading-relaxed">
                 <p>
-                  La mayoría de los estudios construyen lo que el cliente pide
-                  sin cuestionar la estructura. Las agencias crean interfaces
-                  hermosas que los ingenieros no pueden escalar.
+                  En muchos proyectos digitales el diseño y el desarrollo se
+                  tratan como procesos separados, lo que termina generando
+                  productos poco coherentes o difíciles de usar.
                 </p>
-                <p className="text-white font-medium">
-                  Sorin Labs resuelve esa división.
-                </p>
-                <p>
-                  Fundado en Costa Rica por Kirian Luna, operamos bajo una
-                  premisa: el código sin diseño es inusable, y el diseño sin
-                  arquitectura técnica es insostenible.
+                <p className="text-[#111] font-semibold text-lg">
+                  Sorin Labs surge para hacer las cosas de manera diferente.
                 </p>
                 <p>
-                  No somos una agencia de marketing ni un &quot;factory&quot; de
-                  código genérico. Somos Digital Crafters — artesanos digitales
-                  que entienden modelos B2B, flujos financieros, SaaS y
-                  arquitecturas cloud complejas.
+                  Cada proyecto comienza con una pregunta simple: ¿cómo debería
+                  sentirse la experiencia para la persona que va a usar este
+                  producto?
+                </p>
+                <p>
+                  A partir de esa idea se construyen sitios web y plataformas
+                  donde la estética, la estructura y la tecnología trabajan en
+                  conjunto para crear experiencias digitales claras, modernas y
+                  funcionales.
+                </p>
+                <p>
+                  Desde Costa Rica, Sorin Labs busca colaborar con empresas y
+                  proyectos que valoran el diseño bien pensado y la importancia
+                  de ofrecer una buena experiencia digital.
                 </p>
               </div>
-            </div>
-          </ScrollReveal>
+            </motion.div>
 
-          <div className="flex flex-col gap-4">
-            {principles.map((p, i) => (
-              <ScrollReveal key={p.num} delay={0.15 + i * 0.08}>
+            {/* Principles */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="flex flex-col gap-4"
+            >
+              {principles.map((p) => (
                 <motion.div
-                  whileHover={{ y: -2, borderColor: "rgba(255,255,255,0.1)" }}
-                  className="rounded-2xl border border-white/5 bg-white/[0.03] p-6 lg:p-8 transition-all"
+                  key={p.num}
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -3,
+                    borderColor: "rgba(38,28,193,0.2)",
+                    transition: { duration: 0.25 },
+                  }}
+                  className="rounded-2xl border border-[#e8e8e6] bg-white p-6 lg:p-8 transition-shadow duration-300 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)]"
                 >
-                  <div className="flex items-start gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#261cc1]/15 text-sm font-bold text-[#261cc1]">
-                      {p.num}
-                    </span>
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#261cc1]/[0.06] border border-[#261cc1]/10">
+                      <p.icon
+                        size={20}
+                        strokeWidth={1.5}
+                        className="text-[#261cc1]"
+                      />
+                    </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-2">
+                      <h3 className="text-lg font-bold text-[#111] mb-1.5">
                         {p.title}
                       </h3>
-                      <p className="text-sm text-white/40 leading-relaxed">
+                      <p className="text-[14px] text-[#777] leading-relaxed">
                         {p.description}
                       </p>
                     </div>
                   </div>
                 </motion.div>
-              </ScrollReveal>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

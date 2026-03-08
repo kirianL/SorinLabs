@@ -1,126 +1,168 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { Check } from "lucide-react";
+import { motion } from "motion/react";
+import { Check, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
-const tiers = [
+const steps = [
   {
-    name: "Fase 1: Estrategia",
-    description: "Análisis profundo y diseño de arquitectura técnica.",
-    price: "01",
-    features: [
-      "Diagnóstico de negocio",
-      "Definición de requerimientos",
-      "Arquitectura de sistema",
-      "Modelo de datos",
-      "Mapa de proyecto",
+    num: "01",
+    title: "Descubrimiento",
+    description:
+      "Entender el proyecto, los objetivos y cómo debe sentirse la experiencia para el usuario final.",
+    details: [
+      "Entender el negocio y sus usuarios",
+      "Definir objetivos del proyecto",
+      "Diseño de estructura y navegación",
     ],
-    highlighted: false,
   },
   {
-    name: "Fase 2: Construcción",
-    description: "Desarrollo ágil con entregas iterativas y diseño UI/UX.",
-    price: "02",
-    features: [
-      "Diseño de interfaz (UI)",
-      "Experiencia de usuario (UX)",
-      "Desarrollo Frontend",
-      "Desarrollo Backend",
-      "Pruebas de calidad (QA)",
+    num: "02",
+    title: "Diseño & Desarrollo",
+    description:
+      "Diseño visual, desarrollo web y pruebas iterativas para un resultado cuidado y funcional.",
+    details: [
+      "Diseño de interfaz (UI/UX)",
+      "Desarrollo frontend moderno",
+      "Revisión y ajustes de calidad",
     ],
-    highlighted: true,
-    badge: "Iterativo",
   },
   {
-    name: "Fase 3: Evolución",
-    description: "Despliegue, monitoreo y escalabilidad continua.",
-    price: "03",
-    features: [
-      "Despliegue en producción",
-      "Configuración de servidores",
-      "Monitoreo de rendimiento",
-      "Optimización de SEO",
-      "Soporte y mantenimiento",
+    num: "03",
+    title: "Lanzamiento",
+    description:
+      "Publicación, optimización y acompañamiento post-lanzamiento para que tu sitio siga mejorando.",
+    details: [
+      "Publicación del sitio web",
+      "Optimización de rendimiento",
+      "Soporte post-lanzamiento",
     ],
-    highlighted: false,
   },
 ];
 
 export function ProcessSection() {
   return (
-    <section className="dark relative overflow-hidden py-24 bg-[#131212] text-white">
-      <div className="container mx-auto px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">
-              Un proceso metodológico y transparente
-            </h2>
-            <p className="text-lg text-white/60">
-              Nuestro enfoque iterativo está diseñado para mitigar riesgos,
-              asegurar la calidad técnica y entregar resultados tangibles desde
-              el primer día.
-            </p>
+    <section className="relative py-28 lg:py-40 bg-[#f7f7f5] overflow-hidden">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 mb-16 lg:mb-24">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-2.5 mb-5"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#261cc1]" />
+              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#261cc1]">
+                Nuestro Proceso
+              </span>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-[#1a1a1a] leading-[1.08]"
+            >
+              Cada proyecto se diseña{" "}
+              <span className="text-[#261cc1]">antes</span> de construirse.
+            </motion.h2>
           </div>
-        </ScrollReveal>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="flex items-end"
+          >
+            <p className="text-[17px] text-[#555] leading-[1.7]">
+              Nuestro proceso está pensado para crear experiencias digitales
+              claras, funcionales y visualmente bien pensadas — desde la primera
+              conversación hasta el lanzamiento.
+            </p>
+          </motion.div>
+        </div>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
-          {tiers.map((tier, i) => (
-            <ScrollReveal key={tier.name} delay={i * 0.15} className="h-full">
-              <div
-                className={`relative flex h-full flex-col rounded-2xl p-8 ${
-                  tier.highlighted
-                    ? "bg-[#161616] border border-brand/50 shadow-[0_0_30px_rgba(38,28,193,0.15)]"
-                    : "bg-[#111111] border border-white/5"
-                }`}
-              >
-                {tier.badge && (
-                  <div className="absolute top-0 right-6 translate-y-[-50%] transform">
-                    <span className="inline-flex rounded-full bg-brand px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
-                      {tier.badge}
-                    </span>
-                  </div>
-                )}
-
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {tier.name}
-                </h3>
-                <p className="text-sm text-white/60 mb-6 min-h-[40px]">
-                  {tier.description}
-                </p>
-
-                <div className="mb-8 flex items-baseline text-5xl font-extrabold text-white">
-                  {tier.price}
-                  <span className="ml-2 text-xl font-medium text-white/40">
-                    /fase
+        {/* Steps */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.num}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.12, duration: 0.5 }}
+              className="group relative flex flex-col"
+            >
+              {/* Card */}
+              <div className="relative flex flex-col h-full rounded-2xl bg-white border border-[#e8e8e6] p-8 lg:p-10 transition-all duration-300 hover:border-[#261cc1]/20 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)]">
+                {/* Step number */}
+                <div className="flex items-center justify-between mb-8">
+                  <span className="text-[3.5rem] font-bold text-[#261cc1]/10 leading-none tracking-tighter">
+                    {step.num}
                   </span>
+                  {i === 1 && (
+                    <span className="inline-flex rounded-full bg-[#261cc1] px-3.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                      Iterativo
+                    </span>
+                  )}
                 </div>
 
-                <ul className="mb-8 space-y-4 flex-1">
-                  {tier.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm text-white/80"
-                    >
-                      <Check size={16} className="text-brand shrink-0 mt-0.5" />
-                      <span>{feature}</span>
+                {/* Content */}
+                <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-[15px] text-[#777] leading-relaxed mb-8">
+                  {step.description}
+                </p>
+
+                {/* Checklist */}
+                <ul className="space-y-3 mt-auto">
+                  {step.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-3">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#261cc1]/[0.06] mt-0.5">
+                        <Check
+                          size={11}
+                          strokeWidth={2.5}
+                          className="text-[#261cc1]"
+                        />
+                      </span>
+                      <span className="text-sm text-[#555] leading-relaxed">
+                        {detail}
+                      </span>
                     </li>
                   ))}
                 </ul>
-
-                <button
-                  className={`w-full rounded-lg py-3 text-sm font-semibold transition-colors ${
-                    tier.highlighted
-                      ? "bg-white text-black hover:bg-white/90"
-                      : "bg-white/10 text-white hover:bg-white/20"
-                  }`}
-                >
-                  Conocer más →
-                </button>
               </div>
-            </ScrollReveal>
+
+              {/* Connector line (between cards on desktop) */}
+              {i < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-2.5 w-5 h-px bg-[#ddd]" />
+              )}
+            </motion.div>
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-16 flex justify-center"
+        >
+          <Link
+            href="/metodologia"
+            className="group inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-[#261cc1] hover:shadow-[0_8px_30px_rgba(38,28,193,0.25)]"
+          >
+            Ver metodología completa
+            <ArrowRight
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

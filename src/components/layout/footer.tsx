@@ -4,10 +4,10 @@ import { ArrowRight, Instagram, Facebook } from "lucide-react";
 
 const footerLinks = {
   servicios: [
-    { href: "/servicios#ingenieria", label: "Ingeniería" },
-    { href: "/servicios#diseno", label: "Diseño" },
-    { href: "/servicios#automatizacion", label: "Data & IA" },
-    { href: "/servicios#infraestructura", label: "Cloud" },
+    { href: "/servicios#sitios-web", label: "Sitios Web" },
+    { href: "/servicios#diseno", label: "Diseño UI/UX" },
+    { href: "/servicios#plataformas", label: "Plataformas" },
+    { href: "/servicios#rendimiento", label: "Rendimiento" },
   ],
   empresa: [
     { href: "/nosotros", label: "Nosotros" },
@@ -63,7 +63,7 @@ export function Footer() {
               className="mb-6 h-8 w-auto"
             />
             <p className="text-sm font-medium text-white/60 mb-6">
-              El futuro de la ingeniería digital.
+              Diseño web pensado para personas.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3">
@@ -120,8 +120,8 @@ export function Footer() {
           <div className="lg:col-span-4">
             <h4 className="mb-4 text-sm font-bold text-white">Hablemos</h4>
             <p className="mb-6 text-sm font-medium text-white/60 leading-relaxed">
-              Agendemos una consultoría y definamos el alcance técnico de tu
-              próximo proyecto.
+              Cuéntanos sobre tu próximo proyecto y creemos algo excepcional
+              juntos.
             </p>
             <div className="flex w-full items-center">
               <Link

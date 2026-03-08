@@ -43,17 +43,18 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sorin Labs — Ingeniería Digital & Diseño Estratégico",
+    default: "Sorin Labs — Diseño Web & Experiencias Digitales",
     template: "%s | Sorin Labs",
   },
   description:
-    "Sorin Labs es un estudio de ingeniería y diseño digital enfocado en la creación de sistemas web, plataformas escalables y soluciones tecnológicas estratégicas.",
+    "Sorin Labs es un estudio digital enfocado en diseño y experiencia web de calidad. Creamos sitios web modernos, landing pages y plataformas digitales desde Costa Rica.",
   keywords: [
-    "ingeniería digital",
     "diseño web",
+    "experiencia de usuario",
     "desarrollo web",
-    "SaaS",
-    "plataformas escalables",
+    "sitios web modernos",
+    "landing pages",
+    "plataformas digitales",
     "Costa Rica",
     "Sorin Labs",
   ],
@@ -63,16 +64,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CR",
     url: "https://sorinlabs.com",
-    title: "Sorin Labs — Ingeniería Digital & Diseño Estratégico",
+    title: "Sorin Labs — Diseño Web & Experiencias Digitales",
     description:
-      "Creamos sistemas digitales, plataformas y experiencias web que integran precisión técnica y creatividad estratégica.",
+      "Experiencias web diseñadas con intención. Sitios web modernos, claros y funcionales donde el diseño y la tecnología se encuentran.",
     siteName: "Sorin Labs",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sorin Labs — Ingeniería Digital & Diseño Estratégico",
+    title: "Sorin Labs — Diseño Web & Experiencias Digitales",
     description:
-      "Creamos sistemas digitales, plataformas y experiencias web que integran precisión técnica y creatividad estratégica.",
+      "Experiencias web diseñadas con intención. Sitios web modernos, claros y funcionales donde el diseño y la tecnología se encuentran.",
   },
   robots: {
     index: true,
