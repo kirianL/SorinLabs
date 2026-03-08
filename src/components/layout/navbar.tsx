@@ -26,98 +26,111 @@ export function Navbar() {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      document.body.style.top = `-${window.scrollY}px`;
     } else {
+      const scrollY = document.body.style.top;
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
     };
   }, [isMobileMenuOpen]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#131212]/95 backdrop-blur-md border-b border-white/5"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 py-5">
-        <Link href="/" className="relative z-[60] flex items-center gap-2">
-          <Image
-            src="/LogoFullBlanco.svg"
-            alt="Sorin Labs"
-            width={160}
-            height={36}
-            className="h-8 w-auto"
-            priority
-          />
-        </Link>
-
-        {/* Center Nav */}
-        <div className="hidden lg:flex items-center">
-          {navLinks.map((link, i) => (
-            <span key={link.href} className="flex items-center">
-              <Link
-                href={link.href}
-                className="text-[11px] font-medium tracking-[0.15em] text-white/50 transition-colors hover:text-white"
-              >
-                {link.label}
-              </Link>
-              {i < navLinks.length - 1 && (
-                <span className="mx-4 text-[11px] text-white/20 select-none">
-                  ,
-                </span>
-              )}
-            </span>
-          ))}
-        </div>
-
-        {/* Right — Contact */}
-        <div className="hidden lg:flex items-center">
-          <Link
-            href="/contacto"
-            className="text-[11px] font-medium tracking-[0.15em] text-white/50 transition-colors hover:text-white"
-          >
-            CONTACTO
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-[#131212]/95 backdrop-blur-md border-b border-white/5"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 py-5">
+          <Link href="/" className="relative z-[60] flex items-center gap-2">
+            <Image
+              src="/LogoFullBlanco.svg"
+              alt="Sorin Labs"
+              width={160}
+              height={36}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
-        </div>
 
-        {/* Mobile Toggle — Animated Lines */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="relative z-[60] flex flex-col items-end justify-center gap-[5px] h-10 w-10 lg:hidden"
-          aria-label="Toggle menu"
-        >
-          <motion.span
-            animate={
-              isMobileMenuOpen
-                ? { rotate: 45, y: 7, width: 24 }
-                : { rotate: 0, y: 0, width: 24 }
-            }
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="block h-[2px] bg-white rounded-full origin-center"
-          />
-          <motion.span
-            animate={
-              isMobileMenuOpen ? { opacity: 0, x: 12 } : { opacity: 1, x: 0 }
-            }
-            transition={{ duration: 0.2 }}
-            className="block h-[2px] w-4 bg-white/60 rounded-full"
-          />
-          <motion.span
-            animate={
-              isMobileMenuOpen
-                ? { rotate: -45, y: -7, width: 24 }
-                : { rotate: 0, y: 0, width: 16 }
-            }
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="block h-[2px] bg-white/40 rounded-full origin-center"
-          />
-        </button>
-      </nav>
+          {/* Center Nav */}
+          <div className="hidden lg:flex items-center">
+            {navLinks.map((link, i) => (
+              <span key={link.href} className="flex items-center">
+                <Link
+                  href={link.href}
+                  className="text-[11px] font-medium tracking-[0.15em] text-white/50 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+                {i < navLinks.length - 1 && (
+                  <span className="mx-4 text-[11px] text-white/20 select-none">
+                    ,
+                  </span>
+                )}
+              </span>
+            ))}
+          </div>
 
-      {/* Mobile Menu — Full Screen Overlay */}
+          {/* Right — Contact */}
+          <div className="hidden lg:flex items-center">
+            <Link
+              href="/contacto"
+              className="text-[11px] font-medium tracking-[0.15em] text-white/50 transition-colors hover:text-white"
+            >
+              CONTACTO
+            </Link>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="relative z-[70] flex flex-col items-end justify-center gap-[5px] h-10 w-10 lg:hidden"
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              animate={
+                isMobileMenuOpen
+                  ? { rotate: 45, y: 7, width: 24 }
+                  : { rotate: 0, y: 0, width: 24 }
+              }
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="block h-[2px] bg-white rounded-full origin-center"
+            />
+            <motion.span
+              animate={
+                isMobileMenuOpen ? { opacity: 0, x: 12 } : { opacity: 1, x: 0 }
+              }
+              transition={{ duration: 0.2 }}
+              className="block h-[2px] w-4 bg-white/60 rounded-full"
+            />
+            <motion.span
+              animate={
+                isMobileMenuOpen
+                  ? { rotate: -45, y: -7, width: 24 }
+                  : { rotate: 0, y: 0, width: 16 }
+              }
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="block h-[2px] bg-white/40 rounded-full origin-center"
+            />
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile Menu — OUTSIDE header for iOS compatibility */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -125,7 +138,21 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-[55] flex flex-col bg-[#0e0e12] lg:hidden pt-24"
+            className="lg:hidden"
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: "100vw",
+              height: "100dvh",
+              backgroundColor: "#0e0e12",
+              zIndex: 60,
+              display: "flex",
+              flexDirection: "column",
+              paddingTop: "6rem",
+            }}
           >
             {/* Menu content */}
             <div className="flex flex-1 flex-col items-start justify-center px-10">
@@ -193,6 +220,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
