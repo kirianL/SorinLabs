@@ -14,7 +14,7 @@ const project = {
   year: "2025",
   role: "Diseño Full Stack · Desarrollo Web",
   heroImage: "/works/BrisasDelRio/HeroBrisasDelRio.png",
-  pageImage: "/works/BrisasDelRio/PageBrisasDelRio.png",
+  pageImage: "/works/BrisasDelRio/PageBrisas.png",
   liveUrl: "https://landind-page-brisas-del-rio.vercel.app/",
   stack: ["React / Next.js", "TailwindCSS", "Framer Motion"],
 };
@@ -194,19 +194,19 @@ export default function BrisasDelRioCaseStudy() {
             </motion.div>
           </div>
 
-          {/* Page screenshot dentro de la misma sección */}
+          {/* Page screenshot (image has its own browser wrapper and shadow) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden border border-[#e8e8e6]"
+            className="w-full flex justify-center mt-8 lg:-mt-10"
           >
             <Image
               src={project.pageImage}
               alt={`${project.title} hospedaje`}
-              width={1400}
-              height={800}
-              className="w-full h-auto"
+              width={1600}
+              height={1200}
+              className="w-full h-auto drop-shadow-2xl"
             />
           </motion.div>
         </div>
