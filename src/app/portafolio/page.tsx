@@ -57,7 +57,7 @@ export default function PortfolioPage() {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="text-base text-white/35 leading-relaxed lg:mt-4"
             >
-              Trabajo reciente que refleja nuestra forma de pensar el diseño —
+              Trabajo reciente que refleja nuestra forma de pensar el diseño.
               sitios web diseñados con intención, desde Costa Rica.
             </motion.p>
           </div>

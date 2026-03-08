@@ -18,7 +18,7 @@ const articles = [
     image: "/blog-2.png",
     title: "Por qué la experiencia de usuario es tu mejor inversión",
     description:
-      "Una buena UX no es un lujo — es lo que separa un sitio que convierte de uno que solo existe. Así impacta en tus resultados.",
+      "Una buena UX no es un lujo, es lo que separa un sitio que convierte de uno que solo existe. Así impacta en tus resultados.",
     tag: "UX",
     href: "#",
   },

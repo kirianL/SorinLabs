@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "Sorin Labs transformó nuestra presencia digital. El diseño no solo se ve increíble, sino que nuestros clientes lo notan — la experiencia es clara, rápida e intuitiva.",
+      "Sorin Labs transformó nuestra presencia digital. El diseño no solo se ve increíble, sino que nuestros clientes lo notan. La experiencia es clara, rápida e intuitiva.",
     name: "María Fernandez",
     role: "CEO",
     company: "NovaTech Solutions",
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "No es solo un sitio web bonito — funciona. Tiempos de carga mínimos, SEO optimizado y un diseño que realmente refleja quiénes somos como empresa.",
+      "No es solo un sitio web bonito, funciona. Tiempos de carga mínimos, SEO optimizado y un diseño que realmente refleja quiénes somos como empresa.",
     name: "Ana López",
     role: "Fundadora",
     company: "Verde Estudio",

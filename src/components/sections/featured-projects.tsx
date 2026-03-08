@@ -76,7 +76,7 @@ export function FeaturedProjects() {
                     Brisas del Río
                   </h3>
                   <p className="text-[14px] text-white/35">
-                    Sitio Web · Hospedaje — Jiménez, Costa Rica
+                    Sitio Web · Hospedaje · Jiménez, Costa Rica
                   </p>
                 </div>
                 <div className="flex items-center gap-3">

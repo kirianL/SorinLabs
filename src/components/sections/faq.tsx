@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "¿Cómo es el proceso de trabajo?",
     answer:
-      "Cada proyecto comienza con una pregunta simple: ¿cómo debería sentirse la experiencia para la persona que va a usar este producto? A partir de ahí, pasamos por tres fases: descubrimiento, diseño y desarrollo, y lanzamiento — siempre con comunicación transparente.",
+      "Cada proyecto comienza con una pregunta simple: ¿cómo debería sentirse la experiencia para la persona que va a usar este producto? A partir de ahí, pasamos por tres fases: descubrimiento, diseño y desarrollo, y lanzamiento. Siempre con comunicación transparente.",
   },
 ];
 

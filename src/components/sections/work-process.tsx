@@ -19,7 +19,7 @@ const steps = [
     num: "03",
     title: "Desarrollo moderno",
     description:
-      "Construimos con React, Next.js y tecnología actual — código limpio, rápido y preparado para el futuro.",
+      "Construimos con React, Next.js y tecnología actual: código limpio, rápido y preparado para el futuro.",
   },
   {
     num: "04",

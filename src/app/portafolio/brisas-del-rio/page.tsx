@@ -10,7 +10,7 @@ const project = {
   subtitle:
     "Diseño y desarrollo integral de un sitio web para un proyecto de hospedaje y restaurante ubicado en Jiménez de Pococi, Costa Rica. La propuesta digital fue pensada para transmitir la esencia del lugar: naturaleza, tranquilidad y una experiencia gastronómica criolla de autor, todo reflejado en una interfaz moderna, inmersiva y optimizada para conversión.",
   category: "Sitio Web · Hospedaje",
-  location: "Jiménez, Pococi — Costa Rica",
+  location: "Jiménez, Pococi · Costa Rica",
   year: "2025",
   role: "Diseño Full Stack · Desarrollo Web",
   heroImage: "/works/BrisasDelRio/HeroBrisasDelRio.png",
@@ -55,7 +55,7 @@ export default function BrisasDelRioCaseStudy() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       {/* Hero */}
-      <section className="relative pt-32 pb-16">
+      <section className="relative pt-32 pb-12">
         <div
           className="absolute inset-0 z-0 opacity-40"
           style={{
@@ -78,8 +78,8 @@ export default function BrisasDelRioCaseStudy() {
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            <div>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+            <div className="max-w-2xl">
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -91,7 +91,7 @@ export default function BrisasDelRioCaseStudy() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.08] mb-5"
+                className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-[1.08] mb-4"
               >
                 {project.title}
               </motion.h1>
@@ -99,7 +99,7 @@ export default function BrisasDelRioCaseStudy() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-base text-white/35 leading-relaxed"
+                className="text-[15px] text-white/35 leading-relaxed"
               >
                 {project.subtitle}
               </motion.p>
@@ -108,13 +108,13 @@ export default function BrisasDelRioCaseStudy() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 }}
-              className="flex flex-col gap-4 lg:items-end lg:justify-end"
+              className="flex flex-col items-start lg:items-end gap-3 shrink-0"
             >
               <p className="text-[13px] text-white/25">{project.role}</p>
               <Link
                 href={project.liveUrl}
                 target="_blank"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-[#0a0a0f] transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:scale-[1.02] w-fit"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-[#0a0a0f] transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:scale-[1.02]"
               >
                 Ver sitio en vivo
                 <ArrowUpRight
@@ -138,7 +138,7 @@ export default function BrisasDelRioCaseStudy() {
           >
             <Image
               src={project.heroImage}
-              alt={`${project.title} — Hero`}
+              alt={`${project.title} hero`}
               width={1400}
               height={788}
               className="w-full h-auto"
@@ -148,25 +148,25 @@ export default function BrisasDelRioCaseStudy() {
         </div>
       </section>
 
-      {/* Objetivo + Reto */}
-      <section className="py-24 lg:py-32 bg-[#f5f5f3]">
+      {/* Objetivo + Reto + Página en un solo bloque compacto */}
+      <section className="py-20 lg:py-24 bg-[#f5f5f3]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-16">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-bold text-[#111] tracking-tight mb-5">
+              <h2 className="text-xl font-bold text-[#111] tracking-tight mb-4">
                 Objetivo del Proyecto
               </h2>
               <p className="text-[15px] text-[#666] leading-relaxed">
                 Crear una presencia digital sólida y profesional para Brisas del
                 Río que permitiera conectar con potenciales huéspedes y
                 comensales de forma directa. El sitio debía funcionar como una
-                vitrina digital del lugar — transmitiendo la experiencia de
-                estar ahí: el sonido del río, la vegetación tropical, la calidez
-                de las cabañas y el sabor de la gastronomía local. Además, debía
+                vitrina digital del lugar, transmitiendo la experiencia de estar
+                ahí: el sonido del río, la vegetación tropical, la calidez de
+                las cabañas y el sabor de la gastronomía local. Además, debía
                 facilitar el proceso de reserva y consulta de disponibilidad de
                 forma intuitiva y rápida.
               </p>
@@ -177,7 +177,7 @@ export default function BrisasDelRioCaseStudy() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <h2 className="text-2xl font-bold text-[#111] tracking-tight mb-5">
+              <h2 className="text-xl font-bold text-[#111] tracking-tight mb-4">
                 Retos Abordados
               </h2>
               <p className="text-[15px] text-[#666] leading-relaxed">
@@ -187,121 +187,135 @@ export default function BrisasDelRioCaseStudy() {
                 el restaurante eran esenciales para la propuesta visual, pero
                 debían cargarse de forma eficiente en conexiones móviles.
                 También fue necesario diseñar un flujo de navegación que guiara
-                a diferentes tipos de visitantes — desde personas buscando
-                hospedaje hasta quienes solo querían conocer el restaurante —
-                sin saturar la interfaz con información innecesaria.
+                a diferentes tipos de visitantes, desde personas buscando
+                hospedaje hasta quienes solo querían conocer el restaurante, sin
+                saturar la interfaz con información innecesaria.
               </p>
             </motion.div>
           </div>
+
+          {/* Page screenshot dentro de la misma sección */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden border border-[#e8e8e6]"
+          >
+            <Image
+              src={project.pageImage}
+              alt={`${project.title} hospedaje`}
+              width={1400}
+              height={800}
+              className="w-full h-auto"
+            />
+          </motion.div>
         </div>
       </section>
 
-      {/* Page image + Key sections — 2 columns */}
-      <section className="py-24 lg:py-32 bg-[#0a0a0f]">
+      {/* Detalles compactos: 3 columnas */}
+      <section className="py-20 lg:py-24 bg-[#0a0a0f]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Image */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Secciones Clave */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 rounded-2xl overflow-hidden border border-white/[0.06]"
+              className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
             >
-              <Image
-                src={project.pageImage}
-                alt={`${project.title} — Hospedaje`}
-                width={900}
-                height={520}
-                className="w-full h-auto"
-              />
+              <h3 className="text-base font-bold text-white mb-4 tracking-tight">
+                Secciones Clave
+              </h3>
+              <div className="space-y-2.5">
+                {sections.map((s) => (
+                  <div key={s} className="flex items-start gap-2.5">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/[0.06] mt-0.5">
+                      <Check
+                        size={9}
+                        strokeWidth={3}
+                        className="text-white/50"
+                      />
+                    </span>
+                    <span className="text-[13px] text-white/40 leading-snug">
+                      {s}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
-            {/* Details sidebar */}
+            {/* Enfoque Conceptual */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="lg:col-span-5 flex flex-col gap-8"
+              transition={{ delay: 0.08 }}
+              className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
             >
-              {/* Secciones Clave */}
-              <div className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6">
-                <h3 className="text-lg font-bold text-white mb-4 tracking-tight">
-                  Secciones Clave
-                </h3>
-                <div className="space-y-2.5">
-                  {sections.map((s) => (
-                    <div key={s} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
-                        <Check
-                          size={11}
-                          strokeWidth={2.5}
-                          className="text-white/50"
-                        />
-                      </span>
-                      <span className="text-[14px] text-white/40">{s}</span>
-                    </div>
-                  ))}
-                </div>
+              <h3 className="text-base font-bold text-white mb-4 tracking-tight">
+                Enfoque Conceptual
+              </h3>
+              <div className="space-y-2.5">
+                {conceptItems.map((c) => (
+                  <div key={c} className="flex items-start gap-2.5">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/[0.06] mt-0.5">
+                      <Check
+                        size={9}
+                        strokeWidth={3}
+                        className="text-white/50"
+                      />
+                    </span>
+                    <span className="text-[13px] text-white/40 leading-snug">
+                      {c}
+                    </span>
+                  </div>
+                ))}
               </div>
+            </motion.div>
 
-              {/* Enfoque Conceptual */}
-              <div className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6">
-                <h3 className="text-lg font-bold text-white mb-4 tracking-tight">
-                  Enfoque Conceptual
-                </h3>
-                <div className="space-y-2.5">
-                  {conceptItems.map((c) => (
-                    <div key={c} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
-                        <Check
-                          size={11}
-                          strokeWidth={2.5}
-                          className="text-white/50"
-                        />
-                      </span>
-                      <span className="text-[14px] text-white/40">{c}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* UX */}
-              <div className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6">
-                <h3 className="text-lg font-bold text-white mb-4 tracking-tight">
-                  Experiencia de Usuario
-                </h3>
-                <div className="space-y-2.5">
-                  {uxItems.map((u) => (
-                    <div key={u} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/[0.06]">
-                        <Check
-                          size={11}
-                          strokeWidth={2.5}
-                          className="text-white/50"
-                        />
-                      </span>
-                      <span className="text-[14px] text-white/40">{u}</span>
-                    </div>
-                  ))}
-                </div>
+            {/* UX */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.16 }}
+              className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
+            >
+              <h3 className="text-base font-bold text-white mb-4 tracking-tight">
+                Experiencia de Usuario
+              </h3>
+              <div className="space-y-2.5">
+                {uxItems.map((u) => (
+                  <div key={u} className="flex items-start gap-2.5">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/[0.06] mt-0.5">
+                      <Check
+                        size={9}
+                        strokeWidth={3}
+                        className="text-white/50"
+                      />
+                    </span>
+                    <span className="text-[13px] text-white/40 leading-snug">
+                      {u}
+                    </span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Tech + Implementation */}
-      <section className="py-24 lg:py-28 bg-[#f5f5f3]">
+      {/* Tech + Implementation inline */}
+      <section className="py-20 lg:py-24 bg-[#f5f5f3]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Stack */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-bold text-[#111] tracking-tight mb-6">
+              <h2 className="text-xl font-bold text-[#111] tracking-tight mb-5">
                 Tecnologías
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -323,20 +337,22 @@ export default function BrisasDelRioCaseStudy() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <h2 className="text-2xl font-bold text-[#111] tracking-tight mb-6">
+              <h2 className="text-xl font-bold text-[#111] tracking-tight mb-5">
                 Implementación Técnica
               </h2>
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {techItems.map((t) => (
-                  <div key={t} className="flex items-center gap-3">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#111]">
+                  <div key={t} className="flex items-start gap-2.5">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#111] mt-0.5">
                       <Check
                         size={11}
                         strokeWidth={2.5}
                         className="text-white"
                       />
                     </span>
-                    <span className="text-[15px] text-[#555]">{t}</span>
+                    <span className="text-[14px] text-[#555] leading-relaxed">
+                      {t}
+                    </span>
                   </div>
                 ))}
               </div>
