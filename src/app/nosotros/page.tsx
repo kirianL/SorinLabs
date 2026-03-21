@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Sparkles, Target, Lightbulb } from "lucide-react";
+import Image from "next/image";
 
 const principles = [
   {
@@ -106,6 +107,70 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section className="py-24 lg:py-32 bg-[#f5f5f3] border-t border-[#e8e8e6]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -32 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden">
+                {/* Duotone overlay */}
+                <div className="absolute inset-0 z-10 bg-[#261cc1] mix-blend-color opacity-60 pointer-events-none" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#261cc1]/30 to-transparent pointer-events-none" />
+                <Image
+                  src="/images/KirianProfile.png"
+                  alt="Kirian Luna — Fundador de Sorin Labs"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </motion.div>
+
+            {/* Text */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <p className="text-sm font-medium tracking-widest uppercase text-[#261cc1] mb-3">
+                Historia del fundador
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#111] leading-[1.08] mb-8">
+                Kirian Luna
+              </h2>
+              <div className="space-y-5 text-[15px] text-[#666] leading-relaxed">
+                <p>
+                  Kirian fundó Sorin Labs con una visión clara: crear experiencias
+                  digitales donde el diseño y la tecnología se integren de forma
+                  natural para generar resultados reales.
+                </p>
+                <p>
+                  Ingeniero en Sistemas Computacionales con más de 2 años de
+                  experiencia diseñando y desarrollando sitios web — desde landing
+                  pages de alto impacto hasta plataformas completas — con un
+                  enfoque especial en la experiencia de usuario, la interfaz visual
+                  y la seguridad.
+                </p>
+                <p>
+                  Su filosofía es simple: cada proyecto merece atención al
+                  detalle, un diseño intencional y tecnología moderna que
+                  funcione para las personas que lo van a usar.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
