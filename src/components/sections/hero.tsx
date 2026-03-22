@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
@@ -8,14 +9,39 @@ import TextRotate from "@/components/fancy/text-rotate";
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [heroHeight, setHeroHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsMobile(true);
+        setHeroHeight(window.innerHeight);
+      } else {
+        setIsMobile(false);
+        setHeroHeight(null);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("orientationchange", handleResize);
+    // Note: We deliberately do NOT listen to "resize" on mobile to avoid 
+    // the height changing rapidly while scrolling up/down (which causes jumps).
+    return () => window.removeEventListener("orientationchange", handleResize);
+  }, []);
+
   return (
-    <section className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 md:h-[100svh] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6">
+    <section 
+      className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 md:h-[100svh] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6"
+      style={isMobile && heroHeight ? { height: `${heroHeight}px` } : {}}
+    >
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-[1400px] w-full flex-none h-[calc(100svh-104px)] min-h-[460px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
+        className="relative mx-auto max-w-[1400px] w-full flex-none min-h-[460px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
+        style={isMobile && heroHeight ? { height: `${heroHeight - 104}px` } : { height: "calc(100svh - 104px)" }}
       >
         {/* Background image */}
         <Image
