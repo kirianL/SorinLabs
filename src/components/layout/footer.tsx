@@ -3,17 +3,11 @@ import Image from "next/image";
 import { ArrowRight, Instagram, Facebook } from "lucide-react";
 
 const footerLinks = {
-  servicios: [
-    { href: "/servicios#sitios-web", label: "Sitios Web" },
-    { href: "/servicios#diseno", label: "Diseño UI/UX" },
-    { href: "/servicios#plataformas", label: "Plataformas" },
-    { href: "/servicios#rendimiento", label: "Rendimiento" },
-  ],
-  empresa: [
+  explorar: [
+    { href: "/portafolio", label: "Trabajo" },
+    { href: "/servicios", label: "Servicios" },
+    { href: "/metodologia", label: "Método" },
     { href: "/nosotros", label: "Nosotros" },
-    { href: "/metodologia", label: "Metodología" },
-    { href: "/portafolio", label: "Portafolio" },
-    { href: "/contacto", label: "Contacto" },
   ],
 };
 
@@ -38,7 +32,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://threads.net/sorinlabs",
+    href: "https://threads.net/@sorinlabs",
     label: "Threads",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -85,24 +79,9 @@ export function Footer() {
           {/* Links */}
           <div className="lg:col-span-4 flex gap-16 sm:gap-24">
             <div>
-              <h4 className="mb-6 text-sm font-bold text-white">Servicios</h4>
+              <h4 className="mb-6 text-sm font-bold text-white">Explorar</h4>
               <ul className="flex flex-col gap-4">
-                {footerLinks.servicios.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm font-medium text-white/60 transition-colors hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-6 text-sm font-bold text-white">Empresa</h4>
-              <ul className="flex flex-col gap-4">
-                {footerLinks.empresa.map((link) => (
+                {footerLinks.explorar.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -124,15 +103,15 @@ export function Footer() {
               juntos.
             </p>
             <div className="flex w-full items-center">
-              <Link
-                href="/contacto"
+              <a
+                href="mailto:kirianluna.u@gmail.com"
                 className="flex w-full items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white/50 transition-colors hover:border-white/20"
               >
-                <span>hello@sorinlabs.com</span>
+                <span>kirianluna.u@gmail.com</span>
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black transition-transform hover:scale-105">
                   <ArrowRight size={16} />
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

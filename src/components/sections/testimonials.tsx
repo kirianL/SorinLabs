@@ -96,7 +96,7 @@ export function Testimonials() {
           </div>
 
           {/* AnimatePresence for smooth transitions */}
-          <div className="min-h-[260px] sm:min-h-[220px] lg:min-h-[200px]">
+          <div className="relative h-[280px] sm:h-[220px] lg:h-[200px]">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={current}

@@ -47,7 +47,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-[100dvh] bg-[#0a0a0f]">
       {/* Hero */}
       <section className="relative pt-36 pb-16 lg:pb-20">
         <div

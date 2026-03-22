@@ -9,7 +9,7 @@ const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
+    <section className="relative min-h-[100dvh] bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}

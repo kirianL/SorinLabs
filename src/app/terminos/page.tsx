@@ -11,7 +11,7 @@ export default function TermsPage() {
   const lastUpdated = "26 de Febrero, 2026";
 
   return (
-    <div className="pt-32 pb-24 min-h-screen border-t border-white/5 bg-[#080808]">
+    <div className="pt-32 pb-24 min-h-[100dvh] border-t border-white/5 bg-[#080808]">
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
         <ScrollReveal>
           <SectionHeading

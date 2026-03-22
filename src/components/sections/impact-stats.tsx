@@ -5,27 +5,27 @@ import { useRef, useEffect, useState } from "react";
 
 const stats = [
   {
-    value: 50,
+    value: 10,
     suffix: "+",
-    label: "Sitios optimizados",
-    description: "para rendimiento",
+    label: "Proyectos completados",
+    description: "con éxito",
   },
   {
-    value: 30,
+    value: 2,
     suffix: "+",
-    label: "Experiencias diseñadas",
-    description: "con intención",
+    label: "Años de experiencia",
+    description: "en diseño digital",
   },
   {
     value: 100,
     suffix: "%",
-    label: "Proyectos entregados",
-    description: "a tiempo",
+    label: "Satisfacción",
+    description: "de clientes",
   },
   {
     value: 5,
     suffix: "★",
-    label: "Satisfacción de clientes",
+    label: "Calificación",
     description: "promedio",
   },
 ];

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Menu } from "lucide-react";
 
@@ -16,6 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -174,7 +176,11 @@ export function Navbar() {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="group flex items-center justify-between py-5 border-b border-white/[0.06]"
                     >
-                      <span className="text-2xl font-semibold tracking-tight text-white transition-colors group-hover:text-[#4d45d4]">
+                      <span
+                        className={`text-2xl font-semibold tracking-tight transition-colors group-hover:text-[#4d45d4] ${
+                          pathname === link.href ? "text-[#261cc1]" : "text-white"
+                        }`}
+                      >
                         {link.label}
                       </span>
                       <span className="text-[11px] tracking-widest text-white/15 font-mono">
@@ -197,7 +203,11 @@ export function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="group flex items-center justify-between py-5 border-b border-white/[0.06]"
                   >
-                    <span className="text-2xl font-semibold tracking-tight text-[#4d45d4] transition-colors group-hover:text-white">
+                    <span
+                      className={`text-2xl font-semibold tracking-tight transition-colors group-hover:text-[#4d45d4] ${
+                        pathname === "/contacto" ? "text-[#261cc1]" : "text-white"
+                      }`}
+                    >
                       CONTACTO
                     </span>
                     <span className="text-[11px] tracking-widest text-white/15 font-mono">

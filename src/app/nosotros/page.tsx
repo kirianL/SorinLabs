@@ -51,7 +51,7 @@ const itemVariants = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-[100dvh] bg-[#0a0a0f]">
       {/* Hero */}
       <section className="relative pt-36 pb-20 lg:pb-28">
         <div
@@ -69,7 +69,7 @@ export default function AboutPage() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] max-w-3xl"
           >
             Donde el diseño y la tecnología{" "}
-            <span className="text-[#261cc1]">se encuentran.</span>
+            <span className="text-white">se encuentran.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -158,8 +158,8 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Ingeniero en Sistemas Computacionales con más de 2 años de
-                  experiencia diseñando y desarrollando sitios web — desde landing
-                  pages de alto impacto hasta plataformas completas — con un
+                  experiencia diseñando y desarrollando sitios web, desde landing
+                  pages de alto impacto hasta plataformas completas, con un
                   enfoque especial en la experiencia de usuario, la interfaz visual
                   y la seguridad.
                 </p>

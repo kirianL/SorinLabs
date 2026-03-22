@@ -86,7 +86,7 @@ const itemVariants = {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-[100dvh] bg-[#0a0a0f]">
       {/* Hero */}
       <section className="relative pt-36 pb-20 lg:pb-28">
         <div

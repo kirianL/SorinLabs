@@ -4,7 +4,6 @@ import { FeaturedProjects } from "@/components/sections/featured-projects";
 import { WorkProcess } from "@/components/sections/work-process";
 import { ImpactStats } from "@/components/sections/impact-stats";
 import { Testimonials } from "@/components/sections/testimonials";
-import { ArticlesSection } from "@/components/sections/articles";
 import { ServicesSection } from "@/components/sections/services-section";
 import { FinalCta } from "@/components/sections/cta-final";
 
@@ -17,7 +16,6 @@ export default function Home() {
       <WorkProcess />
       <ImpactStats />
       <Testimonials />
-      <ArticlesSection />
       <ServicesSection />
       <FinalCta />
     </>

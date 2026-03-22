@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { CookieBanner } from "@/components/ui/cookie-banner";
 
 const geistSans = localFont({
   src: [
@@ -167,9 +166,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-[100dvh]">{children}</main>
         <Footer />
-        <CookieBanner />
       </body>
     </html>
   );
