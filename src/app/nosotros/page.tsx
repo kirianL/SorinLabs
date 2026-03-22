@@ -2,18 +2,16 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { 
-  Rocket, 
-  Diamond, 
-  Brain, 
-  Code2, 
-  Palette, 
-  MousePointer2, 
-  Zap, 
-  ShieldCheck,
-  Eye,
-  Settings
-} from "lucide-react";
+import { RocketIcon as Rocket } from "@/components/ui/rocket";
+import { SparklesIcon as Diamond } from "@/components/ui/sparkles";
+import { BrainIcon as Brain } from "@/components/ui/brain";
+import { TerminalIcon as Code2 } from "@/components/ui/terminal";
+import { PenToolIcon as Palette } from "@/components/ui/pen-tool";
+import { CursorClickIcon as MousePointer2 } from "@/components/ui/cursor-click";
+import { ZapIcon as Zap } from "@/components/ui/zap";
+import { ShieldCheckIcon as ShieldCheck } from "@/components/ui/shield-check";
+import { EyeIcon as Eye } from "@/components/ui/eye";
+import { SettingsIcon as Settings } from "@/components/ui/settings";
 
 const values = [
   { value: "2026", label: "Fundado en" },
@@ -102,7 +100,7 @@ export default function AboutPage() {
             ].map((p, i) => (
               <motion.div key={i} variants={itemVariants} className="p-8 rounded-3xl bg-[#f5f5f3] border border-[#e8e8e6] hover:shadow-lg transition-shadow">
                 <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6">
-                  <p.icon className="text-[#261cc1]" size={24} strokeWidth={1.5} />
+                  <p.icon className="text-[#261cc1]" size={24} />
                 </div>
                 <h3 className="font-bold text-[#111] text-xl mb-3">{p.title}</h3>
                 <p className="text-[#666] text-[15px] leading-relaxed">{p.desc}</p>
@@ -151,7 +149,7 @@ export default function AboutPage() {
               className="md:col-span-5 md:row-span-2 p-8 lg:p-10 rounded-3xl bg-white/[0.03] border border-white/[0.08] flex flex-col justify-between group hover:bg-white/[0.05] hover:border-white/10 transition-colors"
             >
               <div>
-                <Diamond className="text-[#261cc1] mb-6" size={32} strokeWidth={1.5} />
+                <Diamond className="text-[#261cc1] mb-6" size={32} />
                 <h3 className="text-3xl font-bold text-white mb-8 tracking-tight">Propuesta de valor</h3>
                 <ul className="space-y-6">
                   {[
@@ -163,7 +161,7 @@ export default function AboutPage() {
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="flex bg-white/5 p-2.5 rounded-xl border border-white/5 items-center justify-center">
-                        <item.icon className="text-[#261cc1] shrink-0" size={20} strokeWidth={2} />
+                        <item.icon className="text-[#261cc1] shrink-0" size={20} />
                       </div>
                       <span className="text-white/80 font-medium text-[16px]">{item.text}</span>
                     </li>
@@ -178,14 +176,14 @@ export default function AboutPage() {
               className="md:col-span-7 p-8 lg:p-10 rounded-3xl bg-[#261cc1] relative overflow-hidden group flex flex-col justify-center"
             >
               <div className="relative z-10">
-                <Rocket className="text-white mb-6" size={32} strokeWidth={1.5} />
+                <Rocket className="text-white mb-6" size={32} />
                 <h3 className="text-2xl font-bold text-white mb-4">Misión</h3>
                 <p className="text-[17px] text-white/90 font-medium leading-relaxed max-w-xl">
                   Desarrollar sistemas web con altos estándares de calidad técnica, cuidando el diseño visual y la UX, para crear productos eficientes preparados para evolucionar.
                 </p>
               </div>
               <div className="absolute right-[-20px] bottom-[-40px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
-                <Rocket size={240} strokeWidth={1} />
+                <Rocket size={240} />
               </div>
             </motion.div>
 
@@ -195,14 +193,14 @@ export default function AboutPage() {
               className="md:col-span-3 sm:col-span-6 p-8 rounded-3xl bg-[#261cc1] relative overflow-hidden group"
             >
               <div className="relative z-10">
-                <Eye className="text-white mb-5" size={28} strokeWidth={1.5} />
+                <Eye className="text-white mb-5" size={28} />
                 <h3 className="text-xl font-bold text-white mb-3">Visión</h3>
                 <p className="text-[14px] text-white/90 font-medium leading-relaxed">
                   Ser un estudio digital de referencia donde la ingeniería estricta y el diseño hermoso convergen.
                 </p>
               </div>
               <div className="absolute right-[-20px] bottom-[-20px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
-                <Eye size={180} strokeWidth={1} />
+                <Eye size={180} />
               </div>
             </motion.div>
 
@@ -212,14 +210,14 @@ export default function AboutPage() {
               className="md:col-span-4 sm:col-span-6 p-8 rounded-3xl bg-[#261cc1] relative overflow-hidden group"
             >
               <div className="relative z-10">
-                <Zap className="text-white mb-5" size={28} strokeWidth={1.5} />
+                <Zap className="text-white mb-5" size={28} />
                 <h3 className="text-xl font-bold text-white mb-4">Filosofía</h3>
                 <p className="text-[15px] text-white/90 font-medium leading-relaxed">
                   Programación y diseño no operan separados. <br/>Cuando trabajan juntos, la experiencia mejora y el producto resulta inquebrantable.
                 </p>
               </div>
               <div className="absolute right-[-20px] bottom-[-20px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
-                <Brain size={180} strokeWidth={1} />
+                <Brain size={180} />
               </div>
             </motion.div>
 
