@@ -31,7 +31,7 @@ const itemVariants = {
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-[100dvh] bg-[#0a0a0f]">
+    <div className="min-h-[100svh] bg-[#0a0a0f]">
       {/* Hero */}
       <section className="relative pt-36 pb-20 lg:pb-28">
         <div

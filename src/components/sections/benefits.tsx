@@ -32,40 +32,40 @@ const benefits = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.08 },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: "easeOut" as const },
   },
 };
 
 export function BenefitsSection() {
   return (
     <section className="relative py-28 lg:py-36 bg-[#f5f5f3]">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-40px" }}
+        className="mx-auto max-w-7xl px-5 sm:px-8"
+      >
         {/* Section header */}
         <div className="max-w-2xl mb-16 lg:mb-20">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08 }}
+            variants={itemVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111] leading-[1.1] mb-5"
           >
             Diseño web pensado para{" "}
             <span className="text-[#111]/25">personas.</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
+            variants={itemVariants}
             className="text-base text-[#888] leading-relaxed"
           >
             Creamos experiencias digitales donde cada detalle está construido
@@ -74,22 +74,17 @@ export function BenefitsSection() {
         </div>
 
         {/* 4-cards grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {benefits.map((b) => (
             <motion.div
               key={b.title}
-              variants={cardVariants}
+              variants={itemVariants}
               whileHover={{
                 y: -4,
-                transition: { duration: 0.25 },
+                scale: 1.01,
+                transition: { duration: 0.2 },
               }}
-              className="group relative rounded-2xl bg-white border border-[#e8e8e6] p-7 lg:p-8 transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-[#ccc]"
+              className="group relative rounded-2xl bg-white border border-[#e8e8e6] p-7 lg:p-8 transition-shadow hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-[#ccc]"
             >
               {/* Large number */}
               <span className="text-[3rem] font-bold text-[#111]/[0.04] leading-none tracking-tighter select-none group-hover:text-[#111]/[0.08] transition-colors duration-500">
@@ -104,8 +99,8 @@ export function BenefitsSection() {
               </p>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

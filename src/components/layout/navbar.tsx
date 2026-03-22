@@ -131,7 +131,7 @@ export function Navbar() {
               right: 0,
               bottom: 0,
               width: "100vw",
-              height: "100dvh",
+              height: "100svh",
               backgroundColor: "#0a0a0f",
               zIndex: 60,
               display: "flex",
