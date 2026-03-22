@@ -9,13 +9,13 @@ const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
   return (
-    <section className="relative h-[620px] md:h-[100svh] md:min-h-[700px] bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
+    <section className="relative min-h-[100dvh] bg-[#0a0a0f] flex flex-col pt-24 pb-8 px-4 sm:px-6">
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-[1400px] h-full rounded-3xl border border-white/[0.08] overflow-hidden"
+        className="relative mx-auto max-w-[1400px] w-full h-[600px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
       >
         {/* Background image */}
         <Image
@@ -40,7 +40,7 @@ export function HeroSection() {
         />
 
         {/* Content — centered */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 sm:px-12 text-center pt-8">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 sm:px-12 text-center pb-4">
           {/* Small cross detail */}
           <motion.span
             initial={{ opacity: 0, rotate: -90 }}
@@ -60,7 +60,7 @@ export function HeroSection() {
           >
             <span className="block">Ingeniería</span>
             <span className="flex flex-col sm:flex-row items-center justify-center sm:items-baseline gap-2 sm:gap-3 mt-1 sm:mt-2">
-              <span className="text-white/25 font-bold whitespace-nowrap">
+              <span className="text-white/30 font-bold whitespace-nowrap">
                 para el
               </span>
               <TextRotate
@@ -76,7 +76,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="mt-8 max-w-md text-[15px] sm:text-base text-white/40 leading-relaxed font-light"
+            className="mt-6 sm:mt-8 max-w-md text-[15px] sm:text-base text-white/40 leading-relaxed font-light"
           >
             Construimos plataformas y sistemas digitales con precisión técnica y
             diseño intencional.
@@ -87,17 +87,17 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.5 }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+            className="mt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
           >
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-white/[0.1] backdrop-blur-sm border border-white/[0.15] px-7 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/[0.18] hover:border-white/25"
+              className="inline-flex items-center gap-2 rounded-full bg-white/[0.1] backdrop-blur-sm border border-white/[0.15] px-8 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/[0.18] hover:border-white/25"
             >
               Empezar proyecto
             </Link>
             <Link
               href="/portafolio"
-              className="text-sm font-medium text-white/25 hover:text-white/50 transition-colors"
+              className="text-sm font-medium text-white/30 hover:text-white/60 transition-colors"
             >
               Ver portafolio →
             </Link>
@@ -127,7 +127,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-6 left-0 right-0 z-10 overflow-hidden"
+          className="absolute bottom-5 left-0 right-0 z-10 overflow-hidden"
         >
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
