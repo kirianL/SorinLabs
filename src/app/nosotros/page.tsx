@@ -70,7 +70,7 @@ export default function AboutPage() {
       </section>
 
       {/* Esencia */}
-      <section className="bg-[#f5f5f3] pt-24 pb-16 lg:pt-32 lg:pb-24 rounded-t-[2.5rem] mt-[-3rem] relative z-20">
+      <section className="bg-[#f5f5f3] pt-24 pb-16 lg:pt-32 lg:pb-24">
         <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center text-[#111]">
           <motion.h2 
             initial={{ opacity: 0, y: 24 }}
