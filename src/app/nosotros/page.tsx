@@ -175,27 +175,35 @@ export default function AboutPage() {
             {/* Misión (Top Right) */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="md:col-span-7 p-8 lg:p-10 rounded-3xl bg-gradient-to-br from-[#261cc1]/10 to-transparent border border-[#261cc1]/20 flex flex-col justify-center"
+              className="md:col-span-7 p-8 lg:p-10 rounded-3xl bg-[#261cc1] relative overflow-hidden group flex flex-col justify-center"
             >
-              <h3 className="text-2xl font-bold text-white mb-5 flex items-center gap-3">
-                <span className="bg-[#261cc1]/20 p-2 rounded-lg"><Rocket size={20} className="text-[#261cc1]"/></span>
-                Misión
-              </h3>
-              <p className="text-[17px] text-white/80 leading-relaxed font-light">
-                Desarrollar sistemas web con altos estándares de calidad técnica, cuidando el diseño visual y la UX, para crear productos eficientes preparados para evolucionar.
-              </p>
+              <div className="relative z-10">
+                <Rocket className="text-white mb-6" size={32} strokeWidth={1.5} />
+                <h3 className="text-2xl font-bold text-white mb-4">Misión</h3>
+                <p className="text-[17px] text-white/90 font-medium leading-relaxed max-w-xl">
+                  Desarrollar sistemas web con altos estándares de calidad técnica, cuidando el diseño visual y la UX, para crear productos eficientes preparados para evolucionar.
+                </p>
+              </div>
+              <div className="absolute right-[-20px] bottom-[-40px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
+                <Rocket size={240} strokeWidth={1} />
+              </div>
             </motion.div>
 
             {/* Visión (Bottom Right split 1) */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-              className="md:col-span-3 sm:col-span-6 p-8 rounded-3xl bg-white/[0.03] border border-white/[0.08]"
+              className="md:col-span-3 sm:col-span-6 p-8 rounded-3xl bg-[#261cc1] relative overflow-hidden group"
             >
-              <Eye className="text-white/30 mb-5" size={28} strokeWidth={1.5} />
-              <h3 className="text-xl font-bold text-white mb-3">Visión</h3>
-              <p className="text-[14px] text-white/60 leading-relaxed">
-                Ser un estudio digital de referencia donde la ingeniería estricta y el diseño hermoso convergen.
-              </p>
+              <div className="relative z-10">
+                <Eye className="text-white mb-5" size={28} strokeWidth={1.5} />
+                <h3 className="text-xl font-bold text-white mb-3">Visión</h3>
+                <p className="text-[14px] text-white/90 font-medium leading-relaxed">
+                  Ser un estudio digital de referencia donde la ingeniería estricta y el diseño hermoso convergen.
+                </p>
+              </div>
+              <div className="absolute right-[-20px] bottom-[-20px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
+                <Eye size={180} strokeWidth={1} />
+              </div>
             </motion.div>
 
             {/* Filosofía (Bottom Right split 2) */}
