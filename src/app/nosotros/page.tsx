@@ -268,8 +268,8 @@ export default function AboutPage() {
                 Kirian Luna
               </h2>
               <div className="space-y-6 text-[16px] text-[#666] leading-relaxed">
-                <p className="text-xl text-[#111] font-semibold border-l-[3px] border-[#261cc1] pl-5 py-1">
-                  "Fundé Sorin Labs con una visión muy clara: el buen diseño y el código sólido no son opcionales, son la base absoluta."
+                <p className="text-[22px] md:text-2xl text-[#111] font-bold tracking-tight border-l-[4px] border-[#261cc1] pl-5 py-2">
+                  "Fundé Sorin Labs para demostrar que el código robusto y el diseño excepcional no tienen por qué estar separados."
                 </p>
                 <p className="pt-2">
                   Ingeniero en Sistemas Computacionales enfocado en crear plataformas eficientes, seguras y altamente optimizadas, respaldado por más de 2 años de experiencia directa.
