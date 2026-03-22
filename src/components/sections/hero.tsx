@@ -9,7 +9,7 @@ const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
   return (
-    <section className="relative h-[100svh] min-h-[540px] md:min-h-[600px] bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
+    <section className="relative h-[620px] md:h-[100svh] md:min-h-[700px] bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
@@ -40,13 +40,13 @@ export function HeroSection() {
         />
 
         {/* Content — centered */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 sm:px-12 text-center">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 sm:px-12 text-center pt-8">
           {/* Small cross detail */}
           <motion.span
             initial={{ opacity: 0, rotate: -90 }}
             animate={{ opacity: 0.3, rotate: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-white text-xl font-extralight mb-8 select-none"
+            className="text-white text-xl font-extralight mb-6 select-none"
           >
             +
           </motion.span>
@@ -56,7 +56,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[0.92]"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05]"
           >
             <span className="block">Ingeniería</span>
             <span className="flex flex-col sm:flex-row items-center justify-center sm:items-baseline gap-2 sm:gap-3 mt-1 sm:mt-2">
@@ -109,7 +109,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.6 }}
-          className="absolute top-6 left-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium"
+          className="absolute top-6 left-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium hidden sm:block"
         >
           Sorin Labs ©
         </motion.span>
@@ -117,7 +117,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.6 }}
-          className="absolute top-6 right-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium"
+          className="absolute top-6 right-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium hidden sm:block"
         >
           Costa Rica
         </motion.span>
