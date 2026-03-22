@@ -9,13 +9,13 @@ const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100svh] bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
+    <section className="relative h-[100svh] min-h-[540px] md:min-h-[600px] bg-[#0a0a0f] pt-24 pb-8 px-4 sm:px-6">
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-[1400px] h-[calc(100svh-8rem)] min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
+        className="relative mx-auto max-w-[1400px] h-full rounded-3xl border border-white/[0.08] overflow-hidden"
       >
         {/* Background image */}
         <Image
