@@ -16,56 +16,57 @@ const services = [
     id: "sitios-web",
     icon: Globe,
     num: "01",
-    title: "Sitios Web Modernos",
+    title: "Diseño y desarrollo de páginas web",
     description:
-      "Creamos sitios web claros, funcionales y visualmente bien pensados que comunican el valor de tu marca.",
+      "Creamos páginas web modernas, rápidas y visualmente atractivas que ayudan a tu negocio a verse profesional y generar confianza.",
+    detailsLabel: "Nos enfocamos en que:",
     details: [
-      "Sitios web corporativos premium",
-      "Landing pages de alto impacto",
-      "Rediseño de sitios existentes",
-      "Sitios optimizados para conversión",
-    ],
-  },
-  {
-    id: "diseno",
-    icon: Palette,
-    num: "02",
-    title: "Diseño UI/UX",
-    description:
-      "Interfaces diseñadas con propósito, enfocadas en la experiencia del usuario y la claridad visual.",
-    details: [
-      "Diseño de interfaz (UI) con criterio visual",
-      "Experiencia de usuario (UX) intuitiva",
-      "Prototipado interactivo",
-      "Sistemas de diseño consistentes",
+      "Se vean bien en cualquier dispositivo",
+      "Sean fáciles de usar",
+      "Carguen rápido",
+      "Representen correctamente tu marca"
     ],
   },
   {
     id: "plataformas",
     icon: Layout,
-    num: "03",
-    title: "Plataformas Web",
+    num: "02",
+    title: "Desarrollo de sistemas web a medida",
     description:
-      "Plataformas digitales donde diseño y tecnología trabajan en armonía para crear experiencias completas.",
+      "Construimos herramientas digitales personalizadas para organizar, automatizar y facilitar procesos dentro de tu negocio.",
+    detailsLabel: "Por ejemplo:",
     details: [
-      "Plataformas web a medida",
-      "Paneles administrativos funcionales",
-      "Aplicaciones web interactivas",
-      "Interfaces digitales bien estructuradas",
+      "Paneles para administrar información",
+      "Sistemas internos para tu equipo",
+      "Plataformas para clientes o usuarios"
+    ],
+  },
+  {
+    id: "diseno",
+    icon: Palette,
+    num: "03",
+    title: "Mejora de diseño y experiencia de usuario",
+    description:
+      "Si ya tienes una página o sistema, podemos mejorar su diseño y hacerlo más fácil de usar.",
+    detailsLabel: "Esto ayuda a que:",
+    details: [
+      "Las personas entiendan mejor tu producto",
+      "Naveguen sin confusión",
+      "Tengan una mejor experiencia"
     ],
   },
   {
     id: "rendimiento",
     icon: Rocket,
     num: "04",
-    title: "Optimización & Rendimiento",
+    title: "Optimización y rendimiento",
     description:
-      "Sitios rápidos, eficientes y preparados para evolucionar con tu negocio.",
+      "Hacemos que tu sitio web o sistema funcione mejor, para que todo sea más rápido y eficiente.",
+    detailsLabel: "Mejoramos:",
     details: [
-      "Optimización de rendimiento web",
-      "SEO técnico y buenas prácticas",
-      "Arquitectura preparada para el futuro",
-      "Mejora de experiencia de usuario",
+      "Velocidad de carga",
+      "Organización del contenido",
+      "Fluidez de la navegación"
     ],
   },
 ];
@@ -143,7 +144,7 @@ export default function ServicesPage() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                   {/* Left */}
-                  <div className="lg:col-span-5">
+                  <div className="lg:col-span-5 flex flex-col justify-center">
                     <div className="flex items-center gap-4 mb-5">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#261cc1]/[0.06] border border-[#261cc1]/10">
                         <service.icon
@@ -165,8 +166,13 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Right: checklist */}
-                  <div className="lg:col-span-7">
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div className="lg:col-span-7 flex flex-col justify-center">
+                    {service.detailsLabel && (
+                      <p className="text-[14px] font-semibold text-[#111] mb-4">
+                        {service.detailsLabel}
+                      </p>
+                    )}
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 opacity-90">
                       {service.details.map((detail) => (
                         <li key={detail} className="flex items-start gap-3">
                           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#261cc1]/[0.06] mt-0.5">

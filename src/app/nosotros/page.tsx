@@ -1,32 +1,19 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Sparkles, Target, Lightbulb } from "lucide-react";
 import Image from "next/image";
-
-const principles = [
-  {
-    icon: Sparkles,
-    num: "01",
-    title: "Experiencia primero",
-    description:
-      "Diseñamos pensando en cómo las personas interactúan con el producto. Cada decisión parte de la experiencia del usuario.",
-  },
-  {
-    icon: Target,
-    num: "02",
-    title: "Diseño con intención",
-    description:
-      "Cada espacio, cada interacción y cada transición tiene un propósito claro. Nada es accidental.",
-  },
-  {
-    icon: Lightbulb,
-    num: "03",
-    title: "Tecnología moderna",
-    description:
-      "Utilizamos herramientas actuales para crear sitios rápidos, eficientes y preparados para evolucionar con tu negocio.",
-  },
-];
+import { 
+  Rocket, 
+  Diamond, 
+  Brain, 
+  Code2, 
+  Palette, 
+  MousePointer2, 
+  Zap, 
+  ShieldCheck,
+  Eye,
+  Settings
+} from "lucide-react";
 
 const values = [
   { value: "2024", label: "Fundado en" },
@@ -53,7 +40,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-[100svh] bg-[#0a0a0f]">
       {/* Hero */}
-      <section className="relative pt-36 pb-20 lg:pb-28">
+      <section className="relative pt-36 pb-20 lg:pb-32">
         <div
           className="absolute inset-0 z-0 opacity-40"
           style={{
@@ -75,17 +62,77 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="mt-6 max-w-xl text-base text-white/35 leading-relaxed"
+            className="mt-6 max-w-xl text-lg text-white/50 leading-relaxed font-medium"
           >
-            Sorin Labs nace en Costa Rica con la idea de crear experiencias web
-            donde el diseño y la tecnología trabajen juntos de forma
-            intencional.
+            Sorin Labs es un laboratorio digital enfocado en crear páginas web y sistemas donde la calidad técnica y el diseño bien cuidado trabajan juntos.
           </motion.p>
         </div>
       </section>
 
+      {/* Esencia */}
+      <section className="bg-[#f5f5f3] pt-24 pb-16 lg:pt-32 lg:pb-24 rounded-t-[2.5rem] mt-[-3rem] relative z-20">
+        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center text-[#111]">
+          <motion.h2 
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-[1.2] mb-8"
+          >
+            Nacemos en Costa Rica con la idea de hacer las cosas diferente: no solo desarrollar por desarrollar, sino construir productos digitales que se vean bien, funcionen correctamente y ofrezcan una experiencia clara para las personas.
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="text-lg sm:text-xl text-[#666] leading-relaxed mb-12 max-w-2xl mx-auto"
+          >
+            Creemos que una buena página web no se trata solo de diseño ni solo de programación. <span className="font-semibold text-[#111]">Se trata de cómo ambas cosas se combinan.</span>
+            <br/><br/>
+            Por eso, en cada proyecto cuidamos:
+          </motion.p>
+          
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto mb-16"
+          >
+            <motion.div variants={itemVariants} className="p-8 bg-white rounded-3xl border border-[#e8e8e6] flex flex-col items-center text-center transition-shadow hover:shadow-lg">
+              <Eye className="text-[#261cc1] mb-5" size={32} strokeWidth={1.5} />
+              <p className="font-bold text-lg">cómo se ve</p>
+            </motion.div>
+            <motion.div variants={itemVariants} className="p-8 bg-white rounded-3xl border border-[#e8e8e6] flex flex-col items-center text-center transition-shadow hover:shadow-lg">
+              <MousePointer2 className="text-[#261cc1] mb-5" size={32} strokeWidth={1.5} />
+              <p className="font-bold text-lg">cómo se usa</p>
+            </motion.div>
+            <motion.div variants={itemVariants} className="p-8 bg-white rounded-3xl border border-[#e8e8e6] flex flex-col items-center text-center transition-shadow hover:shadow-lg">
+              <Settings className="text-[#261cc1] mb-5" size={32} strokeWidth={1.5} />
+              <p className="font-bold text-lg">y cómo funciona</p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <p className="text-[17px] text-[#555] leading-relaxed max-w-2xl mx-auto mb-6">
+              Trabajamos con un enfoque donde cada detalle importa, desde la estructura interna hasta la experiencia final del usuario.
+            </p>
+            <p className="text-xl font-semibold text-[#261cc1] leading-relaxed max-w-2xl mx-auto">
+              Nuestro objetivo es crear soluciones digitales que no solo cumplan, sino que realmente aporten valor a quienes las utilizan.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Stats bar */}
-      <section className="bg-[#f5f5f3] py-12">
+      <section className="bg-[#f5f5f3] pb-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
             variants={containerVariants}
@@ -174,85 +221,144 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-24 lg:py-32 bg-[#f5f5f3]">
+      {/* Misión y Visión */}
+      <section className="py-24 lg:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+            {/* Misión */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="p-8 lg:p-10 bg-[#f5f5f3] rounded-3xl border border-[#e8e8e6]"
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#111] leading-[1.1] mb-6">
+                Misión
+              </h2>
+              <p className="text-[16px] text-[#666] leading-relaxed">
+                Desarrollar sitios web y sistemas digitales con altos estándares de calidad técnica, cuidando cada detalle del diseño y la experiencia del usuario, utilizando tecnologías modernas que permitan crear productos eficientes, claros y preparados para evolucionar.
+              </p>
+            </motion.div>
+
+            {/* Visión */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="p-8 lg:p-10 bg-[#111] rounded-3xl border border-[#222]"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <Rocket className="text-white" size={28} strokeWidth={1.5} />
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-[1.1]">
+                  Visión
+                </h2>
+              </div>
+              <p className="text-[16px] text-white/70 leading-relaxed">
+                Ser un estudio digital reconocido por la calidad de sus desarrollos y el cuidado en el diseño, creando productos donde la ingeniería y la experiencia del usuario se integran de forma natural.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Propuesta de Valor & Filosofía */}
+      <section className="py-24 lg:py-32 bg-[#0a0a0f] text-white">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Propuesta de valor */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#111] leading-[1.1] mb-8">
-                Nuestra Historia
-              </h2>
-              <div className="space-y-5 text-[15px] text-[#666] leading-relaxed">
+              <div className="flex items-center gap-4 mb-8">
+                <Diamond className="text-white" size={32} strokeWidth={1.5} />
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.1]">
+                  Propuesta de valor
+                </h2>
+              </div>
+              
+              <div className="space-y-6 text-[16px] text-white/70 leading-relaxed">
                 <p>
-                  En muchos proyectos digitales el diseño y el desarrollo se
-                  tratan como procesos separados, lo que termina generando
-                  productos poco coherentes o difíciles de usar.
+                  En <span className="text-white font-semibold">Sorin Labs</span> creemos que un buen producto digital no es solo código ni solo diseño.
                 </p>
-                <p className="text-[#111] font-semibold text-lg">
-                  Sorin Labs surge para hacer las cosas de manera diferente.
+                <p className="text-xl font-medium text-white">
+                  Es la combinación de ambos.
                 </p>
-                <p>
-                  Cada proyecto comienza con una pregunta simple: ¿cómo debería
-                  sentirse la experiencia para la persona que va a usar este
-                  producto?
-                </p>
-                <p>
-                  A partir de esa idea se construyen sitios web y plataformas
-                  donde la estética, la estructura y la tecnología trabajan en
-                  conjunto para crear experiencias digitales claras, modernas y
-                  funcionales.
-                </p>
-                <p>
-                  Desde Costa Rica, Sorin Labs busca colaborar con empresas y
-                  proyectos que valoran el diseño bien pensado y la importancia
-                  de ofrecer una buena experiencia digital.
-                </p>
+                <p>Por eso cada proyecto se construye con:</p>
+                
+                <ul className="space-y-4 mt-8">
+                  {[
+                    { icon: Code2, text: "Código limpio, estructurado y mantenible" },
+                    { icon: Palette, text: "Diseño cuidado en cada detalle" },
+                    { icon: Brain, text: "Experiencia de usuario clara e intuitiva" },
+                    { icon: Zap, text: "Tecnologías modernas y eficientes" },
+                    { icon: ShieldCheck, text: "Enfoque en calidad y rendimiento" }
+                  ].map((item, i) => (
+                    <motion.li 
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+                      className="flex items-center gap-4"
+                    >
+                      <item.icon className="text-[#261cc1] shrink-0" size={20} strokeWidth={2} />
+                      <span className="text-white/90 font-medium">{item.text}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <div className="pt-8 border-t border-white/10 mt-8">
+                  <p className="text-white font-semibold">No desarrollamos rápido por desarrollar.</p>
+                  <p className="text-[#261cc1] font-bold text-lg mt-1">Desarrollamos bien, desde la base.</p>
+                </div>
               </div>
             </motion.div>
 
-            {/* Principles */}
+            {/* Filosofía */}
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col gap-4"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="lg:pt-2"
             >
-              {principles.map((p) => (
-                <motion.div
-                  key={p.num}
-                  variants={itemVariants}
-                  whileHover={{
-                    y: -3,
-                    borderColor: "rgba(38,28,193,0.2)",
-                    transition: { duration: 0.25 },
-                  }}
-                  className="rounded-2xl border border-[#e8e8e6] bg-white p-6 lg:p-8 transition-shadow duration-300 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)]"
-                >
-                  <div className="flex items-start gap-5">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#261cc1]/[0.06] border border-[#261cc1]/10">
-                      <p.icon
-                        size={20}
-                        strokeWidth={1.5}
-                        className="text-[#261cc1]"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-[#111] mb-1.5">
-                        {p.title}
-                      </h3>
-                      <p className="text-[14px] text-[#777] leading-relaxed">
-                        {p.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="flex items-center gap-4 mb-8">
+                <Brain className="text-white" size={32} strokeWidth={1.5} />
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight leading-[1.1]">
+                  Filosofía
+                </h2>
+              </div>
+
+              <div className="space-y-6 text-[16px] text-white/70 leading-relaxed p-8 rounded-3xl bg-white/[0.03] border border-white/[0.08]">
+                <p className="text-lg text-white font-medium">
+                  La programación no debe estar separada del diseño.
+                </p>
+                <p className="text-2xl font-bold text-[#261cc1]">
+                  Deben trabajar juntas.
+                </p>
+                <p className="pt-4">
+                  Porque cuando el código y el diseño están alineados:
+                </p>
+                <ul className="space-y-4 pt-2">
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#261cc1]" />
+                    <span className="text-white">la experiencia mejora</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#261cc1]" />
+                    <span className="text-white">el producto se siente sólido</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#261cc1]" />
+                    <span className="text-white font-semibold">y el resultado final es superior</span>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
           </div>
         </div>

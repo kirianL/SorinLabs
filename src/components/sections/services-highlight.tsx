@@ -7,37 +7,37 @@ import { motion } from "motion/react";
 const services = [
   {
     icon: Globe,
-    title: "Sitios Web Modernos",
+    title: "Diseño y desarrollo de páginas web",
     accent: "Diseño web pensado para personas",
     description:
-      "Sitios web para empresas, landing pages de alto impacto y rediseño de plataformas existentes con enfoque en claridad y funcionalidad.",
+      "Creamos páginas web modernas, rápidas y visualmente atractivas que ayudan a tu negocio a verse profesional y generar confianza.",
     href: "/servicios#sitios-web",
     color: "#261cc1",
   },
   {
-    icon: Palette,
-    title: "Diseño UI/UX",
-    accent: "Interfaces con propósito",
-    description:
-      "Diseño visual bien pensado, estructura intuitiva y experiencias de usuario claras que hacen que cada interacción tenga sentido.",
-    href: "/servicios#diseno",
-    color: "#261cc1",
-  },
-  {
     icon: Layout,
-    title: "Plataformas Web",
+    title: "Desarrollo de sistemas web a medida",
     accent: "Experiencias digitales completas",
     description:
-      "Plataformas web funcionales, paneles administrativos y aplicaciones donde el diseño y la tecnología trabajan en armonía.",
+      "Construimos herramientas digitales personalizadas para organizar, automatizar y facilitar procesos dentro de tu negocio.",
     href: "/servicios#plataformas",
     color: "#261cc1",
   },
   {
+    icon: Palette,
+    title: "Mejora de diseño y experiencia de usuario",
+    accent: "Interfaces con propósito",
+    description:
+      "Si ya tienes una página o sistema, podemos mejorar su diseño y hacerlo más fácil de usar.",
+    href: "/servicios#diseno",
+    color: "#261cc1",
+  },
+  {
     icon: Rocket,
-    title: "Optimización & Rendimiento",
+    title: "Optimización y rendimiento",
     accent: "Rápido, eficiente, preparado",
     description:
-      "Rendimiento rápido, arquitectura moderna y optimización de experiencia de usuario para sitios que evolucionan con tu negocio.",
+      "Hacemos que tu sitio web o sistema funcione mejor, mejorando la velocidad de carga, organización y fluidez para que todo sea eficiente.",
     href: "/servicios#rendimiento",
     color: "#261cc1",
   },
