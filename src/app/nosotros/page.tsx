@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const values = [
-  { value: "2024", label: "Fundado en" },
+  { value: "2026", label: "Fundado en" },
   { value: "100%", label: "Trabajo remoto" },
   { value: "CR", label: "Desde Costa Rica" },
   { value: "5★", label: "Satisfacción" },
