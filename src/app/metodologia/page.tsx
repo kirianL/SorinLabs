@@ -51,7 +51,7 @@ const processSteps = [
 
 export default function MethodologyPage() {
   return (
-    <div className="min-h-[100svh] bg-[#0a0a0f]">
+    <div className="min-h-[100svh] bg-[#0a0a0f] overflow-x-hidden">
       {/* Hero */}
       <section className="relative pt-36 pb-20 lg:pb-28">
         <div
@@ -91,8 +91,8 @@ export default function MethodologyPage() {
           {processSteps.map((step, i) => (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{
                 delay: i * 0.1,
