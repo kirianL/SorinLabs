@@ -5,13 +5,14 @@ import Image from "next/image";
 import { RocketIcon as Rocket } from "@/components/ui/rocket";
 import { SparklesIcon as Diamond } from "@/components/ui/sparkles";
 import { BrainIcon as Brain } from "@/components/ui/brain";
-import { TerminalIcon as Code2 } from "@/components/ui/terminal";
-import { PenToolIcon as Palette } from "@/components/ui/pen-tool";
-import { CursorClickIcon as MousePointer2 } from "@/components/ui/cursor-click";
 import { ZapIcon as Zap } from "@/components/ui/zap";
-import { ShieldCheckIcon as ShieldCheck } from "@/components/ui/shield-check";
 import { EyeIcon as Eye } from "@/components/ui/eye";
 import { SettingsIcon as Settings } from "@/components/ui/settings";
+import { CursorClickIcon as MousePointer2 } from "@/components/ui/cursor-click";
+import { TerminalIcon as Code2 } from "@/components/ui/terminal";
+import { PenToolIcon as Palette } from "@/components/ui/pen-tool";
+import { ShieldCheckIcon as ShieldCheck } from "@/components/ui/shield-check";
+import { Rocket as StaticRocket, Eye as StaticEye, Brain as StaticBrain } from "lucide-react";
 
 const values = [
   { value: "2026", label: "Fundado en" },
@@ -130,94 +131,109 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Bento Grid: Core Values */}
+      {/* Propuesta de Valor - New Dedicated Section */}
+      <section className="bg-white py-24 lg:py-32 border-b border-[#e8e8e6]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="text-center mb-16 lg:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111] mb-5">
+              Nuestra propuesta de valor
+            </h2>
+            <p className="text-[#666] text-lg lg:text-xl max-w-2xl mx-auto">
+              No hacemos plantillas ni atajos. Construimos bases sólidas.
+            </p>
+          </div>
+
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-wrap justify-center gap-6"
+          >
+            {[
+              { icon: Code2, title: "Código estructurado", desc: "Arquitectura limpia y mantenible a largo plazo." },
+              { icon: Palette, title: "Diseño cuidado", desc: "Atención meticulosa a cada detalle visual." },
+              { icon: Brain, title: "UX intuitiva", desc: "Experiencias de usuario sin fricciones." },
+              { icon: Zap, title: "Tecnologías modernas", desc: "Rendimiento y eficiencia estelares." },
+              { icon: ShieldCheck, title: "Calidad obsesiva", desc: "Enfoque implacable en librar de errores." }
+            ].map((item, i) => (
+              <motion.div 
+                key={i} 
+                variants={itemVariants}
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] p-8 rounded-3xl bg-[#f5f5f3] border border-[#e8e8e6] hover:shadow-lg transition-shadow"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-[#261cc1]/10 flex items-center justify-center mb-6">
+                  <item.icon className="text-[#261cc1]" size={24} />
+                </div>
+                <h3 className="font-bold text-[#111] text-xl mb-3">{item.title}</h3>
+                <p className="text-[#666] text-[15px] leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Bento Grid: Misión, Visión, Filosofía */}
       <section className="py-24 lg:py-32 bg-[#0a0a0f]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           
-          <div className="mb-16 max-w-2xl">
+          <div className="mb-16 max-w-2xl text-center mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-5">El ADN de Sorin Labs</h2>
             <p className="text-white/50 text-lg leading-relaxed font-light">
               Los principios innegociables que guían cada línea de código y cada píxel que diseñamos.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[minmax(180px,auto)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 auto-rows-[minmax(240px,auto)] max-w-5xl mx-auto">
             
-            {/* Propuesta de Valor (Tall card left) */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="md:col-span-5 md:row-span-2 p-8 lg:p-10 rounded-3xl bg-white/[0.03] border border-white/[0.08] flex flex-col justify-between group hover:bg-white/[0.05] hover:border-white/10 transition-colors"
-            >
-              <div>
-                <Diamond className="text-[#261cc1] mb-6" size={32} />
-                <h3 className="text-3xl font-bold text-white mb-8 tracking-tight">Propuesta de valor</h3>
-                <ul className="space-y-6">
-                  {[
-                    { icon: Code2, text: "Código estructurado y mantenible" },
-                    { icon: Palette, text: "Diseño cuidado en cada detalle" },
-                    { icon: Brain, text: "Experiencia de usuario intuitiva" },
-                    { icon: Zap, text: "Tecnologías modernas y eficientes" },
-                    { icon: ShieldCheck, text: "Enfoque obsesivo en calidad" }
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-4">
-                      <div className="flex bg-white/5 p-2.5 rounded-xl border border-white/5 items-center justify-center">
-                        <item.icon className="text-[#261cc1] shrink-0" size={20} />
-                      </div>
-                      <span className="text-white/80 font-medium text-[16px]">{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Misión (Top Right) */}
+            {/* Misión (Full width top) */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="md:col-span-7 p-8 lg:p-10 rounded-3xl bg-[#261cc1] relative overflow-hidden group flex flex-col justify-center"
+              className="md:col-span-2 p-8 lg:p-12 rounded-3xl bg-[#261cc1] relative overflow-hidden group flex flex-col justify-center min-h-[280px]"
             >
-              <div className="relative z-10">
-                <Rocket className="text-white mb-6" size={32} />
-                <h3 className="text-2xl font-bold text-white mb-4">Misión</h3>
-                <p className="text-[17px] text-white/90 font-medium leading-relaxed max-w-xl">
+              <div className="relative z-10 max-w-2xl">
+                <Rocket className="text-white mb-6" size={36} />
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">Misión</h3>
+                <p className="text-[17px] lg:text-lg text-white/90 font-medium leading-relaxed">
                   Desarrollar sistemas web con altos estándares de calidad técnica, cuidando el diseño visual y la UX, para crear productos eficientes preparados para evolucionar.
                 </p>
               </div>
               <div className="absolute right-[-20px] bottom-[-40px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
-                <Rocket size={240} />
+                <StaticRocket size={320} strokeWidth={1} />
               </div>
             </motion.div>
 
-            {/* Visión (Bottom Right split 1) */}
+            {/* Visión (Bottom Left split) */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-              className="md:col-span-3 sm:col-span-6 p-8 rounded-3xl bg-[#261cc1] relative overflow-hidden group"
+              className="p-8 lg:p-10 rounded-3xl bg-[#261cc1] relative overflow-hidden group min-h-[260px]"
             >
               <div className="relative z-10">
                 <Eye className="text-white mb-5" size={28} />
-                <h3 className="text-xl font-bold text-white mb-3">Visión</h3>
-                <p className="text-[14px] text-white/90 font-medium leading-relaxed">
+                <h3 className="text-xl lg:text-2xl font-bold text-white mb-3">Visión</h3>
+                <p className="text-[15px] lg:text-[16px] text-white/90 font-medium leading-relaxed">
                   Ser un estudio digital de referencia donde la ingeniería estricta y el diseño hermoso convergen.
                 </p>
               </div>
               <div className="absolute right-[-20px] bottom-[-20px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
-                <Eye size={180} />
+                <StaticEye size={220} strokeWidth={1} />
               </div>
             </motion.div>
 
-            {/* Filosofía (Bottom Right split 2) */}
+            {/* Filosofía (Bottom Right split) */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-              className="md:col-span-4 sm:col-span-6 p-8 rounded-3xl bg-[#261cc1] relative overflow-hidden group"
+              className="p-8 lg:p-10 rounded-3xl bg-[#261cc1] relative overflow-hidden group min-h-[260px]"
             >
               <div className="relative z-10">
                 <Zap className="text-white mb-5" size={28} />
-                <h3 className="text-xl font-bold text-white mb-4">Filosofía</h3>
-                <p className="text-[15px] text-white/90 font-medium leading-relaxed">
+                <h3 className="text-xl lg:text-2xl font-bold text-white mb-4">Filosofía</h3>
+                <p className="text-[15px] lg:text-[16px] text-white/90 font-medium leading-relaxed">
                   Programación y diseño no operan separados. <br/>Cuando trabajan juntos, la experiencia mejora y el producto resulta inquebrantable.
                 </p>
               </div>
               <div className="absolute right-[-20px] bottom-[-20px] opacity-[0.08] group-hover:scale-110 transition-transform duration-700">
-                <Brain size={180} />
+                <StaticBrain size={220} strokeWidth={1} />
               </div>
             </motion.div>
 
