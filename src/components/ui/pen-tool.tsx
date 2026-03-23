@@ -3,7 +3,7 @@
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import {  forwardRef, useCallback, useImperativeHandle, useRef , useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -69,6 +69,26 @@ const PenToolIcon = forwardRef<PenToolIconHandle, PenToolIconProps>(
       [controls, onMouseLeave]
     );
 
+
+    useEffect(() => {
+      let isMounted = true;
+      const trigger = () => {
+        if (!isControlledRef.current && isMounted) {
+          handleMouseEnter({} as any);
+        }
+      };
+      // For icons that already repeat infinitely, triggering repeatedly might cause stutters.
+      // But for ones that only play once, we need the interval.
+      // Shadcn's handleMouseEnter usually uses controls.start("animate").
+      // If the animation is already playing, Framer Motion safely ignores it usually.
+      trigger();
+      const iId = setInterval(trigger, 2500);
+      return () => {
+        isMounted = false;
+        clearInterval(iId);
+      };
+    }, [handleMouseEnter]);
+    
     return (
       <div
         className={cn(className)}
@@ -77,7 +97,7 @@ const PenToolIcon = forwardRef<PenToolIconHandle, PenToolIconProps>(
         {...props}
       >
         <motion.svg
-          animate="animate"
+          animate={controls}
           fill="none"
           height={size}
           stroke="currentColor"
@@ -95,7 +115,7 @@ const PenToolIcon = forwardRef<PenToolIconHandle, PenToolIconProps>(
           <path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z" />
           <path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18" />
           <motion.path
-            animate="animate"
+            animate={controls}
             d="m2.3 2.3 7.286 7.286"
             transition={{
               duration: 0.8,

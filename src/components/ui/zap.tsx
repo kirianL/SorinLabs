@@ -3,7 +3,7 @@
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import {  forwardRef, useCallback, useImperativeHandle, useRef , useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -71,6 +71,26 @@ const ZapIcon = forwardRef<ZapHandle, ZapProps>(
       [controls, onMouseLeave]
     );
 
+
+    useEffect(() => {
+      let isMounted = true;
+      const trigger = () => {
+        if (!isControlledRef.current && isMounted) {
+          handleMouseEnter({} as any);
+        }
+      };
+      // For icons that already repeat infinitely, triggering repeatedly might cause stutters.
+      // But for ones that only play once, we need the interval.
+      // Shadcn's handleMouseEnter usually uses controls.start("animate").
+      // If the animation is already playing, Framer Motion safely ignores it usually.
+      trigger();
+      const iId = setInterval(trigger, 2500);
+      return () => {
+        isMounted = false;
+        clearInterval(iId);
+      };
+    }, [handleMouseEnter]);
+    
     return (
       <div
         className={cn(className)}
@@ -90,7 +110,7 @@ const ZapIcon = forwardRef<ZapHandle, ZapProps>(
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.path
-            animate="animate"
+            animate={controls}
             d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
             variants={PATH_VARIANTS}
           />

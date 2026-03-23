@@ -3,7 +3,7 @@
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import {  forwardRef, useCallback, useImperativeHandle, useRef , useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -64,6 +64,26 @@ const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
       [controls, onMouseLeave]
     );
 
+
+    useEffect(() => {
+      let isMounted = true;
+      const trigger = () => {
+        if (!isControlledRef.current && isMounted) {
+          handleMouseEnter({} as any);
+        }
+      };
+      // For icons that already repeat infinitely, triggering repeatedly might cause stutters.
+      // But for ones that only play once, we need the interval.
+      // Shadcn's handleMouseEnter usually uses controls.start("animate").
+      // If the animation is already playing, Framer Motion safely ignores it usually.
+      trigger();
+      const iId = setInterval(trigger, 2500);
+      return () => {
+        isMounted = false;
+        clearInterval(iId);
+      };
+    }, [handleMouseEnter]);
+    
     return (
       <div
         className={cn(className)}
@@ -84,7 +104,7 @@ const TerminalIcon = forwardRef<TerminalIconHandle, TerminalIconProps>(
         >
           <polyline points="4 17 10 11 4 5" />
           <motion.line
-            animate="animate"
+            animate={controls}
             initial="normal"
             variants={LINE_VARIANTS}
             x1="12"

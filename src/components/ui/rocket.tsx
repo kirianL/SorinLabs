@@ -3,7 +3,7 @@
 import type { Variants } from "motion/react";
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import {  forwardRef, useCallback, useImperativeHandle, useRef , useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -91,6 +91,26 @@ const RocketIcon = forwardRef<RocketIconHandle, RocketIconProps>(
       [controls, onMouseLeave]
     );
 
+
+    useEffect(() => {
+      let isMounted = true;
+      const trigger = () => {
+        if (!isControlledRef.current && isMounted) {
+          handleMouseEnter({} as any);
+        }
+      };
+      // For icons that already repeat infinitely, triggering repeatedly might cause stutters.
+      // But for ones that only play once, we need the interval.
+      // Shadcn's handleMouseEnter usually uses controls.start("animate").
+      // If the animation is already playing, Framer Motion safely ignores it usually.
+      trigger();
+      const iId = setInterval(trigger, 2500);
+      return () => {
+        isMounted = false;
+        clearInterval(iId);
+      };
+    }, [handleMouseEnter]);
+    
     return (
       <div
         className={cn(className)}
@@ -99,7 +119,7 @@ const RocketIcon = forwardRef<RocketIconHandle, RocketIconProps>(
         {...props}
       >
         <motion.svg
-          animate="animate"
+          animate={controls}
           fill="none"
           height={size}
           stroke="currentColor"
@@ -112,7 +132,7 @@ const RocketIcon = forwardRef<RocketIconHandle, RocketIconProps>(
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.path
-            animate="animate"
+            animate={controls}
             d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"
             variants={FIRE_VARIANTS}
           />

@@ -2,7 +2,7 @@
 
 import { motion, useAnimation } from "motion/react";
 import type { HTMLAttributes } from "react";
-import { forwardRef, useCallback, useImperativeHandle, useRef } from "react";
+import {  forwardRef, useCallback, useImperativeHandle, useRef , useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -50,6 +50,26 @@ const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
       [controls, onMouseLeave]
     );
 
+
+    useEffect(() => {
+      let isMounted = true;
+      const trigger = () => {
+        if (!isControlledRef.current && isMounted) {
+          handleMouseEnter({} as any);
+        }
+      };
+      // For icons that already repeat infinitely, triggering repeatedly might cause stutters.
+      // But for ones that only play once, we need the interval.
+      // Shadcn's handleMouseEnter usually uses controls.start("animate").
+      // If the animation is already playing, Framer Motion safely ignores it usually.
+      trigger();
+      const iId = setInterval(trigger, 2500);
+      return () => {
+        isMounted = false;
+        clearInterval(iId);
+      };
+    }, [handleMouseEnter]);
+    
     return (
       <div
         className={cn(className)}
@@ -69,7 +89,7 @@ const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.path
-            animate="animate"
+            animate={controls}
             d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
             style={{ originY: "50%" }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -79,7 +99,7 @@ const EyeIcon = forwardRef<EyeIconHandle, EyeIconProps>(
             }}
           />
           <motion.circle
-            animate="animate"
+            animate={controls}
             cx="12"
             cy="12"
             r="3"
