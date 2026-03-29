@@ -10,6 +10,7 @@ import { X, Menu } from "lucide-react";
 const navLinks = [
   { href: "/portafolio", label: "TRABAJO" },
   { href: "/servicios", label: "SERVICIOS" },
+  { href: "/precios", label: "PRECIOS" },
   { href: "/metodologia", label: "MÉTODO" },
   { href: "/nosotros", label: "NOSOTROS" },
 ];
@@ -83,9 +84,7 @@ export function Navbar() {
                   {link.label}
                 </Link>
                 {i < navLinks.length - 1 && (
-                  <span className="mx-4 text-[11px] text-white/20 select-none">
-                    ,
-                  </span>
+                  <span className="mx-4" />
                 )}
               </span>
             ))}

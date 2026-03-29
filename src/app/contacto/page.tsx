@@ -18,8 +18,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@sorinlabs.com",
-    href: "mailto:hello@sorinlabs.com",
+    value: "kirianluna.u@gmail.com",
+    href: "mailto:kirianluna.u@gmail.com",
   },
   {
     icon: MapPin,
@@ -233,10 +233,10 @@ export default function ContactPage() {
                   Respondemos en menos de 24 horas. Si tienes un proyecto
                   urgente, escríbenos directamente a{" "}
                   <Link
-                    href="mailto:hello@sorinlabs.com"
+                    href="mailto:kirianluna.u@gmail.com"
                     className="text-[#261cc1] font-semibold hover:underline"
                   >
-                    hello@sorinlabs.com
+                    kirianluna.u@gmail.com
                   </Link>
                 </p>
               </div>
