@@ -89,7 +89,7 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-24">
         {/* Gradient orb */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#261cc1]/[0.12] blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] sm:w-[800px] sm:h-[500px] rounded-full bg-[#261cc1]/[0.18] lg:bg-[#261cc1]/[0.12] blur-[120px] sm:blur-[150px] pointer-events-none" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl mx-auto text-center lg:text-left lg:mx-0">

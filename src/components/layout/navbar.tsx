@@ -55,7 +55,9 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
+          isMobileMenuOpen ? "z-[70]" : "z-50"
+        } ${
           isScrolled
             ? "bg-[#0a0a0f]/95 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
@@ -103,7 +105,7 @@ export function Navbar() {
           {/* Mobile: hamburger / close */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative z-[70] flex items-center justify-center h-10 w-10 lg:hidden"
+            className="relative flex items-center justify-center h-10 w-10 lg:hidden"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -156,6 +158,8 @@ export function Navbar() {
               <div className="h-10 w-10" />
             </div>
 
+            {/* Gradient orb */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] sm:w-[800px] sm:h-[500px] rounded-full bg-[#261cc1]/[0.18] lg:bg-[#261cc1]/[0.12] blur-[120px] sm:blur-[150px] pointer-events-none" />
             {/* Links */}
             <div className="flex flex-1 flex-col justify-center px-8 -mt-16">
               <nav className="flex flex-col gap-0 w-full">
