@@ -86,9 +86,9 @@ export default function PricingPage() {
   return (
     <div className="min-h-[100svh] bg-[#0a0a0f]">
       {/* Hero */}
-      <section className="relative pt-36 pb-20 lg:pb-28">
+      <section className="relative pt-36 pb-20 lg:pb-28 overflow-x-clip">
         {/* Gradient orb */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#261cc1]/[0.06] blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#261cc1]/[0.15] blur-[150px] pointer-events-none" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
           <div className="max-w-3xl mx-auto text-center">
@@ -99,7 +99,7 @@ export default function PricingPage() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] mb-6"
             >
               Planes diseñados para{" "}
-              <span className="text-white/20">tu crecimiento.</span>
+              <span className="text-white/30">tu crecimiento.</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -115,7 +115,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="relative pb-24 lg:pb-32">
+      <section className="relative pb-24 lg:pb-32 overflow-x-clip">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
             variants={containerVariants}
