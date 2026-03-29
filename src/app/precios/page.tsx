@@ -85,9 +85,9 @@ const itemVariants = {
 
 export default function PricingPage() {
   return (
-    <div className="bg-[#0a0a0f] overflow-x-hidden pt-12">
+    <div className="bg-[#0a0a0f] overflow-x-hidden">
       {/* Hero */}
-      <section className="relative pt-24 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
+      <section className="relative pt-32 pb-16 lg:pt-36 lg:pb-24">
         {/* Gradient orb */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#261cc1]/[0.12] blur-[150px] pointer-events-none" />
 
