@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Check, ArrowRight, Wrench, AlertCircle } from "lucide-react";
 import Link from "next/link";
+import { FinalCta } from "@/components/sections/cta-final";
 
 const plans = [
   {
@@ -84,14 +85,14 @@ const itemVariants = {
 
 export default function PricingPage() {
   return (
-    <div className="min-h-[100svh] bg-[#0a0a0f]">
+    <div className="bg-[#0a0a0f] overflow-x-hidden pt-12">
       {/* Hero */}
-      <section className="relative pt-36 pb-20 lg:pb-28 overflow-x-clip">
+      <section className="relative pt-24 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
         {/* Gradient orb */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#261cc1]/[0.15] blur-[150px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[#261cc1]/[0.12] blur-[150px] pointer-events-none" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center lg:text-left lg:mx-0">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -105,7 +106,7 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12, duration: 0.6 }}
-              className="text-base text-white/35 leading-relaxed max-w-xl mx-auto"
+              className="text-base text-white/35 leading-relaxed max-w-xl mx-auto lg:mx-0"
             >
               Soluciones web profesionales con precios claros. Pago único,
               sin suscripciones. Tu sitio, para siempre.
@@ -120,8 +121,7 @@ export default function PricingPage() {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
+            animate="visible"
             className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch"
           >
             {plans.map((plan) => (
@@ -340,58 +340,7 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 lg:py-32 bg-[#0a0a0f]">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="relative rounded-3xl bg-gradient-to-br from-[#261cc1]/10 via-[#0a0a0f] to-[#0a0a0f] border border-white/[0.06] px-8 sm:px-16 py-16 sm:py-20 overflow-hidden">
-
-            <div className="relative z-10 max-w-xl mx-auto text-center">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.08 }}
-                className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-5"
-              >
-                Solicitar cotización personalizada
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 }}
-                className="text-sm text-white/30 leading-relaxed mb-10 max-w-md mx-auto"
-              >
-                Te asesoramos sin compromiso para definir la mejor solución
-                según tus objetivos.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.24 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              >
-                <Link
-                  href="/contacto"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-[15px] font-semibold text-[#0a0a0f] transition-all hover:opacity-90 active:scale-[0.98]"
-                >
-                  Empezar proyecto
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </Link>
-                <Link
-                  href="mailto:hello@sorinlabs.com"
-                  className="text-sm font-medium text-white/25 hover:text-white/60 transition-colors"
-                >
-                  hello@sorinlabs.com
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FinalCta />
     </div>
   );
 }
