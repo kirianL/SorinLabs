@@ -110,7 +110,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards — fondo claro, igual que la sección de servicios */}
-      <section className="bg-[#f5f5f3] py-24 lg:py-32">
+      <section className="bg-[#f5f5f3] pt-16 pb-12 lg:pt-20 lg:pb-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
             variants={containerVariants}
@@ -252,7 +252,7 @@ export default function PricingPage() {
             <div className="flex items-center gap-3 mb-4">
               <AlertCircle size={18} className="text-[#aaa]" />
               <h3 className="text-[13px] font-semibold tracking-[0.1em] text-[#999] uppercase">
-                Costos adicionales (gestionados por el cliente)
+                Costos adicionales
               </h3>
             </div>
             <p className="text-sm text-[#777] leading-relaxed mb-5 max-w-xl">
@@ -274,7 +274,7 @@ export default function PricingPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="bg-[#f5f5f3] pb-24 lg:pb-32">
+      <section className="bg-[#f5f5f3] pb-16 lg:pb-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
