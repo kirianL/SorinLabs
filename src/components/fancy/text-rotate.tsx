@@ -35,14 +35,14 @@ export default function TextRotate({
 
   return (
     <motion.span
-      className="relative inline-block overflow-hidden"
+      className="relative inline-block overflow-hidden leading-none"
       animate={{ width: width ?? "auto" }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
     >
       {/* Invisible sizer — holds the width */}
       <span
         ref={measureRef}
-        className={cn("invisible whitespace-nowrap", mainClassName)}
+        className={cn("invisible whitespace-nowrap leading-none", mainClassName)}
         aria-hidden
       >
         {texts[index]}
@@ -56,7 +56,7 @@ export default function TextRotate({
           animate={{ y: "0%" }}
           exit={{ y: "-100%" }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className={cn("absolute inset-0 whitespace-nowrap", mainClassName)}
+          className={cn("absolute inset-0 whitespace-nowrap leading-none", mainClassName)}
         >
           {texts[index]}
         </motion.span>

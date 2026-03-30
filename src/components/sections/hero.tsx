@@ -32,7 +32,7 @@ export function HeroSection() {
 
   return (
     <section 
-      className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 md:h-[100svh] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6"
+      className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 md:h-[100svh] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6 lg:px-10"
       style={isMobile && heroHeight ? { height: `${heroHeight}px` } : {}}
     >
       {/* Framed container */}
@@ -40,8 +40,8 @@ export function HeroSection() {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-[1400px] w-full flex-none min-h-[460px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
-        style={isMobile && heroHeight ? { height: `${heroHeight - 104}px` } : { height: "calc(100svh - 104px)" }}
+        className="relative w-full flex-none min-h-[460px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
+        style={isMobile && heroHeight ? { height: `${heroHeight - 104}px` } : { minHeight: "calc(100svh - 104px)" }}
       >
         {/* Background image */}
         <Image
@@ -82,10 +82,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05]"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.12]"
           >
-            <span className="block">Ingeniería</span>
-            <span className="flex flex-col sm:flex-row items-center justify-center sm:items-baseline gap-1 sm:gap-3 mt-1 sm:mt-2">
+            <span className="block mb-1 sm:mb-2">Ingeniería</span>
+            <span className="flex flex-col sm:flex-row items-center justify-center sm:items-baseline gap-2 sm:gap-4 mt-2 sm:mt-4">
               <span className="text-white/30 font-bold whitespace-nowrap">
                 para el
               </span>
