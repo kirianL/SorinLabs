@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import TextRotate from "@/components/fancy/text-rotate";
 
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
@@ -11,6 +11,7 @@ const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 export function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
   const [heroHeight, setHeroHeight] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,13 +26,23 @@ export function HeroSection() {
     
     handleResize();
     window.addEventListener("orientationchange", handleResize);
-    // Note: We deliberately do NOT listen to "resize" on mobile to avoid 
-    // the height changing rapidly while scrolling up/down (which causes jumps).
     return () => window.removeEventListener("orientationchange", handleResize);
   }, []);
 
+  // Parallax: image moves at 35% of scroll speed (deeper background)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const decorY1 = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const decorY2 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+
   return (
     <section 
+      ref={sectionRef}
       className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 md:h-[100svh] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6 lg:px-10"
       style={isMobile && heroHeight ? { height: `${heroHeight}px` } : {}}
     >
@@ -43,30 +54,56 @@ export function HeroSection() {
         className="relative w-full flex-none min-h-[460px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
         style={isMobile && heroHeight ? { height: `${heroHeight - 104}px` } : { minHeight: "calc(100svh - 104px)" }}
       >
-        {/* Background image */}
-        <Image
-          src="/HeroSection.png"
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 768px) 100vw, 1400px"
-          className="object-cover object-center"
-          quality={90}
-        />
+        {/* Background image with parallax */}
+        <motion.div
+          className="absolute inset-0 scale-[1.15]"
+          style={{ y: imageY }}
+        >
+          <Image
+            src="/HeroSection.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+            quality={90}
+          />
+        </motion.div>
 
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 z-[1]" />
+        {/* Base dark wash — subtle, lets the image breathe */}
+        <div className="absolute inset-0 bg-[#0a0a0f]/35 z-[1]" />
+
+        {/* Cinematic gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-[#0a0a0f]/20 z-[2]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0f]/30 via-transparent to-[#0a0a0f]/30 z-[2]" />
 
         {/* Noise */}
         <div
-          className="absolute inset-0 z-[2] opacity-[0.04] pointer-events-none mix-blend-overlay"
+          className="absolute inset-0 z-[3] opacity-[0.04] pointer-events-none mix-blend-overlay"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
           }}
         />
 
+        {/* Decorative Parallax Elements */}
+        <motion.div 
+          style={{ y: decorY1 }}
+          className="absolute top-[20%] right-[15%] z-10 text-white/10 text-4xl font-extralight select-none hidden md:block"
+        >
+          +
+        </motion.div>
+        <motion.div 
+          style={{ y: decorY2 }}
+          className="absolute bottom-[30%] left-[10%] z-10 text-white/5 text-6xl font-extralight select-none hidden md:block"
+        >
+          -
+        </motion.div>
+
         {/* Content — centered */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-5 sm:px-12 text-center pb-8 md:pb-4">
+        <motion.div 
+          style={{ y: textY }}
+          className="relative z-10 flex flex-col items-center justify-center h-full px-5 sm:px-12 text-center pb-8 md:pb-4"
+        >
           {/* Small cross detail */}
           <motion.span
             initial={{ opacity: 0, rotate: -90 }}
@@ -128,7 +165,7 @@ export function HeroSection() {
               Ver portafolio →
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Corner labels */}
         <motion.span

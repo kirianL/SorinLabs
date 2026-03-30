@@ -1,16 +1,27 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
 
 export function FeaturedProjects() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const gridY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+
   return (
-    <section className="relative py-28 lg:py-36 bg-[#0a0a0f]">
-      <div
+    <section ref={sectionRef} className="relative py-28 lg:py-36 bg-[#0a0a0f] overflow-hidden">
+      <motion.div
         className="absolute inset-0 z-0 opacity-40"
         style={{
+          y: gridY,
           backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
         }}
@@ -58,14 +69,19 @@ export function FeaturedProjects() {
           <Link href="/portafolio" className="group block">
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-white/[0.12] transition-all duration-300">
               {/* Image */}
-              <div className="relative aspect-[16/9] bg-[#111]">
-                <Image
-                  src="/works/BrisasDelRio/HeroBrisasDelRio.png"
-                  alt="Brisas del Río"
-                  fill
-                  sizes="100vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                />
+              <div className="relative aspect-[16/9] bg-[#111] overflow-hidden">
+                <motion.div 
+                  className="absolute inset-0 scale-[1.1]"
+                  style={{ y: imageY }}
+                >
+                  <Image
+                    src="/works/BrisasDelRio/HeroBrisasDelRio.png"
+                    alt="Brisas del Río"
+                    fill
+                    sizes="100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/60 via-transparent to-transparent" />
               </div>
 

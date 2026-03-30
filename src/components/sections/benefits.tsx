@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 const benefits = [
   {
@@ -46,8 +47,18 @@ const itemVariants = {
 };
 
 export function BenefitsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const yOdd = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const yEven = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+  const numX = useTransform(scrollYProgress, [0, 1], [-10, 10]);
+
   return (
-    <section className="relative py-28 lg:py-36 bg-[#f5f5f3]">
+    <section ref={sectionRef} className="relative py-28 lg:py-36 bg-[#f5f5f3] overflow-hidden">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -75,10 +86,11 @@ export function BenefitsSection() {
 
         {/* 4-cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {benefits.map((b) => (
+          {benefits.map((b, idx) => (
             <motion.div
               key={b.title}
               variants={itemVariants}
+              style={{ y: idx % 2 === 0 ? yOdd : yEven }}
               whileHover={{
                 y: -4,
                 scale: 1.01,
@@ -87,9 +99,12 @@ export function BenefitsSection() {
               className="group relative rounded-2xl bg-white border border-[#e8e8e6] p-7 lg:p-8 transition-shadow hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-[#ccc]"
             >
               {/* Large number */}
-              <span className="text-[3rem] font-bold text-[#111]/[0.04] leading-none tracking-tighter select-none group-hover:text-[#111]/[0.08] transition-colors duration-500">
+              <motion.span 
+                style={{ x: numX }}
+                className="block text-[3rem] font-bold text-[#111]/[0.04] leading-none tracking-tighter select-none group-hover:text-[#111]/[0.08] transition-colors duration-500"
+              >
                 {b.num}
-              </span>
+              </motion.span>
 
               <h3 className="text-lg font-bold text-[#111] mb-2.5 mt-3 tracking-tight">
                 {b.title}

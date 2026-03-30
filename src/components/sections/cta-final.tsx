@@ -2,20 +2,34 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 export function FinalCta() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const orbY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+
   return (
-    <section className="relative py-32 lg:py-44 bg-[#f5f5f3] overflow-hidden">
+    <section ref={sectionRef} className="relative py-32 lg:py-44 bg-[#f5f5f3] overflow-hidden">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
         <div className="relative rounded-3xl bg-[#0a0a0f] px-8 sm:px-16 py-20 sm:py-28 overflow-hidden">
           {/* Gradient orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#261cc1]/[0.06] blur-[100px] pointer-events-none" />
+          <motion.div 
+            style={{ y: orbY }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#261cc1]/[0.06] blur-[100px] pointer-events-none" 
+          />
 
           {/* Grid bg */}
-          <div
+          <motion.div
             className="absolute inset-0 z-0 opacity-40"
             style={{
+              y: gridY,
               backgroundImage: `
                 linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
@@ -56,7 +70,7 @@ export function FinalCta() {
             >
               <Link
                 href="/contacto"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-[15px] font-semibold text-[#0a0a0f] transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.12)] hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-[15px] font-semibold text-[#0a0a0f] transition-all hover:shadow-[0_0_40_rgba(255,255,255,0.12)] hover:scale-[1.02] active:scale-[0.98]"
               >
                 Empezar proyecto
                 <ArrowRight
