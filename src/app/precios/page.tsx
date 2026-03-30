@@ -9,30 +9,28 @@ const plans = [
   {
     name: "Starter",
     price: "$200",
-    description: "Para quienes necesitan entrar al mundo digital con una solución simple y funcional.",
+    description: "Para tener presencia online de forma simple y directa.",
     features: [
-      "1 página básica (estructura predefinida)",
-      "Diseño limpio y moderno",
-      "Secciones esenciales (inicio y contacto)",
-      "Adaptado a móviles",
-      "Botón de contacto (WhatsApp o formulario)",
+      "1 página",
+      "Información esencial del negocio",
+      "Sección de contacto",
+      "Publicación lista para uso",
     ],
-    result: "Una presencia online rápida y funcional.",
+    result: "Tu negocio ya está online y accesible para tus clientes.",
     cta: "Comenzar",
     highlighted: false,
   },
   {
     name: "Launch",
     price: "$300",
-    description: "Para negocios que buscan una presencia profesional bien construida.",
+    description: "Para presentar tu negocio en una sola página bien estructurada.",
     features: [
-      "Landing page estratégica (1 página)",
-      "Diseño moderno, limpio y visualmente atractivo",
-      "Estructura enfocada en comunicar tu valor",
-      "Secciones clave (servicios, contacto, información)",
-      "Optimización completa para móviles",
+      "1 página tipo landing",
+      "Secciones organizadas (servicios, información, contacto)",
+      "Contenido distribuido de forma clara",
+      "Estructura pensada para comunicar tu propuesta",
     ],
-    result: "Una presencia sólida que transmite profesionalismo.",
+    result: "Tu negocio se presenta de forma clara y profesional.",
     cta: "Iniciar proyecto",
     highlighted: false,
   },
@@ -40,30 +38,28 @@ const plans = [
     name: "Growth",
     badge: "Más popular",
     price: "$650",
-    description: "Para negocios que quieren destacar y convertir visitas en clientes.",
+    description: "Para distribuir tu contenido en diferentes secciones independientes.",
     features: [
-      "Hasta 3 páginas o secciones",
-      "Diseño moderno alineado a tu marca",
-      "Estructura enfocada en conversión",
-      "Sección de testimonios",
-      "Optimización de velocidad y experiencia",
+      "Hasta 3 páginas",
+      "Separación de servicios o información",
+      "Organización por secciones",
+      "Estructura multipágina",
     ],
-    result: "Un sitio que genera confianza y mejora resultados.",
+    result: "Tu información está organizada y fácil de explorar.",
     cta: "Escalar mi presencia",
     highlighted: true,
   },
   {
     name: "Authority",
     price: "$1,200",
-    description: "Para negocios que buscan posicionarse fuerte y competir en serio.",
+    description: "Para proyectos que requieren una estructura más amplia.",
     features: [
-      "Hasta 5 páginas o estructura completa",
-      "Diseño premium de alto impacto visual",
-      "Animaciones modernas bien implementadas",
-      "Arquitectura preparada para escalar",
-      "Integraciones y base para sistemas avanzados",
+      "Hasta 5 páginas",
+      "Distribución completa del contenido",
+      "Secciones independientes para cada área",
+      "Base preparada para futuras integraciones",
     ],
-    result: "Una presencia digital que proyecta autoridad inmediata.",
+    result: "Una estructura completa para tu presencia digital.",
     cta: "Posicionar mi marca",
     highlighted: false,
   },
@@ -134,6 +130,9 @@ export default function PricingPage() {
       {/* Plans */}
       <section className="bg-[#f5f5f3] pt-16 pb-12 lg:pt-20 lg:pb-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <p className="text-[13px] text-[#888] font-medium text-center mb-10">
+            Todos los planes incluyen diseño moderno, responsive y optimizado. La diferencia es la estructura.
+          </p>
           <motion.div
             variants={containerVariants}
             initial="hidden"
