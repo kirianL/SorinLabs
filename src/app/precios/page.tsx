@@ -1,115 +1,137 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Check, ArrowRight, Wrench, AlertCircle } from "lucide-react";
+import { Check, ArrowRight, Server, HelpCircle } from "lucide-react";
 import Link from "next/link";
 import { FinalCta } from "@/components/sections/cta-final";
 
 const plans = [
   {
-    name: "Inicio",
-    price: "$180",
-    description: "Para validar tu presencia online de forma rápida y profesional.",
+    name: "Starter",
+    price: "$200",
+    description: "Para quienes necesitan entrar al mundo digital con una solución simple y funcional.",
     features: [
-      "1 página (landing)",
-      "Estructura clara y directa",
-      "Secciones esenciales (hero, servicios, contacto)",
-      "Diseño moderno adaptado a tu marca",
+      "1 página básica (estructura predefinida)",
+      "Diseño limpio y moderno",
+      "Secciones esenciales (inicio y contacto)",
+      "Adaptado a móviles",
+      "Botón de contacto (WhatsApp o formulario)",
     ],
-    cta: "Solicitar cotización",
-    tagline: "Ideal para comenzar y tener presencia digital sólida.",
+    result: "Una presencia online rápida y funcional.",
+    cta: "Comenzar",
     highlighted: false,
   },
   {
-    name: "Impulso",
-    badge: "Más popular",
-    price: "$320",
-    description: "Para negocios que buscan diferenciarse y generar confianza.",
+    name: "Launch",
+    price: "$300",
+    description: "Para negocios que buscan una presencia profesional bien construida.",
     features: [
-      "Estructura expandida (hasta 3 secciones o páginas)",
-      "Estructura orientada a conversión",
-      "Sección de testimonios",
-      "Organización estratégica del contenido",
-      "Diseño más alineado a tu identidad",
+      "Landing page estratégica (1 página)",
+      "Diseño moderno, limpio y visualmente atractivo",
+      "Estructura enfocada en comunicar tu valor",
+      "Secciones clave (servicios, contacto, información)",
+      "Optimización completa para móviles",
     ],
-    cta: "Solicitar cotización",
-    tagline: "Perfecto para atraer y convencer clientes.",
+    result: "Una presencia sólida que transmite profesionalismo.",
+    cta: "Iniciar proyecto",
+    highlighted: false,
+  },
+  {
+    name: "Growth",
+    badge: "Más popular",
+    price: "$650",
+    description: "Para negocios que quieren destacar y convertir visitas en clientes.",
+    features: [
+      "Hasta 3 páginas o secciones",
+      "Diseño moderno alineado a tu marca",
+      "Estructura enfocada en conversión",
+      "Sección de testimonios",
+      "Optimización de velocidad y experiencia",
+    ],
+    result: "Un sitio que genera confianza y mejora resultados.",
+    cta: "Escalar mi presencia",
     highlighted: true,
   },
   {
-    name: "Dominio",
-    price: "$550",
-    description: "Para negocios que quieren destacar y posicionarse fuerte.",
+    name: "Authority",
+    price: "$1,200",
+    description: "Para negocios que buscan posicionarse fuerte y competir en serio.",
     features: [
-      "Hasta 5 páginas o estructura más completa",
-      "Diseño avanzado con mejor experiencia visual",
-      "Animaciones modernas y fluidas",
-      "Arquitectura pensada para escalar",
-      "Integración de herramientas externas",
+      "Hasta 5 páginas o estructura completa",
+      "Diseño premium de alto impacto visual",
+      "Animaciones modernas bien implementadas",
+      "Arquitectura preparada para escalar",
+      "Integraciones y base para sistemas avanzados",
     ],
-    cta: "Solicitar cotización",
-    tagline: "Pensado para competir en serio en tu mercado.",
+    result: "Una presencia digital que proyecta autoridad inmediata.",
+    cta: "Construir mi posicionamiento",
     highlighted: false,
   },
 ];
 
-const addons = [
-  { name: "Página adicional", price: "desde $50" },
-  { name: "Mantenimiento mensual", price: "desde $30" },
-  { name: "Funcionalidades especiales", price: "cotización" },
-  { name: "SEO avanzado", price: "cotización" },
+const infraItems = [
+  "Dominio y hosting a tu nombre",
+  "Escalable según tráfico",
+  "Posibilidad de integrar bases de datos y sistemas",
 ];
 
-const externalCosts = [
-  "Dominio",
-  "Hosting",
-  "Servicios externos (base de datos, correos profesionales, integraciones especiales)",
+const selector = [
+  { condition: "Presupuesto limitado", plan: "Starter" },
+  { condition: "Quieres verte profesional", plan: "Launch" },
+  { condition: "Quieres clientes constantes", plan: "Growth" },
+  { condition: "Quieres posicionarte fuerte", plan: "Authority" },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
 export default function PricingPage() {
   return (
     <div className="min-h-[100svh] bg-[#0a0a0f]">
-      {/* Hero — mismo patrón que /servicios y /metodologia */}
+      {/* Hero */}
       <section className="relative pt-36 pb-20 lg:pb-28">
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08]"
-            >
-              Planes diseñados para{" "}
-              <span className="text-white/30">tu crecimiento.</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-base text-white/35 leading-relaxed lg:mt-4"
-            >
-              Soluciones web profesionales con precios claros. Pago único,
-              sin suscripciones. Tu sitio, para siempre.
-            </motion.p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-end">
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.05 }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08]"
+              >
+                Diseño web moderno que eleva la percepción de tu{" "}
+                <span className="text-white/30">negocio.</span>
+              </motion.h1>
+            </div>
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.6 }}
+                className="text-base text-white/40 leading-relaxed mb-8"
+              >
+                Creamos sitios limpios, atractivos y de alto impacto visual que captan atención,
+                transmiten profesionalismo y hacen que tu marca destaque.
+                Soluciones desde $200 USD hasta proyectos avanzados.
+              </motion.p>
+
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Cards — fondo claro, igual que la sección de servicios */}
+      {/* Plans */}
       <section className="bg-[#f5f5f3] pt-16 pb-12 lg:pt-20 lg:pb-16">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <motion.div
@@ -117,7 +139,7 @@ export default function PricingPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5"
           >
             {plans.map((plan) => (
               <motion.div
@@ -132,16 +154,16 @@ export default function PricingPage() {
                 {/* Badge */}
                 {plan.badge && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#111] px-4 py-1.5 text-[11px] font-bold tracking-[0.08em] text-white uppercase shadow-lg">
+                    <span className="inline-flex items-center rounded-full bg-[#111] px-4 py-1.5 text-[10px] font-bold tracking-[0.1em] text-white uppercase shadow-lg whitespace-nowrap">
                       {plan.badge}
                     </span>
                   </div>
                 )}
 
-                <div className="p-8 lg:p-10 flex flex-col flex-1">
+                <div className="p-7 lg:p-8 flex flex-col flex-1">
                   {/* Plan name */}
                   <h3
-                    className={`text-[13px] font-semibold tracking-[0.12em] uppercase mb-6 ${
+                    className={`text-[12px] font-bold tracking-[0.14em] uppercase mb-5 ${
                       plan.highlighted ? "text-white/60" : "text-[#bbb]"
                     }`}
                   >
@@ -149,25 +171,25 @@ export default function PricingPage() {
                   </h3>
 
                   {/* Price */}
-                  <div className="flex items-baseline gap-2 mb-2">
+                  <div className="flex items-baseline gap-1.5 mb-1">
                     <span
-                      className={`text-[13px] font-medium ${
-                        plan.highlighted ? "text-white/50" : "text-[#aaa]"
-                      }`}
-                    >
-                      Desde
-                    </span>
-                    <span
-                      className={`text-4xl sm:text-5xl font-bold tracking-tight ${
+                      className={`text-3xl sm:text-4xl font-bold tracking-tight ${
                         plan.highlighted ? "text-white" : "text-[#111]"
                       }`}
                     >
                       {plan.price}
                     </span>
+                    <span
+                      className={`text-[13px] font-medium ${
+                        plan.highlighted ? "text-white/50" : "text-[#aaa]"
+                      }`}
+                    >
+                      USD
+                    </span>
                   </div>
                   <p
-                    className={`text-[13px] mb-8 ${
-                      plan.highlighted ? "text-white/40" : "text-[#aaa]"
+                    className={`text-[12px] mb-6 ${
+                      plan.highlighted ? "text-white/40" : "text-[#bbb]"
                     }`}
                   >
                     Pago único
@@ -175,34 +197,32 @@ export default function PricingPage() {
 
                   {/* Description */}
                   <p
-                    className={`text-[15px] leading-relaxed mb-8 ${
-                      plan.highlighted ? "text-white/70" : "text-[#777]"
+                    className={`text-[14px] leading-relaxed mb-7 ${
+                      plan.highlighted ? "text-white/65" : "text-[#666]"
                     }`}
                   >
                     {plan.description}
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-3.5 mb-10 flex-1">
+                  <ul className="space-y-3 mb-7 flex-1">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
+                      <li key={feature} className="flex items-start gap-2.5">
                         <span
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full mt-0.5 ${
+                          className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full mt-0.5 ${
                             plan.highlighted
                               ? "bg-white/20"
-                              : "bg-[#261cc1]/[0.08] border border-[#261cc1]/10"
+                              : "bg-[#261cc1]/[0.07] border border-[#261cc1]/10"
                           }`}
                         >
                           <Check
-                            size={11}
+                            size={10}
                             strokeWidth={2.5}
-                            className={
-                              plan.highlighted ? "text-white" : "text-[#261cc1]"
-                            }
+                            className={plan.highlighted ? "text-white" : "text-[#261cc1]"}
                           />
                         </span>
                         <span
-                          className={`text-sm leading-relaxed ${
+                          className={`text-[13px] leading-relaxed ${
                             plan.highlighted ? "text-white/75" : "text-[#555]"
                           }`}
                         >
@@ -212,27 +232,32 @@ export default function PricingPage() {
                     ))}
                   </ul>
 
-                  {/* Tagline */}
+                  {/* Result */}
                   <p
-                    className={`text-[13px] italic mb-8 ${
-                      plan.highlighted ? "text-white/35" : "text-[#aaa]"
+                    className={`text-[12px] leading-relaxed mb-7 pb-6 border-b ${
+                      plan.highlighted
+                        ? "text-white/40 border-white/10"
+                        : "text-[#aaa] border-[#ebebeb]"
                     }`}
                   >
-                    {plan.tagline}
+                    <span className={`font-semibold ${plan.highlighted ? "text-white/55" : "text-[#888]"}`}>
+                      Resultado:
+                    </span>{" "}
+                    {plan.result}
                   </p>
 
-                  {/* CTA Button */}
+                  {/* CTA */}
                   <Link
                     href="/contacto"
-                    className={`group flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[14px] font-semibold transition-all duration-200 w-full ${
+                    className={`group flex items-center justify-center gap-2 rounded-full px-5 py-3 text-[13px] font-semibold transition-all duration-200 w-full ${
                       plan.highlighted
                         ? "bg-white text-[#261cc1] hover:opacity-90 active:scale-[0.98]"
-                        : "bg-[#261cc1] text-white hover:opacity-90 active:scale-[0.98]"
+                        : "bg-[#111] text-white hover:bg-[#261cc1] active:scale-[0.98]"
                     }`}
                   >
                     {plan.cta}
                     <ArrowRight
-                      size={14}
+                      size={13}
                       className="transition-transform group-hover:translate-x-0.5"
                     />
                   </Link>
@@ -240,88 +265,80 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* External Costs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-8 rounded-2xl border border-[#e8e8e6] bg-white p-8 sm:p-10"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <AlertCircle size={18} className="text-[#aaa]" />
-              <h3 className="text-[13px] font-semibold tracking-[0.1em] text-[#999] uppercase">
-                Costos adicionales
-              </h3>
-            </div>
-            <p className="text-sm text-[#777] leading-relaxed mb-5 max-w-xl">
-              Algunos servicios necesarios no están incluidos y son gestionados
-              directamente por el cliente.
-            </p>
-            <ul className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              {externalCosts.map((cost) => (
-                <li key={cost} className="flex items-start gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#261cc1]/[0.06] border border-[#261cc1]/10 mt-0.5">
-                    <Check size={11} strokeWidth={2.5} className="text-[#261cc1]" />
-                  </span>
-                  <span className="text-sm text-[#555] leading-relaxed">{cost}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="bg-[#f5f5f3] pb-16 lg:pb-20">
+      {/* Infrastructure + Selector */}
+      <section className="bg-[#f5f5f3] pb-16 lg:pb-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mb-10"
-          >
-            <p className="text-[13px] font-medium tracking-[0.2em] text-[#261cc1] uppercase mb-3">
-              Servicios adicionales
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#111] tracking-tight mb-3">
-              Todo lo que necesitas, después del lanzamiento.
-            </h2>
-            <p className="text-[15px] text-[#777] leading-relaxed">
-              Más allá del desarrollo inicial, ofrecemos servicios
-              complementarios para mantener y escalar tu presencia digital.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
-            {addons.map((addon) => (
-              <motion.div
-                key={addon.name}
-                variants={itemVariants}
-                className="rounded-2xl border border-[#e8e8e6] bg-white p-6 sm:p-8 flex items-center justify-between gap-4 transition-shadow duration-300 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] hover:border-[#261cc1]/20"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#261cc1]/[0.06] border border-[#261cc1]/10">
-                    <Wrench size={18} strokeWidth={1.5} className="text-[#261cc1]" />
-                  </div>
-                  <span className="text-[15px] font-semibold text-[#111]">
-                    {addon.name}
-                  </span>
+          <div className="bg-white rounded-[2.5rem] border border-[#e8e8e6] overflow-hidden flex flex-col lg:flex-row shadow-sm hover:shadow-md transition-shadow">
+            {/* Plan Selector */}
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex-1 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-[#e8e8e6]"
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#261cc1]/[0.06] border border-[#261cc1]/10">
+                  <HelpCircle size={18} strokeWidth={1.5} className="text-[#261cc1]" />
                 </div>
-                <span className="text-sm text-[#777] font-medium whitespace-nowrap">
-                  {addon.price}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
+                <h3 className="text-[14px] font-bold tracking-[0.15em] text-[#111] uppercase">
+                  ¿Qué plan elegir?
+                </h3>
+              </div>
+              <div className="space-y-4">
+                {selector.map((s) => (
+                  <div key={s.plan} className="group flex items-center justify-between gap-4 py-4 px-5 rounded-2xl border border-transparent hover:border-[#261cc1]/10 hover:bg-[#261cc1]/[0.02] transition-all">
+                    <span className="text-[15px] text-[#666] font-medium leading-none">{s.condition}</span>
+                    <div className="flex items-center gap-3">
+                      <span className="text-[11px] font-bold tracking-[0.1em] text-[#261cc1] bg-white border border-[#261cc1]/20 rounded-full px-4 py-1.5 shadow-sm uppercase">
+                        {s.plan}
+                      </span>
+                      <ArrowRight size={14} className="text-[#261cc1]/40 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Infrastructure */}
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex-1 p-8 sm:p-12 bg-[#fafaf9]/30"
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#261cc1]/[0.06] border border-[#261cc1]/10">
+                  <Server size={18} strokeWidth={1.5} className="text-[#261cc1]" />
+                </div>
+                <h3 className="text-[14px] font-bold tracking-[0.15em] text-[#111] uppercase">
+                  Infraestructura
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5 mb-10">
+                {infraItems.map((item) => (
+                  <div key={item} className="flex items-start gap-4 p-4 rounded-xl border border-dashed border-[#e8e8e6] bg-white/50">
+                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#261cc1]/10 mt-0.5">
+                      <Check size={11} strokeWidth={2.5} className="text-[#261cc1]" />
+                    </div>
+                    <span className="text-[14px] text-[#555] font-medium leading-snug">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="p-6 rounded-2xl bg-[#261cc1] text-white shadow-lg shadow-[#261cc1]/20">
+                <p className="text-[14px] font-bold tracking-tight mb-1">
+                  Tu sitio es tuyo. Sin dependencias.
+                </p>
+                <p className="text-[11px] text-white/50 uppercase tracking-widest font-bold">
+                  Propiedad garantizada
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
