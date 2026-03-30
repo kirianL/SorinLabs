@@ -64,7 +64,7 @@ const plans = [
       "Integraciones y base para sistemas avanzados",
     ],
     result: "Una presencia digital que proyecta autoridad inmediata.",
-    cta: "Construir mi posicionamiento",
+    cta: "Posicionar mi marca",
     highlighted: false,
   },
 ];

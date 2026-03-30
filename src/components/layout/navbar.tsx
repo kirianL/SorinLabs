@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "motion/react";
 import { X, Menu } from "lucide-react";
 
 const navLinks = [
@@ -22,49 +21,40 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // iOS-safe scroll lock
+  // Close menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Simple scroll lock
   useEffect(() => {
     if (isMobileMenuOpen) {
-      const scrollY = window.scrollY;
       document.body.style.overflow = "hidden";
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-      document.body.style.top = `-${scrollY}px`;
     } else {
-      const scrollY = document.body.style.top;
       document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY) * -1);
-      }
     }
     return () => {
       document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.top = "";
     };
   }, [isMobileMenuOpen]);
+
+  const closeMenu = useCallback(() => setIsMobileMenuOpen(false), []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
-          isMobileMenuOpen ? "z-[70]" : "z-50"
-        } ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled && !isMobileMenuOpen
             ? "bg-[#0a0a0f]/95 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 py-5">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="relative z-[60] flex items-center gap-2">
             <Image
               src="/LogoFullBlanco.svg"
               alt="Sorin Labs"
@@ -102,10 +92,10 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile: hamburger / close */}
+          {/* Mobile hamburger */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative flex items-center justify-center h-10 w-10 lg:hidden"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="relative z-[60] flex items-center justify-center h-10 w-10 lg:hidden"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -117,123 +107,65 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay — outside header */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              width: "100vw",
-              height: "100svh",
-              backgroundColor: "#0a0a0f",
-              zIndex: 60,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {/* Top bar with logo */}
-            <div className="flex items-center justify-between px-6 py-5">
+      {/* Mobile Menu — CSS transition, no framer-motion */}
+      <div
+        className={`fixed inset-0 z-[55] bg-[#0a0a0f] flex flex-col lg:hidden transition-all duration-200 ease-out ${
+          isMobileMenuOpen
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
+        }`}
+        style={{ willChange: "opacity" }}
+      >
+        {/* Spacer for top bar */}
+        <div className="h-[72px] shrink-0" />
+
+        {/* Links */}
+        <div className="flex flex-1 flex-col justify-center px-8 -mt-10">
+          <nav className="flex flex-col w-full">
+            {navLinks.map((link, i) => (
               <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center"
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="group flex items-center justify-between py-5 border-b border-white/[0.06]"
               >
-                <Image
-                  src="/LogoFullBlanco.svg"
-                  alt="Sorin Labs"
-                  width={160}
-                  height={36}
-                  className="h-8 w-auto"
-                />
-              </Link>
-              {/* Spacer for the close button which sits in the header z-70 */}
-              <div className="h-10 w-10" />
-            </div>
-
-            {/* Gradient orb */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] sm:w-[800px] sm:h-[500px] rounded-full bg-[#261cc1]/[0.18] lg:bg-[#261cc1]/[0.12] blur-[120px] sm:blur-[150px] pointer-events-none" />
-            {/* Links */}
-            <div className="flex flex-1 flex-col justify-center px-8 -mt-16">
-              <nav className="flex flex-col gap-0 w-full">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: 0.1 + i * 0.05,
-                      duration: 0.4,
-                      ease: "easeOut",
-                    }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="group flex items-center justify-between py-5 border-b border-white/[0.06]"
-                    >
-                      <span
-                        className={`text-2xl font-semibold tracking-tight transition-colors group-hover:text-[#4d45d4] ${
-                          pathname === link.href ? "text-[#261cc1]" : "text-white"
-                        }`}
-                      >
-                        {link.label}
-                      </span>
-                      <span className="text-[11px] tracking-widest text-white/15 font-mono">
-                        0{i + 1}
-                      </span>
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.1 + navLinks.length * 0.05,
-                    duration: 0.4,
-                    ease: "easeOut",
-                  }}
+                <span
+                  className={`text-2xl font-semibold tracking-tight transition-colors group-hover:text-[#4d45d4] ${
+                    pathname === link.href ? "text-[#261cc1]" : "text-white"
+                  }`}
                 >
-                  <Link
-                    href="/contacto"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="group flex items-center justify-between py-5 border-b border-white/[0.06]"
-                  >
-                    <span
-                      className={`text-2xl font-semibold tracking-tight transition-colors group-hover:text-[#4d45d4] ${
-                        pathname === "/contacto" ? "text-[#261cc1]" : "text-white"
-                      }`}
-                    >
-                      CONTACTO
-                    </span>
-                    <span className="text-[11px] tracking-widest text-white/15 font-mono">
-                      0{navLinks.length + 1}
-                    </span>
-                  </Link>
-                </motion.div>
-              </nav>
-
-              {/* Bottom info */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                className="mt-10 text-xs text-white/20 space-y-1"
+                  {link.label}
+                </span>
+                <span className="text-[11px] tracking-widest text-white/15 font-mono">
+                  0{i + 1}
+                </span>
+              </Link>
+            ))}
+            <Link
+              href="/contacto"
+              onClick={closeMenu}
+              className="group flex items-center justify-between py-5 border-b border-white/[0.06]"
+            >
+              <span
+                className={`text-2xl font-semibold tracking-tight transition-colors group-hover:text-[#4d45d4] ${
+                  pathname === "/contacto" ? "text-[#261cc1]" : "text-white"
+                }`}
               >
-                <p>hello@sorinlabs.com</p>
-                <p>San José, Costa Rica</p>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                CONTACTO
+              </span>
+              <span className="text-[11px] tracking-widest text-white/15 font-mono">
+                0{navLinks.length + 1}
+              </span>
+            </Link>
+          </nav>
+
+          {/* Bottom info */}
+          <div className="mt-10 text-xs text-white/20 space-y-1">
+            <p>hello@sorinlabs.com</p>
+            <p>San José, Costa Rica</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
