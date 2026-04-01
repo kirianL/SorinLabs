@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useRef, useEffect, useState } from "react";
+import { motion, useInView, animate } from "motion/react";
+import { useRef, useEffect } from "react";
 
 const stats = [
   {
@@ -39,29 +39,30 @@ function AnimatedNumber({
   suffix: string;
   isInView: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  const nodeRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const duration = 2000;
-    const increment = value / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
+    if (!isInView || !nodeRef.current) return;
+    
+    // Dynamic duration so small numbers like 2 or 5 don't get stuck for seconds
+    const dynamicDuration = Math.max(0.5, Math.min(2, value * 0.05));
+    
+    const controls = animate(0, value, {
+      duration: dynamicDuration,
+      ease: "easeOut",
+      onUpdate(v) {
+        if (nodeRef.current) {
+          nodeRef.current.textContent = `${Math.round(v)}${suffix}`;
+        }
       }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [isInView, value]);
+    });
+
+    return () => controls.stop();
+  }, [isInView, value, suffix]);
 
   return (
-    <span>
-      {count}
-      {suffix}
+    <span ref={nodeRef}>
+      0{suffix}
     </span>
   );
 }

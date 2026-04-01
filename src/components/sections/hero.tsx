@@ -1,64 +1,25 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import TextRotate from "@/components/fancy/text-rotate";
 
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [heroHeight, setHeroHeight] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true);
-        setHeroHeight(window.innerHeight);
-      } else {
-        setIsMobile(false);
-        setHeroHeight(null);
-      }
-    };
-    
-    handleResize();
-    window.addEventListener("orientationchange", handleResize);
-    return () => window.removeEventListener("orientationchange", handleResize);
-  }, []);
-
-  // Parallax: image moves at 35% of scroll speed (deeper background)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const decorY1 = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const decorY2 = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-
   return (
-    <section 
-      ref={sectionRef}
-      className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 md:h-[100svh] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6 lg:px-10"
-      style={isMobile && heroHeight ? { height: `${heroHeight}px` } : {}}
-    >
+    <section className="relative bg-[#0a0a0f] flex flex-col pt-20 pb-6 h-[100svh] min-h-[600px] md:min-h-[700px] md:pt-24 md:pb-8 px-4 sm:px-6 lg:px-10">
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full flex-none min-h-[460px] md:h-auto md:flex-1 md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
-        style={isMobile && heroHeight ? { height: `${heroHeight - 104}px` } : { minHeight: "calc(100svh - 104px)" }}
+        className="relative w-full flex-1 flex flex-col min-h-[460px] md:h-auto md:min-h-[600px] rounded-3xl border border-white/[0.08] overflow-hidden"
+        style={{ minHeight: "calc(100svh - 104px)" }}
       >
-        {/* Background image with parallax */}
-        <motion.div
-          className="absolute inset-0 scale-[1.15]"
-          style={{ y: imageY }}
-        >
+        {/* Background image — Fixed (No parallax) */}
+        <div className="absolute inset-0">
           <Image
             src="/HeroSection.png"
             alt=""
@@ -66,9 +27,8 @@ export function HeroSection() {
             priority
             sizes="100vw"
             className="object-cover object-center"
-            quality={90}
           />
-        </motion.div>
+        </div>
 
         {/* Base dark wash — subtle, lets the image breathe */}
         <div className="absolute inset-0 bg-[#0a0a0f]/35 z-[1]" />
@@ -85,25 +45,16 @@ export function HeroSection() {
           }}
         />
 
-        {/* Decorative Parallax Elements */}
-        <motion.div 
-          style={{ y: decorY1 }}
-          className="absolute top-[20%] right-[15%] z-10 text-white/10 text-4xl font-extralight select-none hidden md:block"
-        >
+        {/* Decorative Elements — Static */}
+        <div className="absolute top-[20%] right-[15%] z-10 text-white/10 text-4xl font-extralight select-none hidden md:block">
           +
-        </motion.div>
-        <motion.div 
-          style={{ y: decorY2 }}
-          className="absolute bottom-[30%] left-[10%] z-10 text-white/5 text-6xl font-extralight select-none hidden md:block"
-        >
+        </div>
+        <div className="absolute bottom-[30%] left-[10%] z-10 text-white/5 text-6xl font-extralight select-none hidden md:block">
           -
-        </motion.div>
+        </div>
 
         {/* Content — centered */}
-        <motion.div 
-          style={{ y: textY }}
-          className="relative z-10 flex flex-col items-center justify-center h-full px-5 sm:px-12 text-center pb-8 md:pb-4"
-        >
+        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-5 sm:px-12 text-center pb-8 md:pb-4">
           {/* Small cross detail */}
           <motion.span
             initial={{ opacity: 0, rotate: -90 }}
@@ -116,7 +67,7 @@ export function HeroSection() {
 
           {/* Headline with rotating verb */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.12]"
@@ -136,7 +87,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
             className="mt-5 md:mt-8 max-w-md text-[14px] sm:text-base text-white/40 leading-relaxed font-light"
@@ -147,7 +98,7 @@ export function HeroSection() {
 
           {/* CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85, duration: 0.5 }}
             className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-6"
@@ -165,7 +116,7 @@ export function HeroSection() {
               Ver portafolio →
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Corner labels */}
         <motion.span

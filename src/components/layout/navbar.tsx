@@ -75,9 +75,7 @@ export function Navbar() {
                 >
                   {link.label}
                 </Link>
-                {i < navLinks.length - 1 && (
-                  <span className="mx-4" />
-                )}
+                {i < navLinks.length - 1 && <span className="mx-4" />}
               </span>
             ))}
           </div>
@@ -110,9 +108,7 @@ export function Navbar() {
       {/* Mobile Menu — CSS transition, no framer-motion */}
       <div
         className={`fixed inset-0 z-[55] bg-[#0a0a0f] flex flex-col lg:hidden transition-all duration-200 ease-out ${
-          isMobileMenuOpen
-            ? "opacity-100 visible"
-            : "opacity-0 invisible"
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         style={{ willChange: "opacity" }}
       >

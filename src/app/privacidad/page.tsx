@@ -77,10 +77,10 @@ export default function PrivacyPage() {
               consentimiento o exportación de información, por favor envíe un
               correo a{" "}
               <a
-                href="mailto:legal@sorinlabs.com"
+                href="mailto:hello@sorinlabs.com"
                 className="text-brand hover:underline"
               >
-                legal@sorinlabs.com
+                hello@sorinlabs.com
               </a>
               .
             </p>

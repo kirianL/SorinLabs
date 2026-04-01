@@ -49,7 +49,7 @@ export function WorkProcess() {
           {/* Left: title & description */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.08 }}
@@ -59,7 +59,7 @@ export function WorkProcess() {
               <span className="text-white/25">reales.</span>
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
@@ -69,7 +69,7 @@ export function WorkProcess() {
               que el resultado final funcione tan bien como se ve.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.22 }}
@@ -108,7 +108,7 @@ export function WorkProcess() {
                 {steps.map((step, i) => (
                   <motion.div
                     key={step.num}
-                    initial={{ opacity: 0, x: 30 }}
+                    initial={{ opacity: 0, x: 0 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{

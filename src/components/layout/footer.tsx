@@ -6,8 +6,10 @@ const footerLinks = {
   explorar: [
     { href: "/portafolio", label: "Trabajo" },
     { href: "/servicios", label: "Servicios" },
+    { href: "/precios", label: "Precios" },
     { href: "/metodologia", label: "Método" },
     { href: "/nosotros", label: "Nosotros" },
+    { href: "/contacto", label: "Contacto" },
   ],
 };
 
@@ -104,10 +106,10 @@ export function Footer() {
             </p>
             <div className="flex w-full items-center">
               <a
-                href="mailto:kirianluna.u@gmail.com"
+                href="mailto:hello@sorinlabs.com"
                 className="flex w-full items-center justify-between rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white/50 transition-colors hover:border-white/20"
               >
-                <span>kirianluna.u@gmail.com</span>
+                <span>hello@sorinlabs.com</span>
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black transition-transform hover:scale-105">
                   <ArrowRight size={16} />
                 </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Mail, MapPin, Send, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { toast } from "sonner";
 
 const serviceOptions = [
   "Sitio Web Corporativo",
@@ -18,8 +19,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "kirianluna.u@gmail.com",
-    href: "mailto:kirianluna.u@gmail.com",
+    value: "hello@sorinlabs.com",
+    href: "mailto:hello@sorinlabs.com",
   },
   {
     icon: MapPin,
@@ -38,12 +39,38 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast.success("¡Gracias! Tu mensaje ha sido enviado correctamente y te responderemos pronto.");
+        setFormData({ name: "", email: "", company: "", service: "", message: "" });
+      } else {
+        toast.error("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
+      }
+    } catch (err) {
+      toast.error("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -90,7 +117,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-7"
             >
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-[13px] font-semibold text-[#555] mb-2">
@@ -170,13 +197,16 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#111] px-8 py-4 text-[15px] font-semibold text-white transition-all hover:bg-[#261cc1] hover:shadow-[0_8px_30px_rgba(38,28,193,0.25)] active:scale-[0.98]"
+                  disabled={isSubmitting}
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#111] px-8 py-4 text-[15px] font-semibold text-white transition-all hover:bg-[#261cc1] hover:shadow-[0_8px_30px_rgba(38,28,193,0.25)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Enviar mensaje
-                  <Send
-                    size={15}
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
+                  {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                  {!isSubmitting && (
+                    <Send
+                      size={15}
+                      className="transition-transform group-hover:translate-x-0.5"
+                    />
+                  )}
                 </button>
               </form>
             </motion.div>
@@ -233,10 +263,10 @@ export default function ContactPage() {
                   Respondemos en menos de 24 horas. Si tienes un proyecto
                   urgente, escríbenos directamente a{" "}
                   <Link
-                    href="mailto:kirianluna.u@gmail.com"
+                    href="mailto:hello@sorinlabs.com"
                     className="text-[#261cc1] font-semibold hover:underline"
                   >
-                    kirianluna.u@gmail.com
+                    hello@sorinlabs.com
                   </Link>
                 </p>
               </div>

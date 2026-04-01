@@ -23,8 +23,7 @@ const differentials = [
   {
     icon: MousePointerClick,
     title: "Experiencia sin fricción",
-    description:
-      "Interfaces claras que guían al usuario sin esfuerzo.",
+    description: "Interfaces claras que guían al usuario sin esfuerzo.",
   },
   {
     icon: Zap,
@@ -65,10 +64,11 @@ export function BenefitsSection() {
               <span className="text-[#888] font-medium block mb-3 sm:mb-4 text-lg sm:text-2xl lg:text-3xl">
                 Nuestro enfoque es simple.
               </span>
-              Diseño y desarrollo no se trabajan por separado. Se construyen como un solo sistema desde el inicio.
+              Diseño y desarrollo no se trabajan por separado. Se construyen
+              como un solo sistema desde el inicio.
             </h2>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -77,14 +77,18 @@ export function BenefitsSection() {
             className="lg:w-4/12 flex flex-col justify-end"
           >
             <p className="text-[15px] sm:text-base text-[#666] leading-relaxed">
-              Cada decisión visual tiene una razón, y cada decisión técnica tiene un propósito. El resultado no es solo una web atractiva, <strong className="text-[#111] font-semibold">sino una herramienta que funciona, se adapta y evoluciona con tu negocio.</strong>
+              Cada decisión visual tiene una razón, y cada decisión técnica
+              tiene un propósito. El resultado no es solo una web atractiva,{" "}
+              <strong className="text-[#111] font-semibold">
+                sino una herramienta que funciona, se adapta y evoluciona con tu
+                negocio.
+              </strong>
             </p>
           </motion.div>
         </div>
 
         {/* ── Visual Uniform 4-Column Grid ─────────────────────────────────────── */}
         <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-min gap-4 sm:gap-5 lg:gap-6 mb-20 sm:mb-24 lg:mb-32">
-          
           {/* Card 1: Diseño */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +108,10 @@ export function BenefitsSection() {
 
             <div className="mb-8 flex items-center justify-between relative z-10 mt-20 sm:mt-24 lg:mt-32">
               <div className="w-12 h-12 rounded-xl bg-[#261cc1] shadow-lg flex items-center justify-center">
-                <MousePointerClick className="w-5 h-5 text-white" strokeWidth={2} />
+                <MousePointerClick
+                  className="w-5 h-5 text-white"
+                  strokeWidth={2}
+                />
               </div>
             </div>
             <div className="relative z-10 mt-auto">
@@ -112,7 +119,8 @@ export function BenefitsSection() {
                 Diseño con intención
               </h3>
               <p className="text-[12px] sm:text-[13px] xl:text-[14px] text-[#555] leading-relaxed">
-                Nada se coloca por estética únicamente. Cada elemento, espacio y jerarquía está pensado para guiar al usuario eficientemente.
+                Nada se coloca por estética únicamente. Cada elemento, espacio y
+                jerarquía está pensado para guiar al usuario eficientemente.
               </p>
             </div>
           </motion.div>
@@ -127,17 +135,21 @@ export function BenefitsSection() {
           >
             {/* Dark background glow */}
             <div className="absolute top-0 right-0 w-[150%] h-[120%] bg-[#261cc1]/20 rounded-full blur-[70px] -mr-16 -mt-16 transition-all duration-[1500ms] ease-out group-hover:bg-[#261cc1]/40 pointer-events-none" />
-            
-            <motion.div style={{ y: yFloat }} className="relative z-10 w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shadow-lg mb-8 mt-20 sm:mt-24 lg:mt-32">
+
+            <motion.div
+              style={{ y: yFloat }}
+              className="relative z-10 w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shadow-lg mb-8 mt-20 sm:mt-24 lg:mt-32"
+            >
               <GitBranch className="w-5 h-5 text-white" strokeWidth={2} />
             </motion.div>
-            
+
             <div className="relative z-10 mt-auto">
               <h3 className="text-[15px] xl:text-[18px] font-bold text-white tracking-tight mb-2 text-balance leading-snug">
                 Ingeniería moderna
               </h3>
               <p className="text-[12px] sm:text-[13px] xl:text-[14px] text-white/60 leading-relaxed font-light">
-                Trabajamos con código escalable y tecnologías robustas para que tu proyecto crezca sin restricciones estructurales.
+                Trabajamos con código escalable y tecnologías robustas para que
+                tu proyecto crezca sin restricciones estructurales.
               </p>
             </div>
           </motion.div>
@@ -152,7 +164,9 @@ export function BenefitsSection() {
           >
             {/* Visual Embellishment: Huge Watermark Metric (Top Aligned) */}
             <div className="absolute top-2 right-2 opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none select-none">
-              <span className="text-[90px] xl:text-[110px] font-black leading-none tracking-tighter">99</span>
+              <span className="text-[90px] xl:text-[110px] font-black leading-none tracking-tighter">
+                99
+              </span>
             </div>
 
             <div className="mb-8 flex items-center justify-between relative z-10 mt-20 sm:mt-24 lg:mt-32">
@@ -165,7 +179,8 @@ export function BenefitsSection() {
                 Rendimiento integrado
               </h3>
               <p className="text-[12px] sm:text-[13px] xl:text-[14px] text-[#555] leading-relaxed">
-                Velocidad, optimización y accesibilidad integrados desde el núcleo del desarrollo, no como añadido adicional.
+                Velocidad, optimización y accesibilidad integrados desde el
+                núcleo del desarrollo, no como añadido adicional.
               </p>
             </div>
           </motion.div>
@@ -181,9 +196,9 @@ export function BenefitsSection() {
             {/* Visual embellishment: Abstract interlocking blocks (Top Aligned) */}
             <div className="absolute top-4 right-0 w-[70%] flex items-start justify-end pointer-events-none opacity-50 group-hover:opacity-80 transition-opacity pr-4">
               <div className="relative w-full h-[100px] transform group-hover:-translate-y-2 transition-transform duration-700">
-                 <div className="absolute top-4 right-12 w-10 h-10 bg-indigo-100 border border-indigo-200 rounded-lg shadow-sm transform -rotate-12" />
-                 <div className="absolute top-10 right-4 w-10 h-10 bg-purple-100 border border-purple-200 rounded-lg shadow-sm transform rotate-12" />
-                 <div className="absolute top-0 right-2 w-12 h-12 bg-emerald-100 border border-emerald-200 rounded-xl shadow-sm transform rotate-3" />
+                <div className="absolute top-4 right-12 w-10 h-10 bg-indigo-100 border border-indigo-200 rounded-lg shadow-sm transform -rotate-12" />
+                <div className="absolute top-10 right-4 w-10 h-10 bg-purple-100 border border-purple-200 rounded-lg shadow-sm transform rotate-12" />
+                <div className="absolute top-0 right-2 w-12 h-12 bg-emerald-100 border border-emerald-200 rounded-xl shadow-sm transform rotate-3" />
               </div>
             </div>
 
@@ -197,19 +212,19 @@ export function BenefitsSection() {
                 Sistema hecho a medida
               </h3>
               <p className="text-[12px] sm:text-[13px] xl:text-[14px] text-[#555] leading-relaxed">
-                Sin plantillas. Construimos soluciones adaptadas de raíz a la lógica y necesidades reales de tu negocio a escala.
+                Sin plantillas. Construimos soluciones adaptadas de raíz a la
+                lógica y necesidades reales de tu negocio a escala.
               </p>
             </div>
           </motion.div>
-
         </div>
 
         {/* ── Process/Differentials Flow ─────────────────── */}
         <div className="mt-20 sm:mt-24 lg:mt-32 relative">
           {/* Horizontal Desktop Connecting Line */}
           <div className="absolute top-10 left-[15%] right-[15%] h-px hidden lg:block border-t-[1.5px] border-dashed border-[#b3b6e8] opacity-50 z-0" />
-          
-          <div 
+
+          <div
             className="grid grid-cols-2 lg:grid-cols-4 relative z-10"
             style={{ rowGap: "80px", columnGap: "24px" }}
           >
@@ -229,35 +244,44 @@ export function BenefitsSection() {
                   className="relative flex flex-col items-center text-center sm:px-4"
                 >
                   {/* Fixed Circle Indicator Effect MATCHING IMAGE */}
-                  <div 
+                  <div
                     className="relative mb-6 flex items-center justify-center shrink-0 w-16 h-16 sm:w-20 sm:h-20"
                     style={{ width: "84px", height: "84px" }}
                   >
                     {/* Outer dashed ring */}
-                    <div 
+                    <div
                       className="absolute inset-0 rounded-full border-2 border-dashed"
-                      style={{ borderColor: "#a5a9ed" }} 
+                      style={{ borderColor: "#a5a9ed" }}
                     />
-                    
+
                     {/* Inner solid circle */}
-                    <div 
+                    <div
                       className="flex items-center justify-center rounded-full bg-white border z-10 transition-transform duration-300 hover:scale-105"
-                      style={{ width: "52px", height: "52px", borderColor: "#d6d8f6" }}
+                      style={{
+                        width: "52px",
+                        height: "52px",
+                        borderColor: "#d6d8f6",
+                      }}
                     >
-                      <Icon className="text-[#261cc1]" style={{ color: "#261cc1" }} size={20} strokeWidth={2} />
+                      <Icon
+                        className="text-[#261cc1]"
+                        style={{ color: "#261cc1" }}
+                        size={20}
+                        strokeWidth={2}
+                      />
                     </div>
 
                     {/* Step number badge - Positioned right on the top-right curve of the dashed ring */}
-                    <div 
+                    <div
                       className="absolute z-20 flex items-center justify-center rounded-full font-bold shadow-sm"
-                      style={{ 
-                        top: "2px", 
-                        right: "2px", 
-                        width: "24px", 
-                        height: "24px", 
-                        backgroundColor: "#111", 
+                      style={{
+                        top: "2px",
+                        right: "2px",
+                        width: "24px",
+                        height: "24px",
+                        backgroundColor: "#111",
                         color: "#fff",
-                        fontSize: "12px"
+                        fontSize: "12px",
                       }}
                     >
                       {i + 1}
