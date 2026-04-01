@@ -86,16 +86,16 @@ export default function ContactPage() {
         />
         <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] max-w-2xl"
           >
             Hablemos de tu <span className="text-white/20">proyecto.</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="mt-5 max-w-lg text-base text-white/35 leading-relaxed"
           >
@@ -129,7 +129,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Tu nombre"
-                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-[15px] text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10"
+                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-base text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10"
                     />
                   </div>
                   <div>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="tu@email.com"
-                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-[15px] text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10"
+                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-base text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10"
                     />
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Tu empresa (opcional)"
-                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-[15px] text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10"
+                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-base text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10"
                     />
                   </div>
                   <div>
@@ -169,7 +169,7 @@ export default function ContactPage() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-[15px] text-[#111] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10 appearance-none"
+                      className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-base text-[#111] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10 appearance-none"
                     >
                       <option value="">Selecciona un servicio</option>
                       {serviceOptions.map((opt) => (
@@ -191,7 +191,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Cuéntanos sobre tu proyecto, objetivos y plazos..."
                     rows={5}
-                    className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-[15px] text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10 resize-none"
+                    className="w-full rounded-xl border border-[#e0e0de] bg-white px-4 py-3.5 text-base text-[#111] placeholder:text-[#bbb] transition-colors focus:border-[#261cc1]/30 focus:outline-none focus:ring-2 focus:ring-[#261cc1]/10 resize-none"
                   />
                 </div>
 

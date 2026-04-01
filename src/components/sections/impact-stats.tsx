@@ -50,6 +50,7 @@ function AnimatedNumber({
     const controls = animate(0, value, {
       duration: dynamicDuration,
       ease: "easeOut",
+      delay: 0.2, // espera a que el CSS/layout se dibuje primero
       onUpdate(v) {
         if (nodeRef.current) {
           nodeRef.current.textContent = `${Math.round(v)}${suffix}`;
@@ -77,8 +78,8 @@ export function ImpactStats() {
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#111] leading-[1.1]"
@@ -92,8 +93,8 @@ export function ImpactStats() {
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="relative rounded-2xl bg-white border border-[#e8e8e6] p-6 lg:p-8 text-center hover:border-[#261cc1]/20 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"

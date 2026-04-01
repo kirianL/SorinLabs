@@ -47,14 +47,14 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
           isScrolled && !isMobileMenuOpen
             ? "bg-[#0a0a0f]/95 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 py-5">
-          <Link href="/" className="relative z-[60] flex items-center gap-2">
+          <Link href="/" onClick={closeMenu} className="relative z-[60] flex items-center gap-2">
             <Image
               src="/LogoFullBlanco.svg"
               alt="Sorin Labs"

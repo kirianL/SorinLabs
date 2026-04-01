@@ -54,8 +54,8 @@ export function BenefitsSection() {
         {/* ── Section Header ─────────────────────────────────── */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 sm:gap-8 mb-16 sm:mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="lg:w-7/12"
@@ -70,8 +70,8 @@ export function BenefitsSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
             className="lg:w-4/12 flex flex-col justify-end"
@@ -91,8 +91,8 @@ export function BenefitsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-min gap-4 sm:gap-5 lg:gap-6 mb-20 sm:mb-24 lg:mb-32">
           {/* Card 1: Diseño */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
@@ -106,7 +106,7 @@ export function BenefitsSection() {
               </div>
             </div>
 
-            <div className="mb-8 flex items-center justify-between relative z-10 mt-20 sm:mt-24 lg:mt-32">
+            <div className="mb-8 flex items-center justify-between relative z-10 mt-8 sm:mt-10 lg:mt-12">
               <div className="w-12 h-12 rounded-xl bg-[#261cc1] shadow-lg flex items-center justify-center">
                 <MousePointerClick
                   className="w-5 h-5 text-white"
@@ -127,8 +127,8 @@ export function BenefitsSection() {
 
           {/* Card 2: Ingeniería moderna */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="relative flex flex-col rounded-2xl bg-[#111] border border-[#222] p-5 lg:p-7 overflow-hidden group hover:shadow-[0_8px_40px_rgba(0,0,0,0.2)] transition-all duration-300"
@@ -138,7 +138,7 @@ export function BenefitsSection() {
 
             <motion.div
               style={{ y: yFloat }}
-              className="relative z-10 w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shadow-lg mb-8 mt-20 sm:mt-24 lg:mt-32"
+              className="relative z-10 w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shadow-lg mb-8 mt-8 sm:mt-10 lg:mt-12"
             >
               <GitBranch className="w-5 h-5 text-white" strokeWidth={2} />
             </motion.div>
@@ -156,8 +156,8 @@ export function BenefitsSection() {
 
           {/* Card 3: Rendimiento */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="relative flex flex-col rounded-2xl bg-[#fcfcfc] border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
@@ -169,7 +169,7 @@ export function BenefitsSection() {
               </span>
             </div>
 
-            <div className="mb-8 flex items-center justify-between relative z-10 mt-20 sm:mt-24 lg:mt-32">
+            <div className="mb-8 flex items-center justify-between relative z-10 mt-8 sm:mt-10 lg:mt-12">
               <div className="w-12 h-12 rounded-xl bg-[#261cc1] shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform">
                 <Zap className="w-5 h-5 text-white" strokeWidth={2} />
               </div>
@@ -187,8 +187,8 @@ export function BenefitsSection() {
 
           {/* Card 4: Sistema hecho a medida */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.25 }}
             className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
@@ -202,7 +202,7 @@ export function BenefitsSection() {
               </div>
             </div>
 
-            <div className="mb-8 flex items-center gap-4 relative z-10 mt-20 sm:mt-24 lg:mt-32">
+            <div className="mb-8 flex items-center gap-4 relative z-10 mt-8 sm:mt-10 lg:mt-12">
               <div className="w-12 h-12 rounded-xl bg-[#261cc1] shadow-lg flex items-center justify-center">
                 <Layers className="w-5 h-5 text-white" strokeWidth={2} />
               </div>
@@ -233,9 +233,9 @@ export function BenefitsSection() {
               return (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: "-10px" }}
                   transition={{
                     delay: i * 0.1,
                     duration: 0.55,
