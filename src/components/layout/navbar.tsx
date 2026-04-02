@@ -207,7 +207,7 @@ export function Navbar() {
                 className="mt-10 text-xs text-white/20 space-y-1"
               >
                 <p>hello@sorinlabs.com</p>
-                <p>San José, Costa Rica</p>
+                <p>Costa Rica</p>
               </motion.div>
             </div>
           </motion.div>

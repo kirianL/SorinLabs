@@ -261,21 +261,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#e8e8e6] bg-white p-8 lg:p-10">
-                <h3 className="text-lg font-bold text-[#111] mb-3 tracking-tight">
-                  Respuesta rápida
-                </h3>
-                <p className="text-[14px] text-[#777] leading-relaxed">
-                  Respondemos en menos de 24 horas. Si tienes un proyecto
-                  urgente, escríbenos directamente a{" "}
-                  <Link
-                    href="mailto:hello@sorinlabs.com"
-                    className="text-[#261cc1] font-semibold hover:underline"
-                  >
-                    hello@sorinlabs.com
-                  </Link>
-                </p>
-              </div>
+
             </motion.div>
           </div>
         </div>
