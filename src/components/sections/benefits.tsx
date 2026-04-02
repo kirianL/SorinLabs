@@ -91,10 +91,10 @@ export function BenefitsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-min gap-4 sm:gap-5 lg:gap-6 mb-20 sm:mb-24 lg:mb-32">
           {/* Card 1: Diseño */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
           >
             {/* Visual Embellishment: Skeleton UI (Top aligned) */}
@@ -127,10 +127,10 @@ export function BenefitsSection() {
 
           {/* Card 2: Ingeniería moderna */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="relative flex flex-col rounded-2xl bg-[#111] border border-[#222] p-5 lg:p-7 overflow-hidden group hover:shadow-[0_8px_40px_rgba(0,0,0,0.2)] transition-all duration-300"
           >
             {/* Dark background glow */}
@@ -156,11 +156,11 @@ export function BenefitsSection() {
 
           {/* Card 3: Rendimiento */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative flex flex-col rounded-2xl bg-[#fcfcfc] border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex flex-col rounded-2xl bg-[#fcfcfc] border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-500"
           >
             {/* Visual Embellishment: Huge Watermark Metric (Top Aligned) */}
             <div className="absolute top-2 right-2 opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none select-none">
@@ -187,11 +187,11 @@ export function BenefitsSection() {
 
           {/* Card 4: Sistema hecho a medida */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-500"
           >
             {/* Visual embellishment: Abstract interlocking blocks (Top Aligned) */}
             <div className="absolute top-4 right-0 w-[70%] flex items-start justify-end pointer-events-none opacity-50 group-hover:opacity-80 transition-opacity pr-4">
@@ -233,13 +233,13 @@ export function BenefitsSection() {
               return (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-10px" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
                   transition={{
                     delay: i * 0.1,
-                    duration: 0.55,
-                    ease: "easeOut",
+                    duration: 0.7,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   className="relative flex flex-col items-center text-center sm:px-4"
                 >

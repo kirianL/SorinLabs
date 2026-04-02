@@ -84,11 +84,11 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -273,10 +273,10 @@ export default function PricingPage() {
           <div className="bg-white rounded-[2.5rem] border border-[#e8e8e6] overflow-hidden flex flex-col lg:flex-row shadow-sm hover:shadow-md transition-shadow">
             {/* Plan Selector */}
             <motion.div
-              initial={{ opacity: 0, x: -16 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="flex-1 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-[#e8e8e6]"
             >
               <div className="flex items-center gap-3 mb-8">
@@ -304,10 +304,10 @@ export default function PricingPage() {
 
             {/* Infrastructure */}
             <motion.div
-              initial={{ opacity: 0, x: 16 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="flex-1 p-8 sm:p-12 bg-[#fafaf9]/30"
             >
               <div className="flex items-center gap-3 mb-8">

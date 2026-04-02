@@ -71,10 +71,10 @@ export function FeaturedProjects() {
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <Link href={project.link} className="group block h-full">
                 <div className="flex flex-col h-full rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-300">
