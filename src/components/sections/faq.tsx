@@ -14,7 +14,7 @@ const faqs = [
   {
     question: "¿Cuánto tiempo toma desarrollar un sitio web?",
     answer:
-      "Depende del alcance y la complejidad del proyecto. Un sitio web corporativo puede tomar entre 4 y 8 semanas. Plataformas más complejas pueden requerir más tiempo, pero siempre lo definimos claramente desde la fase de descubrimiento.",
+      "Depende del alcance y la complejidad del proyecto. Un sitio web corporativo puede tomar entre 1 y 2 semanas. Plataformas más complejas pueden requerir más tiempo, pero siempre lo definimos claramente desde la fase de descubrimiento.",
   },
   {
     question: "¿Trabajan con empresas fuera de Costa Rica?",
@@ -46,17 +46,7 @@ export function FAQSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Left: heading */}
           <div className="lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-2.5 mb-5"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-[#261cc1]" />
-              <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#261cc1]">
-                FAQ
-              </span>
-            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -143,13 +133,14 @@ export function FAQSection() {
                           )}
                         </span>
                       </button>
-                      <AnimatePresence>
+                      <AnimatePresence initial={false}>
                         {isOpen && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                            className="overflow-hidden"
                           >
                             <div className="px-6 lg:px-7 pb-7 pt-0 pl-[calc(1.5rem+3.25rem)] lg:pl-[calc(1.75rem+3.25rem)]">
                               <p className="text-[15px] text-[#666] leading-[1.7]">

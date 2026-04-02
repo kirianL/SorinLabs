@@ -122,7 +122,9 @@ export function Footer() {
         <div className="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-xs font-medium text-white/40 text-center sm:text-left">
             © {new Date().getFullYear()} Sorin Labs. Todos los derechos
-            reservados. <span className="hidden sm:inline">·</span><br className="sm:hidden" /> Empresa registrada en Hacienda · Facturación Electrónica
+            reservados. <span className="hidden sm:inline">·</span>
+            <br className="sm:hidden" /> Empresa registrada en hacienda ·
+            Facturación electrónica
           </p>
           <div className="flex gap-6 text-xs font-medium text-white/40">
             <Link href="/terminos" className="hover:text-white">
