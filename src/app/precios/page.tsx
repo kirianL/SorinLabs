@@ -22,7 +22,7 @@ const plans = [
   },
   {
     name: "Launch",
-    price: "$300",
+    price: "$350",
     description: "Para presentar tu negocio en una sola página bien estructurada.",
     features: [
       "1 página tipo landing",
