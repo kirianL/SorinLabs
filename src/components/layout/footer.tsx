@@ -58,8 +58,8 @@ export function Footer() {
               height={35}
               className="mb-6 h-8 w-auto"
             />
-            <p className="text-sm font-medium text-white/60 mb-6">
-              Diseño web pensado para personas.
+            <p className="text-sm font-medium text-white/60 mb-6 max-w-xs">
+              Donde el diseño convive con la ingeniería moderna
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3">

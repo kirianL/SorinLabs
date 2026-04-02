@@ -3,8 +3,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones | Sorin Labs",
-  description: "Términos y Condiciones de Uso de Sorin Labs.",
+  title: "Términos y condiciones | Sorin Labs",
+  description: "Términos y condiciones de uso de Sorin Labs.",
 };
 
 export default function TermsPage() {
@@ -15,7 +15,7 @@ export default function TermsPage() {
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
         <ScrollReveal>
           <SectionHeading
-            title="Términos y Condiciones"
+            title="Términos y condiciones"
             subtitle={`Última actualización: ${lastUpdated}`}
           />
         </ScrollReveal>
@@ -27,14 +27,14 @@ export default function TermsPage() {
             </h3>
             <p className="text-white/70 leading-relaxed mb-8">
               Al acceder a este sitio web, usted acepta estar sujeto a estos
-              Términos y Condiciones de Uso, todas las leyes y regulaciones
+              Términos y condiciones de uso, todas las leyes y regulaciones
               aplicables, y acepta que es responsable del cumplimiento de las
               leyes locales aplicables en Costa Rica o su jurisdicción de
               origen.
             </p>
 
             <h3 className="text-xl font-bold text-white mb-4">
-              2. Licencia de Uso
+              2. Licencia de uso
             </h3>
             <p className="text-white/70 leading-relaxed mb-4">
               El contenido de este sitio web (incluyendo textos, gráficos,
@@ -60,7 +60,7 @@ export default function TermsPage() {
             </ul>
 
             <h3 className="text-xl font-bold text-white mb-4">
-              3. Prestación de Servicios Técnicos
+              3. Prestación de servicios técnicos
             </h3>
             <p className="text-white/70 leading-relaxed mb-8">
               La contratación de los servicios de ingeniería, diseño,
@@ -71,7 +71,7 @@ export default function TermsPage() {
             </p>
 
             <h3 className="text-xl font-bold text-white mb-4">
-              4. Limitaciones de Responsabilidad
+              4. Limitaciones de responsabilidad
             </h3>
             <p className="text-white/70 leading-relaxed mb-8">
               En ningún caso Sorin Labs o sus proveedores serán responsables por

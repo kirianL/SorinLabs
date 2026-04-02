@@ -3,8 +3,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad | Sorin Labs",
-  description: "Política de Privacidad y Tratamiento de Datos de Sorin Labs.",
+  title: "Política de privacidad | Sorin Labs",
+  description: "Política de privacidad y Tratamiento de Datos de Sorin Labs.",
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
         <ScrollReveal>
           <SectionHeading
-            title="Política de Privacidad"
+            title="Política de privacidad"
             subtitle={`Última actualización: ${lastUpdated}`}
           />
         </ScrollReveal>
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         <ScrollReveal delay={0.1}>
           <div className="mt-12 prose prose-invert prose-brand max-w-none">
             <h3 className="text-xl font-bold text-white mb-4">
-              1. Recopilación de Información
+              1. Recopilación de información
             </h3>
             <p className="text-white/70 leading-relaxed mb-8">
               Sorin Labs recopila información de contacto (nombre, correo
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
             </p>
 
             <h3 className="text-xl font-bold text-white mb-4">
-              4. Cookies y Analíticas
+              4. Cookies y analíticas
             </h3>
             <p className="text-white/70 leading-relaxed mb-8">
               Utilizamos cookies esenciales para el funcionamiento del sitio y

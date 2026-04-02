@@ -158,7 +158,7 @@ export default function BrisasDelRioCaseStudy() {
               viewport={{ once: true }}
             >
               <h2 className="text-xl font-bold text-[#111] tracking-tight mb-4">
-                Objetivo del Proyecto
+                Objetivo del proyecto
               </h2>
               <p className="text-[15px] text-[#666] leading-relaxed">
                 Crear una presencia digital sólida y profesional para Brisas del
@@ -282,7 +282,7 @@ export default function BrisasDelRioCaseStudy() {
               className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
             >
               <h3 className="text-base font-bold text-white mb-4 tracking-tight">
-                Experiencia de Usuario
+                Experiencia de usuario
               </h3>
               <div className="space-y-2.5">
                 {uxItems.map((u) => (

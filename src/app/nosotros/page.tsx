@@ -131,7 +131,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Propuesta de Valor - New Dedicated Section */}
+      {/* Propuesta de valor - New Dedicated Section */}
       <section className="bg-white py-24 lg:py-32 border-b border-[#e8e8e6]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="text-center mb-16 lg:mb-20">

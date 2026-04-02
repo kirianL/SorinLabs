@@ -7,8 +7,8 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 const projects = [
   {
     num: "01",
-    title: "Sitio Web Corporativo Premium",
-    category: "Diseño Web",
+    title: "Sitio web corporativo premium",
+    category: "Diseño web",
     description:
       "Un sitio web moderno donde la experiencia de usuario, la estructura y el diseño visual comunican confianza desde el primer clic.",
     tags: ["Next.js", "React", "Figma"],
@@ -16,8 +16,8 @@ const projects = [
   },
   {
     num: "02",
-    title: "Landing Page de Alto Impacto",
-    category: "Landing Page",
+    title: "Landing page de alto impacto",
+    category: "Landing page",
     description:
       "Página enfocada en conversión con diseño visual atractivo, copywriting estratégico y micro-animaciones que guían la atención.",
     tags: ["React", "Framer Motion", "UI/UX"],
@@ -25,8 +25,8 @@ const projects = [
   },
   {
     num: "03",
-    title: "Plataforma Digital Interactiva",
-    category: "Plataforma Web",
+    title: "Plataforma digital interactiva",
+    category: "Plataforma web",
     description:
       "Plataforma con diseño intuitivo, navegación clara y una arquitectura preparada para crecer con el negocio.",
     tags: ["Next.js", "TypeScript", "Tailwind"],

@@ -15,7 +15,7 @@ const project = {
   role: "Diseño UX/UI · Desarrollo Web",
   heroImage: "/works/Limón/HeroLimon.png",
   pageImage: "/works/Limón/PageLimon.png",
-  liveUrl: "#",
+  liveUrl: "https://landing-puerto-lim-n-w29u.vercel.app/#inicio",
   stack: ["React / Next.js", "TailwindCSS", "Framer Motion", "Mapbox GL"],
 };
 
@@ -159,7 +159,7 @@ export default function LimonCaseStudy() {
               viewport={{ once: true }}
             >
               <h2 className="text-xl font-bold text-[#111] tracking-tight mb-4">
-                Objetivo del Proyecto
+                Objetivo del proyecto
               </h2>
               <p className="text-[15px] text-[#666] leading-relaxed">
                 Crear una plataforma web interactiva y editorial que preserve y
@@ -176,7 +176,7 @@ export default function LimonCaseStudy() {
               transition={{ delay: 0.1 }}
             >
               <h2 className="text-xl font-bold text-[#111] tracking-tight mb-4">
-                Retos Abordados
+                Retos abordados
               </h2>
               <p className="text-[15px] text-[#666] leading-relaxed">
                 Organización de grandes volúmenes de contenido cultural sin
@@ -218,7 +218,7 @@ export default function LimonCaseStudy() {
               className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
             >
               <h3 className="text-base font-bold text-white mb-4 tracking-tight">
-                Secciones Clave
+                Secciones clave
               </h3>
               <div className="space-y-2.5">
                 {sections.map((s) => (
@@ -241,7 +241,7 @@ export default function LimonCaseStudy() {
               className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
             >
               <h3 className="text-base font-bold text-white mb-4 tracking-tight">
-                Enfoque Conceptual
+                Enfoque conceptual
               </h3>
               <div className="space-y-2.5">
                 {conceptItems.map((c) => (
@@ -264,7 +264,7 @@ export default function LimonCaseStudy() {
               className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6"
             >
               <h3 className="text-base font-bold text-white mb-4 tracking-tight">
-                Experiencia de Usuario
+                Experiencia de usuario
               </h3>
               <div className="space-y-2.5">
                 {uxItems.map((u) => (
@@ -314,7 +314,7 @@ export default function LimonCaseStudy() {
               transition={{ delay: 0.1 }}
             >
               <h2 className="text-xl font-bold text-[#111] tracking-tight mb-5">
-                Implementación Técnica
+                Implementación técnica
               </h2>
               <div className="space-y-2.5">
                 {techItems.map((t) => (

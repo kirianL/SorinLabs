@@ -8,14 +8,14 @@ import { ArrowUpRight } from "lucide-react";
 const projects = [
   {
     title: "Brisas del Río",
-    description: "Sitio Web · Hospedaje · Jiménez, Costa Rica",
+    description: "Sitio web · Hospedaje · Jiménez, Costa Rica",
     image: "/works/BrisasDelRio/HeroBrisasDelRio.png",
     link: "/portafolio/brisas-del-rio",
     tags: ["Next.js", "UI/UX"],
   },
   {
     title: "Puerto Limón",
-    description: "Plataforma Cultural · Puerto Limón, Costa Rica",
+    description: "Plataforma cultural · Puerto Limón, Costa Rica",
     image: "/works/Limón/HeroLimon.png",
     link: "/portafolio/limon",
     tags: ["Next.js", "Editorial"],

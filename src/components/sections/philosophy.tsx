@@ -37,7 +37,7 @@ export function PhilosophySection() {
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#261cc1]" />
           <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#261cc1]">
-            Nuestra Filosofía
+            Nuestra filosofía
           </span>
         </motion.div>
 

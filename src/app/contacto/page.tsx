@@ -269,7 +269,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-[15px] font-bold text-[#111] mb-2 tracking-tight">
-                      Garantía de Formalidad
+                      Garantía de formalidad
                     </h3>
                     <p className="text-[13px] text-[#666] leading-relaxed">
                       Sorin Labs es una entidad legalmente constituida y registrada ante el Ministerio de Hacienda. Cumplimos con todos los requisitos para la emisión de facturación electrónica.

@@ -55,7 +55,7 @@ export function ProcessSection() {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#261cc1]" />
               <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#261cc1]">
-                Nuestro Proceso
+                Nuestro proceso
               </span>
             </motion.div>
             <motion.h2
