@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CR",
-    url: "https://sorinlabs.com",
+    url: "https://sorinlabs.dev",
     title: "Sorin Labs — Diseño Web & Experiencias Digitales",
     description:
       "Experiencias web diseñadas con intención. Sitios web modernos, claros y funcionales donde el diseño y la tecnología se encuentran.",

@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@sorinlabs.com",
-    href: "mailto:hello@sorinlabs.com",
+    value: "hello@sorinlabs.dev",
+    href: "mailto:hello@sorinlabs.dev",
   },
   {
     icon: MapPin,
@@ -64,7 +64,8 @@ export default function ContactPage() {
         toast.success("¡Gracias! Tu mensaje ha sido enviado correctamente y te responderemos pronto.");
         setFormData({ name: "", email: "", company: "", service: "", message: "" });
       } else {
-        toast.error("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
+        const errorData = await res.json().catch(() => ({}));
+        toast.error(errorData.error?.message || "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
       }
     } catch (err) {
       toast.error("Hubo un problema al enviar el mensaje. Inténtalo de nuevo.");
