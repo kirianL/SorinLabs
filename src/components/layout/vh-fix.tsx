@@ -14,12 +14,18 @@ export function VHFix() {
 
     // Calculate on mount
     updateVH();
+    let lastWidth = window.innerWidth;
 
-    // Listen for resize events. Throttled to avoid performance issues
+    // Listen for resize events. Throttled and filtered to avoid scroll jumps
     let timeout: NodeJS.Timeout;
     const handleResize = () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(updateVH, 150);
+      // On mobile, scrolling often fires resize events because the address bar hides.
+      // We ONLY want to update the VH if the width changes (orientation change).
+      if (window.innerWidth !== lastWidth) {
+        lastWidth = window.innerWidth;
+        clearTimeout(timeout);
+        timeout = setTimeout(updateVH, 150);
+      }
     };
 
     window.addEventListener("resize", handleResize);
