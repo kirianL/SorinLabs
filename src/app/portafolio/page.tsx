@@ -13,6 +13,13 @@ const projects = [
     image: "/works/BrisasDelRio/HeroBrisasDelRio.png",
     tags: ["Next.js", "UI/UX"],
   },
+  {
+    slug: "limon",
+    title: "Puerto Limón",
+    category: "Plataforma Cultural · Editorial",
+    image: "/works/Limón/HeroLimon.png",
+    tags: ["Next.js", "Editorial"],
+  },
 ];
 
 const containerVariants = {
@@ -121,8 +128,8 @@ export default function PortfolioPage() {
               </motion.div>
             ))}
 
-            {/* Coming soon placeholder cards */}
-            {[1, 2].map((i) => (
+            {/* Coming soon placeholder */}
+            {[1].map((i) => (
               <motion.div key={`soon-${i}`} variants={itemVariants}>
                 <div className="rounded-2xl border border-dashed border-[#ddd] bg-white/50 overflow-hidden">
                   <div className="aspect-[16/10] bg-[#eee]/50 flex items-center justify-center">

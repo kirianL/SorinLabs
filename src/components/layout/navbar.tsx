@@ -42,13 +42,19 @@ export function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-  const closeMenu = useCallback(() => setIsMobileMenuOpen(false), []);
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const closeMenu = useCallback(() => setIsMobileMenuOpen(false), []);
   return (
     <>
       <header
+        suppressHydrationWarning
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
-          isScrolled && !isMobileMenuOpen
+          mounted && isScrolled && !isMobileMenuOpen
             ? "bg-[#0a0a0f]/95 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
         }`}

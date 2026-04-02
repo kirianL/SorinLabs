@@ -124,6 +124,7 @@ export default function ContactPage() {
                       Nombre
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="text"
                       name="name"
                       value={formData.name}
@@ -137,6 +138,7 @@ export default function ContactPage() {
                       Email
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="email"
                       name="email"
                       value={formData.email}
@@ -153,6 +155,7 @@ export default function ContactPage() {
                       Empresa
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="text"
                       name="company"
                       value={formData.company}
@@ -166,6 +169,7 @@ export default function ContactPage() {
                       Servicio
                     </label>
                     <select
+                      suppressHydrationWarning
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
@@ -186,6 +190,7 @@ export default function ContactPage() {
                     Mensaje
                   </label>
                   <textarea
+                    suppressHydrationWarning
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -196,6 +201,7 @@ export default function ContactPage() {
                 </div>
 
                 <button
+                  suppressHydrationWarning
                   type="submit"
                   disabled={isSubmitting}
                   className="group inline-flex items-center gap-2.5 rounded-full bg-[#111] px-8 py-4 text-[15px] font-semibold text-white transition-all hover:bg-[#261cc1] hover:shadow-[0_8px_30px_rgba(38,28,193,0.25)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"

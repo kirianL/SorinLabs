@@ -14,11 +14,11 @@ const projects = [
     tags: ["Next.js", "UI/UX"],
   },
   {
-    title: "Sistema Médico",
-    description: "Plataforma SAAS · Gestión de pacientes",
-    image: "/HeroSection.png", // Temp placeholder
-    link: "/portafolio",
-    tags: ["React", "Backend"],
+    title: "Puerto Limón",
+    description: "Plataforma Cultural · Puerto Limón, Costa Rica",
+    image: "/works/Limón/HeroLimon.png",
+    link: "/portafolio/limon",
+    tags: ["Next.js", "Editorial"],
   },
 ];
 
