@@ -97,7 +97,7 @@ export function ImpactStats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-2xl bg-white border border-[#e8e8e6] p-6 lg:p-8 text-center hover:border-[#261cc1]/20 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-500"
+              className="relative rounded-2xl bg-white border border-[#e8e8e6] p-6 lg:p-8 text-center hover:border-[#261cc1]/20 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-[background-color,border-color,box-shadow] duration-500"
             >
               <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111] tracking-tight mb-2">
                 <AnimatedNumber

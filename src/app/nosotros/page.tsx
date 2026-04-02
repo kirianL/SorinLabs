@@ -241,59 +241,66 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Founder - Streamlined */}
+      {/* Founder — Testimonial Card Style */}
       <section className="py-24 lg:py-32 bg-[#f5f5f3] border-t border-[#e8e8e6]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -32 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
-            >
-              <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0 rounded-3xl overflow-hidden shadow-2xl shadow-black/5">
-                {/* Duotone overlay */}
-                <div className="absolute inset-0 z-10 bg-[#261cc1] mix-blend-color opacity-[0.45] pointer-events-none" />
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#261cc1]/40 to-transparent pointer-events-none" />
-                <Image
-                  src="/images/KirianProfile.png"
-                  alt="Kirian Luna — Fundador de Sorin Labs"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </motion.div>
 
-            {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p className="text-sm font-bold tracking-widest uppercase text-[#261cc1] mb-4">
-                Historia del fundador
+          {/* Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-sm font-bold tracking-widest uppercase text-[#261cc1] mb-10 text-center"
+          >
+            Historia del fundador
+          </motion.p>
+
+          {/* Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-[#ededec] rounded-3xl p-8 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center gap-8 lg:gap-14 max-w-5xl mx-auto"
+          >
+            {/* Photo */}
+            <div className="relative shrink-0 w-full max-w-[320px] mx-auto md:max-w-none md:w-[320px] lg:w-[380px] aspect-[4/5] rounded-3xl overflow-hidden shadow-sm">
+              <div className="absolute inset-0 z-10 bg-[#261cc1] mix-blend-color opacity-10 pointer-events-none" />
+              <Image
+                src="/images/KirianProfile.png"
+                alt="Kirian Luna — Fundador de Sorin Labs"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 400px"
+                priority
+              />
+            </div>
+
+            {/* Quote + Info */}
+            <div className="flex flex-col gap-6 w-full text-center md:text-left">
+              <p className="text-[1.35rem] sm:text-[1.55rem] lg:text-[1.8rem] font-bold text-[#111] leading-snug tracking-tight">
+                "Fundé Sorin Labs para demostrar que el código robusto y el diseño excepcional no tienen por qué estar separados."
               </p>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#111] leading-[1.08] mb-8">
-                Kirian Luna
-              </h2>
-              <div className="space-y-6 text-[16px] text-[#666] leading-relaxed">
-                <p className="text-[22px] md:text-2xl text-[#111] font-bold tracking-tight border-l-[4px] border-[#261cc1] pl-5 py-2">
-                  "Fundé Sorin Labs para demostrar que el código robusto y el diseño excepcional no tienen por qué estar separados."
-                </p>
-                <p className="pt-2">
-                  Ingeniero en Sistemas Computacionales enfocado en crear plataformas eficientes, seguras y altamente optimizadas, respaldado por más de 2 años de experiencia directa.
-                </p>
-                <p>
-                  Mi meta es simple: <strong className="text-[#111] font-bold">cada proyecto merece una atención obsesiva al detalle</strong>. Desde landing pages de alto nivel hasta sistemas complejos, construimos tecnología moderna que realmente impacta y funciona para las personas.
-                </p>
+              <div>
+                <p className="text-[16px] font-bold text-[#111]">Kirian Luna</p>
+                <p className="text-[15px] text-[#888] mt-0.5">Fundador y CEO en Sorin Labs</p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+
+          {/* Extra bio paragraph below card */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10 text-[16px] text-[#888] leading-relaxed text-center max-w-2xl mx-auto"
+          >
+            Ingeniero en Sistemas Computacionales con más de 2 años de experiencia creando plataformas eficientes, seguras y altamente optimizadas. Cada proyecto merece una{" "}
+            <strong className="text-[#555] font-semibold">atención obsesiva al detalle</strong>.
+          </motion.p>
+
         </div>
       </section>
 

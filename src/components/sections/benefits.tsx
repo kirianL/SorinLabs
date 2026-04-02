@@ -95,7 +95,7 @@ export function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-300"
+            className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-[background-color,border-color,box-shadow] duration-300"
           >
             {/* Visual Embellishment: Skeleton UI (Top aligned) */}
             <div className="absolute -right-2 top-4 w-[70%] lg:w-[80%] flex items-start justify-end pointer-events-none opacity-40 group-hover:opacity-70 transition-opacity">
@@ -131,7 +131,7 @@ export function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col rounded-2xl bg-[#111] border border-[#222] p-5 lg:p-7 overflow-hidden group hover:shadow-[0_8px_40px_rgba(0,0,0,0.2)] transition-all duration-300"
+            className="relative flex flex-col rounded-2xl bg-[#111] border border-[#222] p-5 lg:p-7 overflow-hidden group hover:shadow-[0_8px_40px_rgba(0,0,0,0.2)] transition-[background-color,border-color,box-shadow] duration-300"
           >
             {/* Dark background glow */}
             <div className="absolute top-0 right-0 w-[150%] h-[120%] bg-[#261cc1]/20 rounded-full blur-[70px] -mr-16 -mt-16 transition-all duration-[1500ms] ease-out group-hover:bg-[#261cc1]/40 pointer-events-none" />
@@ -160,7 +160,7 @@ export function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col rounded-2xl bg-[#fcfcfc] border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-500"
+            className="relative flex flex-col rounded-2xl bg-[#fcfcfc] border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-[background-color,border-color,box-shadow] duration-500"
           >
             {/* Visual Embellishment: Huge Watermark Metric (Top Aligned) */}
             <div className="absolute top-2 right-2 opacity-[0.05] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none select-none">
@@ -191,7 +191,7 @@ export function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-all duration-500"
+            className="relative flex flex-col rounded-2xl bg-white border border-[#e8e8e6] p-5 lg:p-7 overflow-hidden group hover:border-[#261cc1]/30 hover:shadow-[0_8px_40px_rgba(38,28,193,0.06)] transition-[background-color,border-color,box-shadow] duration-500"
           >
             {/* Visual embellishment: Abstract interlocking blocks (Top Aligned) */}
             <div className="absolute top-4 right-0 w-[70%] flex items-start justify-end pointer-events-none opacity-50 group-hover:opacity-80 transition-opacity pr-4">
