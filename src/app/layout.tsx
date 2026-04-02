@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { VHFix } from "@/components/layout/vh-fix";
 
 const geistSans = localFont({
   src: [
@@ -163,11 +164,13 @@ export default function RootLayout({
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
       </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
+        <VHFix />
         <Navbar />
-        <main className="min-h-[100svh]">{children}</main>
+        <main>{children}</main>
         <Footer />
         <Toaster />
       </body>

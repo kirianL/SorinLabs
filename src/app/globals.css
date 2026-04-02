@@ -101,7 +101,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 }
 

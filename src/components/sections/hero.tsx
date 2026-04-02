@@ -9,13 +9,16 @@ const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
 export function HeroSection() {
   return (
-    <section className="relative bg-[#0a0a0f] flex flex-col pt-[80px] pb-4 min-h-[100svh] md:min-h-[100svh] md:pt-[100px] md:pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden">
+    <section 
+      style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}
+      className="relative bg-[#0a0a0f] flex flex-col pt-24 pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden"
+    >
       {/* Framed container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full flex-1 flex flex-col min-h-[500px] h-full rounded-[2rem] border border-white/[0.08] overflow-hidden"
+        className="relative w-full flex-1 flex flex-col rounded-[2.5rem] border border-white/[0.08] overflow-hidden"
       >
         {/* Background image — Fixed (No parallax) */}
         <div className="absolute inset-0">
