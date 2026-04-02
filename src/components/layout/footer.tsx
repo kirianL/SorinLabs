@@ -20,7 +20,7 @@ const socialLinks = [
     icon: <Instagram size={18} />,
   },
   {
-    href: "https://facebook.com/sorinlabs",
+    href: "https://www.facebook.com/share/1DuaEeLjRF/?mibextid=wwXIfr",
     label: "Facebook",
     icon: <Facebook size={18} />,
   },
@@ -120,9 +120,9 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs font-medium text-white/40">
+          <p className="text-xs font-medium text-white/40 text-center sm:text-left">
             © {new Date().getFullYear()} Sorin Labs. Todos los derechos
-            reservados.
+            reservados. <span className="hidden sm:inline">·</span><br className="sm:hidden" /> Empresa registrada en Hacienda · Facturación Electrónica
           </p>
           <div className="flex gap-6 text-xs font-medium text-white/40">
             <Link href="/terminos" className="hover:text-white">

@@ -264,6 +264,21 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center text-center gap-3"
+          >
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#261cc1]/10 mt-0.5 sm:mt-0">
+              <Check size={13} strokeWidth={2.5} className="text-[#261cc1]" />
+            </div>
+            <p className="text-[13.5px] text-[#888] font-medium leading-tight">
+              Emitimos factura electrónica en todos nuestros servicios según normativa tributaria.
+            </p>
+          </motion.div>
         </div>
       </section>
 

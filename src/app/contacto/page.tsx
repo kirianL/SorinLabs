@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Mail, MapPin, Send, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Send, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -259,6 +259,22 @@ export default function ContactPage() {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#e8e8e6] bg-[#fafaf9]/80 p-8 lg:p-10">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white border border-[#e8e8e6] shadow-sm">
+                    <ShieldCheck size={18} strokeWidth={1.5} className="text-[#111]" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-bold text-[#111] mb-2 tracking-tight">
+                      Garantía de Formalidad
+                    </h3>
+                    <p className="text-[13px] text-[#666] leading-relaxed">
+                      Sorin Labs es una entidad legalmente constituida y registrada ante el Ministerio de Hacienda. Cumplimos con todos los requisitos para la emisión de facturación electrónica.
+                    </p>
+                  </div>
                 </div>
               </div>
 
