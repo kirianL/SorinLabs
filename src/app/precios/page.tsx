@@ -170,6 +170,9 @@ export default function PricingPage() {
                   </h3>
 
                   {/* Price */}
+                  <p className={`text-[11px] font-semibold tracking-wider uppercase mb-0.5 ${plan.highlighted ? "text-white/40" : "text-[#999]"}`}>
+                    Desde
+                  </p>
                   <div className="flex items-baseline gap-1.5 mb-1">
                     <span
                       className={`text-3xl sm:text-4xl font-bold tracking-tight ${
@@ -191,7 +194,7 @@ export default function PricingPage() {
                       plan.highlighted ? "text-white/40" : "text-[#bbb]"
                     }`}
                   >
-                    Pago único
+                    Desarrollo pago único*
                   </p>
 
                   {/* Description */}
