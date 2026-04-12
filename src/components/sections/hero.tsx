@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="absolute inset-0">
           <Image
             src="/HeroSection.png"
-            alt=""
+            alt="Sorin Labs — Estudio digital de diseño web y desarrollo desde Costa Rica"
             fill
             priority
             sizes="100vw"

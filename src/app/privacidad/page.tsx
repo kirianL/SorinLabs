@@ -1,11 +1,6 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Política de privacidad | Sorin Labs",
-  description: "Política de privacidad y Tratamiento de Datos de Sorin Labs.",
-};
 
 export default function PrivacyPage() {
   const lastUpdated = "26 de Febrero, 2026";

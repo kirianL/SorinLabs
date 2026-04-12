@@ -8,8 +8,25 @@ import { FAQSection } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/cta-final";
 
 export default function Home() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: "https://sorinlabs.dev",
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <HeroSection />
       <BenefitsSection />
       <FeaturedProjects />

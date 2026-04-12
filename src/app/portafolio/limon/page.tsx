@@ -53,8 +53,47 @@ const techItems = [
 ];
 
 export default function LimonCaseStudy() {
+  const creativeWorkSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.subtitle,
+    url: "https://sorinlabs.dev/portafolio/limon",
+    image: `https://sorinlabs.dev${project.heroImage}`,
+    dateCreated: project.year,
+    creator: {
+      "@type": "Organization",
+      name: "Sorin Labs",
+      url: "https://sorinlabs.dev",
+    },
+    genre: project.category,
+    locationCreated: {
+      "@type": "Place",
+      name: project.location,
+    },
+    keywords: project.stack.join(", "),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://sorinlabs.dev" },
+      { "@type": "ListItem", position: 2, name: "Portafolio", item: "https://sorinlabs.dev/portafolio" },
+      { "@type": "ListItem", position: 3, name: project.title, item: "https://sorinlabs.dev/portafolio/limon" },
+    ],
+  };
+
   return (
     <div className="min-h-[100svh] bg-[#0a0a0f]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-12">
         <div

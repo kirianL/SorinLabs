@@ -1,11 +1,6 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Términos y condiciones | Sorin Labs",
-  description: "Términos y condiciones de uso de Sorin Labs.",
-};
 
 export default function TermsPage() {
   const lastUpdated = "26 de Febrero, 2026";
