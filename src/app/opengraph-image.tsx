@@ -1,12 +1,15 @@
 import { ImageResponse } from "next/og";
-
-export const runtime = "edge";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Sorin Labs — Diseño Web & Experiencias Digitales";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
+  const logoData = await readFile(join(process.cwd(), "public", "LogoAzul.png"));
+  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -43,7 +46,8 @@ export default async function Image() {
             width: 500,
             height: 500,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(38,28,193,0.15) 0%, transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(38,28,193,0.2) 0%, transparent 70%)",
           }}
         />
 
@@ -54,15 +58,25 @@ export default async function Image() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: 24,
+            gap: 28,
             position: "relative",
             zIndex: 1,
           }}
         >
-          {/* Logo text */}
+          {/* Logo image */}
+          <img
+            src={logoBase64}
+            width={140}
+            height={140}
+            style={{
+              borderRadius: 28,
+            }}
+          />
+
+          {/* Brand name */}
           <div
             style={{
-              fontSize: 72,
+              fontSize: 64,
               fontWeight: 700,
               color: "white",
               letterSpacing: "-2px",
@@ -85,7 +99,7 @@ export default async function Image() {
           {/* Tagline */}
           <div
             style={{
-              fontSize: 24,
+              fontSize: 22,
               color: "rgba(255,255,255,0.5)",
               letterSpacing: "0.5px",
               fontWeight: 400,
@@ -97,12 +111,12 @@ export default async function Image() {
           {/* Location */}
           <div
             style={{
-              fontSize: 14,
-              color: "rgba(255,255,255,0.25)",
-              letterSpacing: "3px",
+              fontSize: 13,
+              color: "rgba(255,255,255,0.2)",
+              letterSpacing: "4px",
               textTransform: "uppercase",
               fontWeight: 600,
-              marginTop: 8,
+              marginTop: 4,
             }}
           >
             Costa Rica
@@ -113,10 +127,10 @@ export default async function Image() {
         <div
           style={{
             position: "absolute",
-            bottom: 32,
-            right: 40,
-            fontSize: 14,
-            color: "rgba(255,255,255,0.2)",
+            bottom: 28,
+            right: 36,
+            fontSize: 13,
+            color: "rgba(255,255,255,0.15)",
             letterSpacing: "2px",
             fontWeight: 500,
           }}
