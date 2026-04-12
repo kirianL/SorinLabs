@@ -1,13 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-const TextRotate = dynamic(
-  () => import("@/components/fancy/text-rotate"),
-  { ssr: false }
-);
+import { HeroTextRotate } from "./hero-text-rotate";
 
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
@@ -21,7 +14,7 @@ export function HeroSection() {
       <div
         className="relative w-full flex-1 flex flex-col rounded-[2.5rem] border border-white/[0.08] overflow-hidden"
       >
-        {/* Background image — outside motion for instant LCP */}
+        {/* Background image — server-rendered for instant LCP */}
         <div className="absolute inset-0">
           <Image
             src="/HeroSection.webp"
@@ -37,7 +30,7 @@ export function HeroSection() {
           />
         </div>
 
-        {/* Base dark wash — subtle, lets the image breathe */}
+        {/* Base dark wash */}
         <div className="absolute inset-0 bg-[#0a0a0f]/35 z-[1]" />
 
         {/* Cinematic gradient overlays */}
@@ -52,7 +45,7 @@ export function HeroSection() {
           }}
         />
 
-        {/* Decorative Elements — Static */}
+        {/* Decorative Elements */}
         <div className="absolute top-[20%] right-[15%] z-10 text-white/10 text-4xl font-extralight select-none hidden md:block">
           +
         </div>
@@ -80,11 +73,7 @@ export function HeroSection() {
               <span className="text-white/30 font-bold whitespace-nowrap">
                 para el
               </span>
-              <TextRotate
-                texts={["futuro.", "avance.", "cambio.", "mañana."]}
-                rotationInterval={2500}
-                mainClassName="text-white font-bold"
-              />
+              <HeroTextRotate />
             </span>
           </h1>
 
