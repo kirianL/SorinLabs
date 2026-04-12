@@ -81,7 +81,7 @@ export function Footer() {
           {/* Links */}
           <div className="lg:col-span-4 flex gap-16 sm:gap-24">
             <div>
-              <h4 className="mb-6 text-sm font-bold text-white">Explorar</h4>
+              <p className="mb-6 text-sm font-bold text-white" role="heading" aria-level={2}>Explorar</p>
               <ul className="flex flex-col gap-4">
                 {footerLinks.explorar.map((link) => (
                   <li key={link.href}>
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* Contact CTA */}
           <div className="lg:col-span-4">
-            <h4 className="mb-4 text-sm font-bold text-white">Hablemos</h4>
+            <p className="mb-4 text-sm font-bold text-white" role="heading" aria-level={2}>Hablemos</p>
             <p className="mb-6 text-sm font-medium text-white/60 leading-relaxed">
               Cuéntanos sobre tu próximo proyecto y creemos algo excepcional
               juntos.
@@ -120,13 +120,13 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs font-medium text-white/40 text-center sm:text-left">
+          <p className="text-xs font-medium text-white/50 text-center sm:text-left">
             © {new Date().getFullYear()} Sorin Labs. Todos los derechos
             reservados. <span className="hidden sm:inline">·</span>
             <br className="sm:hidden" /> Empresa registrada en hacienda ·
             Facturación electrónica
           </p>
-          <div className="flex gap-6 text-xs font-medium text-white/40">
+          <div className="flex gap-6 text-xs font-medium text-white/50">
             <Link href="/terminos" className="hover:text-white">
               Términos
             </Link>

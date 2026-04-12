@@ -14,19 +14,17 @@ export function HeroSection() {
       className="relative bg-[#0a0a0f] flex flex-col pt-24 pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden"
     >
       {/* Framed container */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      <div
         className="relative w-full flex-1 flex flex-col rounded-[2.5rem] border border-white/[0.08] overflow-hidden"
       >
-        {/* Background image — Fixed (No parallax) */}
+        {/* Background image — outside motion for instant LCP */}
         <div className="absolute inset-0">
           <Image
             src="/HeroSection.png"
             alt="Sorin Labs — Estudio digital de diseño web y desarrollo desde Costa Rica"
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover object-center"
           />
@@ -160,7 +158,7 @@ export function HeroSection() {
             ))}
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
