@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/hero";
 import { BenefitsSection } from "@/components/sections/benefits";
-import { FeaturedProjects } from "@/components/sections/featured-projects";
-import { WorkProcess } from "@/components/sections/work-process";
-import { ImpactStats } from "@/components/sections/impact-stats";
-import { ServicesSection } from "@/components/sections/services-section";
-import { FAQSection } from "@/components/sections/faq";
-import { FinalCta } from "@/components/sections/cta-final";
+
+const FeaturedProjects = dynamic(() => import("@/components/sections/featured-projects").then(mod => ({ default: mod.FeaturedProjects })));
+const WorkProcess = dynamic(() => import("@/components/sections/work-process").then(mod => ({ default: mod.WorkProcess })));
+const ImpactStats = dynamic(() => import("@/components/sections/impact-stats").then(mod => ({ default: mod.ImpactStats })));
+const ServicesSection = dynamic(() => import("@/components/sections/services-section").then(mod => ({ default: mod.ServicesSection })));
+const FAQSection = dynamic(() => import("@/components/sections/faq").then(mod => ({ default: mod.FAQSection })));
+const FinalCta = dynamic(() => import("@/components/sections/cta-final").then(mod => ({ default: mod.FinalCta })));
 
 export default function Home() {
   const breadcrumbSchema = {

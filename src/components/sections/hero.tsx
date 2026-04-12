@@ -26,6 +26,9 @@ export function HeroSection() {
             priority
             fetchPriority="high"
             sizes="100vw"
+            quality={70}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88P/BfwAJhAPkQ0rNrQAAAABJRU5ErkJggg=="
             className="object-cover object-center"
           />
         </div>
