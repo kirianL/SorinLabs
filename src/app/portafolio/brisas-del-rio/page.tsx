@@ -13,7 +13,7 @@ const project = {
   location: "Jiménez, Pococi · Costa Rica",
   year: "2025",
   role: "Diseño Full Stack · Desarrollo Web",
-  heroImage: "/works/BrisasDelRio/HeroBrisasDelRio.png",
+  heroImage: "/works/BrisasDelRio/HeroBrisasDelRio.webp",
   pageImage: "/works/BrisasDelRio/PageBrisas.png",
   liveUrl: "https://landind-page-brisas-del-rio.vercel.app/",
   stack: ["React / Next.js", "TailwindCSS", "Framer Motion"],

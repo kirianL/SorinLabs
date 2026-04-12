@@ -9,14 +9,14 @@ const projects = [
   {
     title: "Brisas del Río",
     description: "Sitio web · Hospedaje · Jiménez, Costa Rica",
-    image: "/works/BrisasDelRio/HeroBrisasDelRio.png",
+    image: "/works/BrisasDelRio/HeroBrisasDelRio.webp",
     link: "/portafolio/brisas-del-rio",
     tags: ["Next.js", "UI/UX"],
   },
   {
     title: "Puerto Limón",
     description: "Plataforma cultural · Puerto Limón, Costa Rica",
-    image: "/works/Limón/HeroLimon.png",
+    image: "/works/Limón/HeroLimon.webp",
     link: "/portafolio/limon",
     tags: ["Next.js", "Editorial"],
   },

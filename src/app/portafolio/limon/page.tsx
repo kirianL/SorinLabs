@@ -13,7 +13,7 @@ const project = {
   location: "Puerto Limón · Costa Rica",
   year: "2025",
   role: "Diseño UX/UI · Desarrollo Web",
-  heroImage: "/works/Limón/HeroLimon.png",
+  heroImage: "/works/Limón/HeroLimon.webp",
   pageImage: "/works/Limón/PageLimon.png",
   liveUrl: "https://landing-puerto-lim-n-w29u.vercel.app/#inicio",
   stack: ["React / Next.js", "TailwindCSS", "Framer Motion", "Mapbox GL"],

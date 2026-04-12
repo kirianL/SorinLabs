@@ -20,7 +20,7 @@ export function HeroSection() {
         {/* Background image — outside motion for instant LCP */}
         <div className="absolute inset-0">
           <Image
-            src="/HeroSection.png"
+            src="/HeroSection.webp"
             alt="Sorin Labs — Estudio digital de diseño web y desarrollo desde Costa Rica"
             fill
             priority

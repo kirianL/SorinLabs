@@ -10,14 +10,14 @@ const projects = [
     slug: "brisas-del-rio",
     title: "Brisas del Río",
     category: "Sitio Web · Hospedaje",
-    image: "/works/BrisasDelRio/HeroBrisasDelRio.png",
+    image: "/works/BrisasDelRio/HeroBrisasDelRio.webp",
     tags: ["Next.js", "UI/UX"],
   },
   {
     slug: "limon",
     title: "Puerto Limón",
     category: "Plataforma Cultural · Editorial",
-    image: "/works/Limón/HeroLimon.png",
+    image: "/works/Limón/HeroLimon.webp",
     tags: ["Next.js", "Editorial"],
   },
 ];
