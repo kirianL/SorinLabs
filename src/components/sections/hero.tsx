@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { HeroTextRotate } from "./hero-text-rotate";
 
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
@@ -14,21 +13,19 @@ export function HeroSection() {
       <div
         className="relative w-full flex-1 flex flex-col rounded-[2.5rem] border border-white/[0.08] overflow-hidden"
       >
-        {/* Background image — server-rendered for instant LCP */}
-        <div className="absolute inset-0">
-          <Image
+        {/* Background image — static files, no /_next/image processing */}
+        <picture>
+          <source media="(max-width: 640px)" srcSet="/hero-640.webp" />
+          <source media="(max-width: 1080px)" srcSet="/hero-1080.webp" />
+          <img
             src="/HeroSection.webp"
             alt="Sorin Labs — Estudio digital de diseño web y desarrollo desde Costa Rica"
-            fill
-            priority
             fetchPriority="high"
-            sizes="100vw"
-            quality={70}
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN88P/BfwAJhAPkQ0rNrQAAAABJRU5ErkJggg=="
-            className="object-cover object-center"
+            decoding="sync"
+            loading="eager"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-        </div>
+        </picture>
 
         {/* Base dark wash */}
         <div className="absolute inset-0 bg-[#0a0a0f]/35 z-[1]" />

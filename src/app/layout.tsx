@@ -124,6 +124,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Preload for mobile hero image to fix LCP resource load delay */}
+        <link rel="preload" as="image" href="/hero-640.webp" fetchPriority="high" media="(max-width: 640px)" />
         {/* Schema.org — Organization */}
         <script
           type="application/ld+json"
