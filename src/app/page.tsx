@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/hero";
-import { BenefitsSection } from "@/components/sections/benefits";
+
+const BenefitsSection = dynamic(() => import("@/components/sections/benefits").then(mod => ({ default: mod.BenefitsSection })));
 
 const FeaturedProjects = dynamic(() => import("@/components/sections/featured-projects").then(mod => ({ default: mod.FeaturedProjects })));
 const WorkProcess = dynamic(() => import("@/components/sections/work-process").then(mod => ({ default: mod.WorkProcess })));

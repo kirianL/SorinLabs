@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
-import TextRotate from "@/components/fancy/text-rotate";
+import dynamic from "next/dynamic";
+
+const TextRotate = dynamic(
+  () => import("@/components/fancy/text-rotate"),
+  { ssr: false }
+);
 
 const stack = ["Next.js", "React", "TypeScript", "AWS", "Vercel", "Figma"];
 
@@ -59,21 +63,17 @@ export function HeroSection() {
         {/* Content — centered */}
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-5 sm:px-12 text-center pb-8 md:pb-4">
           {/* Small cross detail */}
-          <motion.span
-            initial={{ opacity: 0, rotate: -90 }}
-            animate={{ opacity: 0.3, rotate: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-white text-lg md:text-xl font-extralight mb-4 md:mb-6 select-none"
+          <span
+            className="text-white text-lg md:text-xl font-extralight mb-4 md:mb-6 select-none hero-fade-in"
+            style={{ animationDelay: "0.3s" }}
           >
             +
-          </motion.span>
+          </span>
 
           {/* Headline with rotating verb */}
-          <motion.h1
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.12]"
+          <h1
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.12] hero-fade-in"
+            style={{ animationDelay: "0.4s" }}
           >
             <span className="block mb-1 sm:mb-2">Ingeniería</span>
             <span className="flex flex-col sm:flex-row items-center justify-center sm:items-baseline gap-2 sm:gap-4 mt-2 sm:mt-4">
@@ -86,25 +86,21 @@ export function HeroSection() {
                 mainClassName="text-white font-bold"
               />
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.6 }}
-            className="mt-5 md:mt-8 max-w-md text-[14px] sm:text-base text-white/40 leading-relaxed font-light"
+          <p
+            className="mt-5 md:mt-8 max-w-md text-[14px] sm:text-base text-white/40 leading-relaxed font-light hero-fade-in"
+            style={{ animationDelay: "0.65s" }}
           >
             Construimos plataformas y sistemas digitales con precisión técnica y
             diseño intencional.
-          </motion.p>
+          </p>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85, duration: 0.5 }}
-            className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-6"
+          <div
+            className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-6 hero-fade-in"
+            style={{ animationDelay: "0.85s" }}
           >
             <Link
               href="/contacto"
@@ -118,39 +114,29 @@ export function HeroSection() {
             >
               Ver portafolio →
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* Corner labels */}
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          className="absolute top-6 left-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium hidden sm:block"
+        <span
+          className="absolute top-6 left-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium hidden sm:block hero-fade-in"
+          style={{ animationDelay: "1.1s" }}
         >
           Sorin Labs ©
-        </motion.span>
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          className="absolute top-6 right-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium hidden sm:block"
+        </span>
+        <span
+          className="absolute top-6 right-7 z-10 text-[10px] tracking-[0.2em] uppercase text-white/15 font-medium hidden sm:block hero-fade-in"
+          style={{ animationDelay: "1.1s" }}
         >
           Costa Rica
-        </motion.span>
+        </span>
 
         {/* Bottom scrolling marquee */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-4 left-0 right-0 z-10 overflow-hidden"
+        <div
+          className="absolute bottom-4 left-0 right-0 z-10 overflow-hidden hero-fade-in"
+          style={{ animationDelay: "1.2s" }}
         >
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="flex gap-10 sm:gap-14 whitespace-nowrap w-max px-7"
-          >
+          <div className="flex gap-10 sm:gap-14 whitespace-nowrap w-max px-7 hero-marquee">
             {[...stack, ...stack, ...stack, ...stack].map((item, i) => (
               <span
                 key={`${item}-${i}`}
@@ -159,8 +145,8 @@ export function HeroSection() {
                 {item}
               </span>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
